@@ -57,4 +57,6 @@ export const InputForm = styled.input`
   border: 0.5px solid black;
   font-family: 'Roboto', sans-serif;
   margin-bottom: 25px;
+  padding-left: 4px;
+  padding-right: 4px;
 `;

@@ -1,0 +1,704 @@
+{
+  "changeLanguageOptions":{
+    "en":"English",
+    "ua":"Українська"
+  },
+  "registerPage":{
+    "register":{
+      "en":"Register",
+      "ua":"Зареєструватися"
+    },
+    "lastName":{
+      "en":"Last Name",
+      "ua":"Прізвище"
+    },
+    "firstName":{
+      "en":"First Name",
+      "ua":"Ім'я"
+    },
+    "patronymic":{
+      "en":"Patronymic",
+      "ua":"По батькові"
+    },
+    "phone":{
+      "en":"Phone",
+      "ua":"Телефон"
+    },
+    "gender": {
+      "en": "Gender",
+      "ua": "Стать"
+    },
+    "genderMan": {
+      "en": "Male",
+      "ua": "Чоловіча"
+    },
+    "genderWoman": {
+        "en":"Female",
+        "ua":"Жіноча"
+    },
+    "email":{
+      "en":"Email",
+      "ua":"Електронна пошта"
+    },
+    "password":{
+      "en":"Password",
+      "ua":"Пароль"
+    },
+    "timezone":{
+      "en":"Time zone",
+      "ua":"Часовий пояс"
+    },
+    "language":{
+      "en":"Language",
+      "ua":"Мова"
+    },
+    "role":{
+      "en":"I am a",
+      "ua":"Я"
+    },
+    "doctor":{
+      "en":"Doctor",
+      "ua":"Лікар"
+    },
+    "patient": {
+      "en": "Patient",
+      "ua": "Пацієнт"
+    },
+    "note":{
+      "en":"Required fields are marked *",
+      "ua":"Обов'язкові поля помічено *"
+    },
+    "createButton":{
+      "en":"Create an account",
+      "ua":"Створити акаунт"
+    }
+  },
+  "signInPage":{
+    "signIn":{
+      "en":"Sign in",
+      "ua":"Увійти до акаунту"
+    },
+    "email":{
+      "en":"Email",
+      "ua":"Електронна пошта"
+    },
+    "password":{
+      "en":"Password",
+      "ua":"Пароль"
+    },
+    "signInButton":{
+      "en":"Sign in",
+      "ua":"Увійти"
+    },
+    "note":{
+      "en":"Don't have an account yet? Sign up",
+      "ua":"Ще не маєте акаунту? Зарєєструватися"
+    }
+  },
+  "sideMenuPatient": {
+        "welcome": {
+            "en": "Welcome",
+            "ua": "Вітаємо"
+        },
+        "attacksDiary": {
+            "en": "Attacks Diary",
+            "ua": "Щоденник нападів"
+        },
+        "medCardInformation": {
+            "en": "MedCard Information",
+            "ua": "Інформація медкартки"
+        },
+        "medCardRecords": {
+            "en": "MedCard Records",
+            "ua": "Записи в медкартці"
+        },
+        "medicines": {
+            "en": "Medicines",
+            "ua": "Ліки"
+        },
+        "doctor": {
+            "en": "Doctor",
+            "ua": "Лікар"
+        },
+        "inhaler": {
+            "en": "Inhaler",
+            "ua": "Інгалятор"
+        },
+        "profileSettings": {
+            "en": "Profile Settings",
+            "ua": "Налаштування профілю"
+        }
+    },
+    "attacksDiary": {
+        "mainPage": {
+            "attacksDiary": {
+                "en": "Attacks Diary",
+                "ua": "Щоденник нападів"
+            },
+            "period": {
+                "en": "Period",
+                "ua": "Період"
+            },
+            "attacksStatistics": {
+                "en": "Attacks Statistics",
+                "ua": "Статистика нападів"
+            },
+            "time": {
+                "en": "Time",
+                "ua": "Час"
+            },
+            "date": {
+                "en": "Date",
+                "ua": "Дата"
+            },
+            "attacksReasonsStatistics": {
+                "en": "Attacks Reasons Statistics",
+                "ua": "Статистика причин нападів"
+            },
+            "reasons": {
+                "en": "Reasons",
+                "ua": "Причини"
+            },
+            "countOfAttacks": {
+                "en": "Count of attacks",
+                "ua": "Кількість нападів"
+            },
+            "editRecord": {
+                "en": "Edit",
+                "ua": "Редагувати"
+            }
+        },
+        "createNewAttackPage": {
+            "title": {
+                "en": "Create new attack record",
+                "ua": "Створити новий запис про напад"
+            },
+            "time": {
+                "en": "Time",
+                "ua": "Час"
+            },
+            "date": {
+                "en": "Date",
+                "ua": "Дата"
+            },
+            "reasons": {
+                "en": "Reasons",
+                "ua": "Причини"
+            }
+        },
+        "editAttackPage": {
+            "title": {
+                "en": "Edit attack record",
+                "ua": "Редагувати запис про напад"
+            },
+            "time": {
+                "en": "Time",
+                "ua": "Час"
+            },
+            "date": {
+                "en": "Date",
+                "ua": "Дата"
+            },
+            "reasons": {
+                "en": "Reasons",
+                "ua": "Причини"
+            }
+        }
+    },
+    "MedCard": {
+        "medCardRecordsPage": {
+            "title": {
+                "en": "MedCard Records",
+                "ua": "Записи в медкартці"
+            },
+            "prescriptedMedicines": {
+                "en": "Prescripted Medicines",
+                "ua": "Призначені ліки"
+            },
+            "doctor": {
+                "en": "Doctor",
+                "ua": "Лікар"
+            },
+            "filter": {
+                "en": "Filter",
+                "ua": "Фільтрація"
+            },
+            "from": {
+                "en": "From",
+                "ua": "Від"
+            },
+            "to": {
+                "en": "To",
+                "ua": "До"
+            },
+            "filterButton": {
+                "en": "Filter",
+                "ua": "Відфільтрувати"
+            }
+        },
+        "medCardInformationPage": {
+            "title": {
+                "en": "MedCard Information",
+                "ua": "Інформація медкартки"
+            },
+            "birthday": {
+                "en": "Birthday",
+                "ua": "День народження"
+            },
+            "height": {
+                "en": "Height (cm)",
+                "ua": "Зріст"
+            },
+            "weight": {
+                "en": "Weight (kg)",
+                "ua": "Вага"
+            },
+            "emergencyContact": {
+                "en": "Emergency Contact",
+                "ua": "Для екстреного зв'язку"
+            },
+            "bloodGroup": {
+                "en": "Blood group",
+                "ua": "Група крові"
+            },
+            "allergies": {
+                "en": "Allergies",
+                "ua": "Алергії"
+            },
+            "address": {
+                "en": "Address",
+                "ua": "Адреса"
+            }
+        }
+    },
+    "medicinesPage": {
+        "title": {
+            "en": "Actual medicines",
+            "ua": "Призначені ліки"
+        }
+    },
+    "doctorPage": {
+        "title": {
+            "en": "Doctor",
+            "ua": "Лікар"
+        },
+        "fullName": {
+            "en": "Full Name",
+            "ua": "Повне ім'я"
+        },
+        "workplaceInformation": {
+            "en": "Workplace Information",
+            "ua": "Інформація про місце роботи"
+        },
+        "hospitalTitle": {
+            "en": "Hospital Title",
+            "ua": "Назва лікарні"
+        },
+        "hospitalCity": {
+            "en": "Hospital City",
+            "ua": "Місто лікарні"
+        },
+        "hospitalAddress": {
+            "en": "Hospital Address",
+            "ua": "Адреса лікарні"
+        }
+    },
+    "inhalerPage": {
+        "title": {
+            "en": "Inhaler",
+            "ua": "Інгалятор"
+        }
+    },
+    "profileSettingsPage": {
+        "title": {
+            "en": "Profile Settings",
+            "ua": "Налаштування профілю"
+        },
+        "surname": {
+            "en": "Surname",
+            "ua": "Прізвище"
+        },
+        "name": {
+            "en": "Name",
+            "ua": "Ім'я"
+        },
+        "patronymic": {
+            "en": "Patronymic",
+            "ua": "По батькові"
+        },
+        "phone": {
+            "en": "Phone",
+            "ua": "Телефон"
+        },
+        "gender": {
+            "en": "Gender",
+            "ua": "Стать",
+            "options": {
+                "en": [
+                    "Male",
+                    "Female"
+                ],
+                "ua": [
+                    "Чоловіча",
+                    "Жіноча"
+                ]
+            }
+        },
+        "email": {
+            "en": "Email",
+            "ua": "Електронна пошта"
+        },
+        "password": {
+            "en": "Password",
+            "ua": "Пароль"
+        },
+        "timezone": {
+            "en": "Time zone",
+            "ua": "Часовий пояс"
+        },
+        "language": {
+            "en": "Language",
+            "ua": "Мова"
+        },
+        "changePasswordButton": {
+            "en": "Change Password",
+            "ua": "Змінити пароль"
+        },
+        "deleteProfileButton": {
+            "en": "Delete Profile",
+            "ua": "Видалити профіль"
+        }
+    },
+    "changePasswordPage": {
+        "title": {
+            "en": "Change Password",
+            "ua": "Змінити пароль"
+        },
+        "oldPassword": {
+            "en": "Old Password",
+            "ua": "Старий пароль"
+        },
+        "newPassword": {
+            "en": "New Password",
+            "ua": "Новий пароль"
+        },
+        "confirmPassword": {
+            "en": "Confirm Password",
+            "ua": "Підтвердити пароль"
+        }
+    },
+    "medicinesTable": {
+        "title": {
+            "en": "Title",
+            "ua": "Назва"
+        },
+        "type": {
+            "en": "Type",
+            "ua": "Тип"
+        },
+        "dosage": {
+            "en": "Dosage",
+            "ua": "Дозування"
+        },
+        "howToUse": {
+            "en": "How to use",
+            "ua": "Як приймати"
+        },
+        "isActual": {
+            "en": "Is Actual",
+            "ua": "Актуальний"
+        }
+    },
+    "sideMenuAdmin": {
+        "welcome": {
+            "en": "Welcome",
+            "ua": "Вітаємо"
+        },
+        "mainBoard": {
+            "en": "Main Board",
+            "ua": "Головна"
+        },
+        "patients": {
+            "en": "Patients",
+            "ua": "Хворі"
+        },
+        "doctors": {
+            "en": "Doctors",
+            "ua": "Лікарі"
+        },
+        "admins": {
+            "en": "Admins",
+            "ua": "Адміністратори"
+        },
+        "hospitals": {
+            "en": "Hospitals",
+            "ua": "Лікарні"
+        },
+        "profileSettings": {
+            "en": "Profile Settings",
+            "ua": "Налаштування профілю"
+        },
+        "dataBackup": {
+            "en": "Data Backup",
+            "ua": "Копія даних"
+        }
+    },
+    "mainBoardPage": {
+        "title": {
+            "en": "Main Board",
+            "ua": "Головна"
+        },
+        "patients": {
+            "en": "Patients",
+            "ua": "Хворі"
+        },
+        "doctors": {
+            "en": "Doctors",
+            "ua": "Лікарі"
+        },
+        "admins": {
+            "en": "Admins",
+            "ua": "Адміністратори"
+        },
+        "totalUsers": {
+            "en": "Total users: ",
+            "ua": "Загалом користувачів: "
+        }
+    },
+    "patientsAdminPage": {
+        "title": {
+            "en": "Patients",
+            "ua": "Налаштування профілю"
+        }
+    },
+    "deletePatientAdminPage": {
+        "title": {
+            "en": "Delete Patient",
+            "ua": "Видалити пацієнта"
+        }
+    },
+    "patientData": {
+        "email": {
+            "en": "Email",
+            "ua": "Електронна пошта"
+        },
+        "surname": {
+            "en": "Surname",
+            "ua": "Прізвище"
+        },
+        "name": {
+            "en": "Name",
+            "ua": "Ім'я"
+        },
+        "patronymic": {
+            "en": "Patronymic",
+            "ua": "По батькові"
+        },
+        "gender": {
+            "en": "Gender",
+            "ua": "Стать",
+            "options": {
+                "en": [
+                    "Male",
+                    "Female"
+                ],
+                "ua": [
+                    "Чоловіча",
+                    "Жіноча"
+                ]
+            }
+        },
+        "phone": {
+            "en": "Phone",
+            "ua": "Телефон"
+        },
+        "inhalerID": {
+            "en": "Inhaler ID",
+            "ua": "ID інгалятора"
+        }
+    },
+    "adminsPage": {
+        "title": {
+            "en": "Phone",
+            "ua": "Телефон"
+        },
+        "email": {
+            "en": "Email",
+            "ua": "Електронна пошта"
+        },
+        "surname": {
+            "en": "Surname",
+            "ua": "Прізвище"
+        },
+        "name": {
+            "en": "Name",
+            "ua": "Ім'я"
+        },
+        "patronymic": {
+            "en": "Patronymic",
+            "ua": "По батькові"
+        },
+        "gender": {
+            "en": "Gender",
+            "ua": "Стать",
+            "options": {
+                "en": [
+                    "Male",
+                    "Female"
+                ],
+                "ua": [
+                    "Чоловіча",
+                    "Жіноча"
+                ]
+            }
+        },
+        "phone": {
+            "en": "Phone",
+            "ua": "Телефон"
+        }
+    },
+    "deleteAdminPage": {
+        "title": {
+            "en": "Delete Admin",
+            "ua": "Видалити адміністратора"
+        }
+    },
+    "createNewAdminPage": {
+        "title": {
+            "en": "Create new admin",
+            "ua": "Створити нового адміністратора"
+        }
+    },
+    "doctorsAdminPage": {
+        "title": {
+            "en": "Doctors",
+            "ua": "Лікарі"
+        }
+    },
+    "informationAboutDoctorAdminPage": {
+        "title": {
+            "en": "Information about doctor",
+            "ua": "Інформація про лікаря"
+        }
+    },
+    "deleteDoctorAdminPage": {
+        "title": {
+            "en": "Delete Doctor",
+            "ua": "Видалити лікаря"
+        }
+    },
+    "doctorData": {
+        "email": {
+            "en": "Email",
+            "ua": "Електронна пошта"
+        },
+        "surname": {
+            "en": "Surname",
+            "ua": "Прізвище"
+        },
+        "name": {
+            "en": "Name",
+            "ua": "Ім'я"
+        },
+        "patronymic": {
+            "en": "Patronymic",
+            "ua": "По батькові"
+        },
+        "gender": {
+            "en": "Gender",
+            "ua": "Стать",
+            "options": {
+                "en": [
+                    "Male",
+                    "Female"
+                ],
+                "ua": [
+                    "Чоловіча",
+                    "Жіноча"
+                ]
+            }
+        },
+        "phone": {
+            "en": "Phone",
+            "ua": "Телефон"
+        },
+        "workplaceInformation": {
+            "en": "Workplace Information",
+            "ua": "Інформація про місце роботи"
+        },
+        "patients": {
+            "en": "Patients",
+            "ua": "Пацієнти"
+        }
+    },
+    "hospitalData": {
+        "title": {
+            "en": "Hospital Title",
+            "ua": "Назва лікарні"
+        },
+        "city": {
+            "en": "Hospital City",
+            "ua": "Місто"
+        },
+        "address": {
+            "en": "Hospital Address",
+            "ua": "Адреса лікарні"
+        }
+    },
+    "hospitalsPage": {
+        "title": {
+            "en": "Hospitals",
+            "ua": "Лікарні"
+        },
+        "createNewHospitalButton": {
+            "en": "Create new hospital",
+            "ua": "Створити нову лікарню"
+        }
+    },
+    "createNewHospitalPage": {
+        "title": {
+            "en": "Create New Hospital",
+            "ua": "Створити нову лікарню"
+        }
+    },
+    "editHospitalPage": {
+        "title": {
+            "en": "Edit Hospital Information",
+            "ua": "Редагувати інформацію про лікарню"
+        }
+    },
+    "addNewRecordButton": {
+        "en": "Add new record",
+        "ua": "Додати новий запис"
+    },
+    "saveButton": {
+        "en": "Save",
+        "ua": "Зберегти"
+    },
+    "deleteButton": {
+        "en": "Delete",
+        "ua": "Видалити"
+    },
+    "openRecordButton": {
+        "en": "Open record",
+        "ua": "Відкрити запис"
+    },
+    "openButton": {
+        "en": "Open",
+        "ua": "Відкрити"
+    },
+    "editButton": {
+        "en": "Edit",
+        "ua": "Редагувати"
+    },
+    "createButton": {
+        "en": "Create",
+        "ua": "Створити"
+    },
+
+    "logoutLink" : {
+        "en" : "Logout",
+        "ua" : "Вийти з акаунту"
+    }
+    
+}

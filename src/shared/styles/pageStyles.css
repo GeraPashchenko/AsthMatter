@@ -1,0 +1,14 @@
+.bodyWhite{
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+}
+
+.bodyBlue{
+    background-color: #717DA8;
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+}
+

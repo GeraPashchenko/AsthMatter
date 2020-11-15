@@ -10,9 +10,8 @@ const Root = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path='/' component={SignUpPage}/>
-        {/* <Route exact path='/signUp' component={SignUpPage}/> */}
-        <Route exact path='/signIn' component={SignInPage}/>
+        <Route exact path='/signUp' component={SignUpPage}/>
+        <Route exact path='/' component={SignInPage}/>
         <Route exact path='/attacksDiary' component={AttacksDiary}/>
         <Route exact path='/m' component={AddAttackPage}/>
         <Route exact path='/inhaler' component={InhalerPage}/>

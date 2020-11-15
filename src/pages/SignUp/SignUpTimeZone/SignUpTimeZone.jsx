@@ -2,11 +2,12 @@ import React from "react";
 import {TimezoneSelect} from './StyledComponents';
 import TimeZonesArr from "./TimeZonesArr";
 
-function SignUpTimeZone(){
+function SignUpTimeZone(props){
+  const selectedTimeZone = props.selectedTimeZone;
   return(
     <TimezoneSelect name={'timeZone'}>
       {TimeZonesArr.map(timezone =>{
-       return (<option>{timezone.label} {timezone.name}  (GMT{timezone.offset})</option>)
+       return (<option selected={selectedTimeZone === timezone.name} name={timezone.name}>{timezone.name}  (GMT {timezone.offset})</option>)
     })}
     </TimezoneSelect>
   )

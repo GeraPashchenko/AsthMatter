@@ -16,6 +16,7 @@ import {LocalizationButton} from "../../shared/styles/HeaderStyles";
 import {changeLang, changeLocalizationClass} from "../../localization/localizationFunctions";
 import AddAttackForm from "../AddAttackPage/AddAttackRecordForm/AddAttackForm";
 import localization from '../../localization/localization.json';
+import PatientSideMenu from "../../menus/PatientSideMenu";
 
 async function getAttackList(userId, date) {
 

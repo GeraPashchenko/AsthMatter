@@ -1,6 +1,6 @@
 import React from "react";
-import { FormButton, Form, LabelField, InputForm, FormFieldDiv } from "./StyledComponent";
-import { setInhalerId, setUser } from "../../../redux/actions";
+import { Form, LabelField, InputForm, FormFieldDiv } from "./StyledComponent";
+import { setUser } from "../../../redux/actions";
 import { connect } from "react-redux";
 import localization from '../../../localization/localization.json';
 
@@ -12,7 +12,6 @@ class InhalerFormElement extends React.Component {
         this.user = props.user;
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
         this.setState = this.setState.bind(this);
     }
 
@@ -33,15 +32,14 @@ class InhalerFormElement extends React.Component {
         }).then(responce => {
             return responce.json()
         }).then(data => {
-            this.setState(() => ({ inhalerId: data.inhalerId }));
+            if (data.error != null) {
+                throw new Error(data.error);
+            } else {
+                this.setState(() => ({ inhalerId: data.inhalerId }));
+            }
         }).catch(err => {
-            alert(err.message);
+            alert("Error: " + err.message);
         });
-    }
-
-    handleChange(event) {
-        event.persist();
-        this.setState(() => ({ inhalerId: event.target.value }));
     }
 
     getInhalerId(userId) {
@@ -54,8 +52,8 @@ class InhalerFormElement extends React.Component {
         }).then(responce => {
             return responce.json()
         }).then(data => {
-            if (data.message != null) {
-                throw new Error(data.message);
+            if (data.error != null) {
+                throw new Error(data.error);
             }
             else {
                 this.setState(() => ({ inhalerId: data.inhalerId }));
@@ -72,9 +70,9 @@ class InhalerFormElement extends React.Component {
             <Form onSubmit={this.handleSubmit}>
                 <FormFieldDiv>
                     <LabelField>ID</LabelField>
-                    <InputForm name={'inhalerId'} type='text' value={this.state.inhalerId} required onChange={this.handleChange} />
+                    <InputForm name={'inhalerId'} type='text' defaultValue={this.state.inhalerId} required />
                 </FormFieldDiv>
-                <FormButton> {localization.saveButton[this.props.language]} </FormButton>
+                <input type="submit" className="button" value={localization.saveButton[this.props.language]} />
             </Form>
         )
     }

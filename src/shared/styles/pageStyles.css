@@ -1,14 +1,76 @@
-.bodyWhite{
-    background-color: #ffffff;
+body {
+    background-color: white;
     display: flex;
     justify-content: center;
     margin: 0px;
 }
 
-.bodyBlue{
-    background-color: #717DA8;
-    display: flex;
-    justify-content: center;
-    margin: 0px;
+.button {
+    background-color: #96A8D6;
+    border-radius: 20px;
+    border: 0px solid;
+    padding: 10px;
+    font-size: 20px;
+    width: 200px;
+    cursor: pointer;
 }
 
+.button:hover {
+    background-color: #37426b;
+    color: white;
+}
+
+.button:active {
+    vertical-align: top;
+    padding: 8px 8px 8px;
+}
+
+.sideButton{
+    position: absolute;
+    width: 260px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 10px;
+    border-radius: 15px;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 33px;
+    align-items: center;
+    text-align: center;
+    color: #FFFBFB;
+    text-decoration-line: none;
+    border: 2px solid rgb(118, 118, 118);
+}
+
+.sideButton:active {
+    vertical-align: top;
+    padding: 8px 8px 8px;
+}
+
+.deleteProfileButton { 
+    left: calc(50% - 271px/2 + 450.5px);
+    top: calc(50% - 71px/2);
+    background: #D696A6;
+}
+
+.deleteProfileButton:hover {
+    background-color: #a0596b;
+    color: white;
+}
+
+
+
+.changePasswordButton {
+    left: calc(50% - 271px/2 + 450.5px);
+    top: calc(50% - 71px/2 - 84px);
+    background: #9FAF9E;
+}
+
+.changePasswordButton:hover{
+    background-color: #658363;
+    color: white;
+}

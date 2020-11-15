@@ -7,28 +7,42 @@ import { setUser } from "../redux/actions";
 
 class PatientSideMenuElement extends React.Component {
     constructor(props) {
-      super();
-      this.setUser = props.setUser;
-      this.user = props.user;
-      this.language = props.language;
+        super();
+        this.setUser = props.setUser;
     }
-  
+
     render() {
-      return (
-        <div className="sideMenu sideMenu1">
-            <div className="siteTitle">asthMatter</div>
-            <div id="sideMenu" className="flexDiv">
-                <NavLink to="/attacksDiary" className="links attacksDiary" activeClassName="current">{localization.sideMenuPatient.attacksDiary[this.language]}</NavLink>
-                <NavLink to="/lala" className="links medCardInformation" activeClassName="current">{localization.sideMenuPatient.medCardInformation[this.language]}</NavLink>
-                <NavLink to="/lala" className="links medCardRecords" activeClassName="current">{localization.sideMenuPatient.medCardRecords[this.language]}</NavLink>
-                <NavLink to="/lala" className="links medicines" activeClassName="current">{localization.sideMenuPatient.medicines[this.language]}</NavLink>
-                <NavLink to="/lala" className="links doctor" activeClassName="current">{localization.sideMenuPatient.doctor[this.language]}</NavLink>
-                <NavLink to="/inhaler" className="links inhaler" activeClassName="current">{localization.sideMenuPatient.inhaler[this.language]}</NavLink>
-                <NavLink to="/lala" className="links profileSettings" activeClassName="current">{localization.sideMenuPatient.profileSettings[this.language]}</NavLink>
-                <NavLink to="/" className="links logout" onClick={() => { this.logoutUser() }}>{localization.logoutLink[this.language]}</NavLink>
+        return (
+            <div className="sideMenu sideMenu1">
+                <div className="siteTitle">asthMatter</div>
+                <div id="sideMenu" className="flexDiv">
+                    <NavLink to="/attacksDiary" className="links attacksDiary" activeClassName="current">
+                        {localization.sideMenuPatient.attacksDiary[this.props.language]}
+                    </NavLink>
+                    <NavLink to="/lala" className="links medCardInformation" activeClassName="current">
+                        {localization.sideMenuPatient.medCardInformation[this.props.language]}
+                    </NavLink>
+                    <NavLink to="/lala" className="links medCardRecords" activeClassName="current">
+                        {localization.sideMenuPatient.medCardRecords[this.props.language]}
+                    </NavLink>
+                    <NavLink to="/lala" className="links medicines" activeClassName="current">
+                        {localization.sideMenuPatient.medicines[this.props.language]}
+                    </NavLink>
+                    <NavLink to="/lala" className="links doctor" activeClassName="current">
+                        {localization.sideMenuPatient.doctor[this.props.language]}
+                    </NavLink>
+                    <NavLink to="/inhaler" className="links inhaler" activeClassName="current">
+                        {localization.sideMenuPatient.inhaler[this.props.language]}
+                    </NavLink>
+                    <NavLink to="/profileSettings" className="links profileSettings" activeClassName="current">
+                        {localization.sideMenuPatient.profileSettings[this.props.language]}
+                    </NavLink>
+                    <NavLink to="/" className="links logout" onClick={() => { this.logoutUser() }}>
+                        {localization.logoutLink[this.props.language]}
+                    </NavLink>
+                </div>
             </div>
-        </div>
-      )
+        )
     }
 
     logoutUser() {
@@ -40,21 +54,18 @@ class PatientSideMenuElement extends React.Component {
             }
         }).then(responce => {
             return responce.json()
-        }).catch(err => {
-            alert(err.message);
-        });
-        this.setUser({});
+        }).then(data => {
+            if (data.error != null) {
+                throw new Error(data.error);
+            } else{
+                this.setUser({});
+            }
+        }).catch(err => alert("Error: " + err.message));
     }
-  }
-  
-  const storeToProps = (store) => ({
-    language: store.language,
-    user: store.user
-});
+}
 
 const dispatcherToProps = (dispatcher) => ({
     setUser: (user) => dispatcher(setUser(user))
 });
 
-export default connect(storeToProps, dispatcherToProps)(PatientSideMenuElement);
-  
+export default connect(null, dispatcherToProps)(PatientSideMenuElement);

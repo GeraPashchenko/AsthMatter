@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 export const SignInForm = styled(Form)`
   top: 200px;
   height: 320px;
+  padding: 15px;
 `;
 
 export const SignInFormFieldDiv = styled(FormFieldDiv)`
-  width: 450px;
+  width: 500px;
 `;
 
 export const SignInLabelField = styled(LabelField)`
@@ -17,7 +18,8 @@ export const SignInLabelField = styled(LabelField)`
 
 export const SignInInput = styled(InputForm)`
   height: 25px;
-  width: 240px;
+  width: 260px;
+  margin-left: 0px;
 `;
 
 export const SignInLink = styled(Link)`

@@ -14,7 +14,7 @@ export const DivFlexColumn = styled.div`
 
 export const DivWithShift = styled.div`
   position: absolute;
-  left: 50%; 
+  left: 40%; 
 `;
 
 export const FormButton = styled.button`

@@ -5,6 +5,7 @@ import SignInPage from '../pages/SignIn/SignInPage.jsx';
 import AttacksDiary from "../pages/AttacksDiary/AttacksDiary";
 import AddAttackPage from "../pages/AddAttackPage/AddAttackPage";
 import InhalerPage from "../pages/InhalerPage/InhalerPage.jsx";
+import ProfileSettingsPage from "../pages/ProfileSettingsPage/ProfileSettingsPage"
 
 const Root = () => {
   return (
@@ -15,6 +16,7 @@ const Root = () => {
         <Route exact path='/attacksDiary' component={AttacksDiary}/>
         <Route exact path='/m' component={AddAttackPage}/>
         <Route exact path='/inhaler' component={InhalerPage}/>
+        <Route exact path='/profileSettings' component={ProfileSettingsPage}/> 
       </Switch>
     </Router>
   );

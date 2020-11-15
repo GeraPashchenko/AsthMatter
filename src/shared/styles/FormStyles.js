@@ -13,10 +13,11 @@ export const FormButton = styled.button`
   background-color: #96A8D6;
   border-radius: 20px;
   border: 0px solid;
-  padding: 5px;
+  padding: 10px;
   font-size: 20px;
   width: 200px;
   cursor: pointer;
+  // color: #FFFFFF;
 `;
 
 export const Form = styled.form`
@@ -51,7 +52,7 @@ export const LabelDivForm = styled.div`
 `;
 
 export const LabelField = styled.span`
-  width: 280px;
+  width: 300px;
   font-size: 20px;
 `;
 
@@ -61,13 +62,15 @@ export const LabelRequiredStar = styled.span`
 `;
 
 export const InputForm = styled.input`
-  width: 200px;
+  width: 260px;
   height: 20px;
   background-color: white;
   border: 1px solid black;
+  margin-left: 15px;
 `;
 
 export const List = styled.select`
-  width: 206px;
+  width: 260px;
   background-color: white;
+  margin-left: 15px;
 `;

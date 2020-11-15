@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const SignUpHeaderText = styled.h1`
   font-size: 55px;
   position: fixed;
-  left: 40%;
+  left: 42%;
   top: -20px;
   font-weight: 100;
 `;

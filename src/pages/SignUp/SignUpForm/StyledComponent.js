@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {Form, List, LabelRequiredStar} from '../../../shared/styles/FormStyles';
 
 export const SignUpList = styled(List)`
-  width: 206px;
+  width: 260px;
   background-color: white;
 `;
 

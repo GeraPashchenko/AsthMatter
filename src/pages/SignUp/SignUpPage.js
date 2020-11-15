@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {LocalizationButton} from '../../shared/styles/HeaderStyles'
 import {SignUpHeaderText} from "../../shared/styles/HeaderStyles";
 import SignUpFormElement from "./SignUpForm/SignUpForm";
-import bodyBlue from '../../shared/styles/pageStyles.css';
+import '../../shared/styles/body.css';
 import {connect} from "react-redux";
 import {changeLang, changeLocalization} from '../../localization/localizationFunctions';
 import {setLocalization} from "../../redux/actions";

@@ -32,11 +32,11 @@ class SignInFormElement extends React.Component {
     }).then(responce => {
       return responce.json()
     }).then(data => {
-      if (data.message != null) {
-        throw new Error(data.message);
+      if (data.error != null) {
+        throw new Error(data.error);
       }
       else {
-        this.setUser({ id: data.id, login: data.login, role: data.role });
+        this.setUser({ id: data.id, login: data.login, role: data.role, language: data.language });
         switch (data.role) {
           case 'Doctor': this.setState({ doctor: true });
             break;
@@ -65,8 +65,8 @@ class SignInFormElement extends React.Component {
           <SignInInput name={'password'} required />
         </SignInFormFieldDiv>
 
-        <SignInLink to={'/'}>{localization.signInPage.note[this.props.language]} </SignInLink>
-        <FormButton> {localization.signInPage.signInButton[this.props.language]} </FormButton>
+        <SignInLink to={'/signUp'}>{localization.signInPage.note[this.props.language]} </SignInLink>
+        <input type="submit" className="button" value={localization.signInPage.signInButton[this.props.language]}/>
         {this.state.doctor === true ? (<Redirect to="/login1" />) : null}
         {this.state.patient === true ? (<Redirect to="/inhaler" />) : null}         {/* attacksDiary */}
         {this.state.admin === true ? (<Redirect to="/login3" />) : null}

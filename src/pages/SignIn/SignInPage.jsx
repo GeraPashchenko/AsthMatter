@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {LocalizationButton, SignInHeaderText} from '../../shared/styles/HeaderStyles'
 import SignInForm from './SignInForm/SignInForm'
-import '../../shared/styles/pageStyles.css';
+import '../../shared/styles/body.css';
 import {connect} from "react-redux";
 import {changeLang, changeLocalization} from "../../localization/localizationFunctions";
 import {setLocalization} from "../../redux/actions";

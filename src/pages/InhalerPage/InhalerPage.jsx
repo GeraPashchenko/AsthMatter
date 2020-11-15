@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { changeLang, changeLocalization } from "../../localization/localizationFunctions";
 import { setLocalization, setUser } from "../../redux/actions";
 import localization from '../../localization/localization.json';
-import PatientSideMenu from "../../menus/PatientSideMenu";
+import PatientSideMenuElement from "../../menus/PatientSideMenu";
 import InhalerForm from "./InhalerForm/InhalerForm";
 import { DivFlexColumn, DivWithShift } from "./InhalerForm/StyledComponent";
 
@@ -14,7 +14,7 @@ function InhalerPage(props) {
 
     return (
         <>
-            <PatientSideMenu />
+            <PatientSideMenuElement />
             <LocalizationButton onClick={() => { changeLocalization(setLang, newLang, setLocalization) }}>{changeLang(newLang)}</LocalizationButton>
             <DivWithShift>
                 <DivFlexColumn>

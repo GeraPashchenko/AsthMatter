@@ -31,7 +31,7 @@ function ProfileSettingsPage(props) {
                     <Link to="/changePassword" className="sideButton changePasswordButton">
                         {localization.profileSettingsPage.changePasswordButton[language]}
                     </Link>
-                    <Link className="sideButton deleteProfileButton" onClick={() => deleteProfile(setUser, setRedirect, user.id)}>
+                    <Link className="sideButton deleteProfileButton" onClick={() => deleteProfile(language, setUser, setRedirect, user.id)}>
                         {localization.profileSettingsPage.deleteProfileButton[language]}
                     </Link>
                     {redirect === true ? <Redirect to="/" /> : null}
@@ -41,23 +41,26 @@ function ProfileSettingsPage(props) {
     )
 }
 
-function deleteProfile(setUser, setRedirect, userId) {
-    fetch(`https://localhost:5001/profiles/delete/${userId}`, {
-        method: 'DELETE',
-        credentials: 'include',
-        headers: {
-            "Content-Type": "application/json"
-        },
-    }).then(responce => {
-        return responce.json()
-    }).then(data => {
-        if (data.error != null) {
-            throw new Error(data.error);
-        } else {
-            setUser({});
-            setRedirect(true);
-        }
-    }).catch(err => alert("Error: " + err.message));
+function deleteProfile(language, setUser, setRedirect, userId) {
+    let deleteFlag = window.confirm(localization.profileSettingsPage.confirmDeleteting[language]);
+    if (deleteFlag) {
+        fetch(`https://localhost:5001/profiles/delete/${userId}`, {
+            method: 'DELETE',
+            credentials: 'include',
+            headers: {
+                "Content-Type": "application/json"
+            },
+        }).then(responce => {
+            return responce.json()
+        }).then(data => {
+            if (data.error != null) {
+                throw new Error(data.error);
+            } else {
+                setUser({});
+                setRedirect(true);
+            }
+        }).catch(err => alert("Error: " + err.message));
+    }
 }
 
 const storeToProps = (store) => ({

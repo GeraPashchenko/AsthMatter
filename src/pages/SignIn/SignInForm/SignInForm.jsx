@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect } from 'react-router-dom';
-import { FormButton, FormHeader } from "../../../shared/styles/FormStyles.js";
+import { FormHeader } from "../../../shared/styles/FormStyles.js";
 import { SignInForm, SignInFormFieldDiv, SignInLabelField, SignInInput, SignInLink } from './StyledComponent';
 import { setUser } from "../../../redux/actions";
 import { connect } from "react-redux";
@@ -44,6 +44,7 @@ class SignInFormElement extends React.Component {
             break;
           case 'Admin': this.setState({ admin: true });
             break;
+          default: break;
         };
       }
     }).catch(err => alert("Error: " + err.message));

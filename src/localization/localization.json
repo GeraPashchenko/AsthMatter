@@ -367,6 +367,10 @@
         "deleteProfileButton": {
             "en": "Delete Profile",
             "ua": "Видалити профіль"
+        },
+        "confirmDeleteting" : {
+            "en" : "Are you sure that you want to delete your profile? This action can't be undone!",
+            "ua" : " Ви впевнені, що хочете видалити свій профіль? Цю дію не можна скасувати!"
         }
     },
     "changePasswordPage": {
@@ -385,6 +389,14 @@
         "confirmPassword": {
             "en": "Confirm Password",
             "ua": "Підтвердити пароль"
+        },
+        "matchError" : {
+            "en" : "Passwords don't match.",
+            "ua" : "Паролі не співпадають."
+        },
+        "oldPasswordError" : {
+            "en" : "Password is incorrect. ",
+            "ua" : "Неправильний пароль."
         }
     },
     "medicinesTable": {

@@ -74,3 +74,9 @@ export const List = styled.select`
   background-color: white;
   margin-left: 15px;
 `;
+
+export const ErrorDiv = styled.div`
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  color: red;
+`;

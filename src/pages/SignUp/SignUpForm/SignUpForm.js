@@ -2,7 +2,6 @@ import React from "react";
 import { Redirect } from 'react-router-dom';
 import {
   FormHeader,
-  FormButton,
   FormFooter,
   InputForm,
   LabelDivForm,
@@ -52,7 +51,7 @@ class SignUpFormElement extends React.Component {
         throw new Error(data.error);
       }
       else {
-        this.setUser({ id: data.id, login: data.login, role: data.role });
+        this.setUser({ id: data.id, login: data.login, role: data.role, language : data.language });
         this.setState({ redirect: true });
       }
     }).catch(err => alert("Error: " + err.message));
@@ -69,7 +68,7 @@ class SignUpFormElement extends React.Component {
             <LabelField>{localization.registerPage.firstName[this.props.language]}</LabelField>
             <SignUpLabelRequiredStar>*</SignUpLabelRequiredStar>
           </LabelDivForm>
-          <InputForm name={'firstName'} required />
+          <InputForm name={'firstName'} required maxLength='250' minLength='3'/>
         </FormFieldDiv>
 
         <FormFieldDiv>
@@ -77,14 +76,14 @@ class SignUpFormElement extends React.Component {
             <LabelField>{localization.registerPage.lastName[this.props.language]}</LabelField>
             <SignUpLabelRequiredStar>*</SignUpLabelRequiredStar>
           </LabelDivForm>
-          <InputForm name={'lastName'} required />
+          <InputForm name={'lastName'} required maxLength='250' minLength='3'/>
         </FormFieldDiv>
 
         <FormFieldDiv>
           <LabelDivForm>
             <LabelField>{localization.registerPage.patronymic[this.props.language]}</LabelField>
           </LabelDivForm>
-          <InputForm name={'patronymic'} />
+          <InputForm name={'patronymic'} maxLength='250'/>
         </FormFieldDiv>
 
         <FormFieldDiv>
@@ -108,7 +107,7 @@ class SignUpFormElement extends React.Component {
             <LabelField>{localization.registerPage.password[this.props.language]}</LabelField>
             <SignUpLabelRequiredStar>*</SignUpLabelRequiredStar>
           </LabelDivForm>
-          <InputForm name={'password'} required />
+          <InputForm type='password' name={'password'} required maxLength='50' minLength='6'/>
         </FormFieldDiv>
 
         <FormFieldDiv>

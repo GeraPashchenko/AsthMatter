@@ -1,5 +1,5 @@
-body {
-    background-color: white;
+:root{
+    background-color: #ffffff;
     display: flex;
     justify-content: center;
     margin: 0px;

@@ -53,6 +53,9 @@ class ProfileSettingsFormElement extends React.Component {
                 if(this.user.login !== data.login){
                     this.user.login = data.login;
                 }
+                if(this.user.language !== data.localization){
+                    this.user.language = data.localization;
+                }
             }
           }).catch(err => alert("Error: " + err.message));
     }

@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-export const DivFlexRow = styled.div`  
+export const LabelDivForm = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: justify;
+  justify-content: left;
+  width: 250px;
 `;
 
 export const DivFlexColumn = styled.div`
@@ -59,5 +60,5 @@ export const InputForm = styled.input`
   margin-bottom: 25px;
   padding-left: 4px;
   padding-right: 4px;
-  font-size: 20px;
+  font-size: 25px;
 `;

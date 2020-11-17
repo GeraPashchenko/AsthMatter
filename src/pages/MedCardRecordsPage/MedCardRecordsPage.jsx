@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import { LocalizationButton, PageTitle } from '../../shared/styles/HeaderStyles'
 import { connect } from "react-redux";
 import { changeLang, changeLocalization } from '../../localization/localizationFunctions';
-import { setLocalization, setDoctorList, setUser } from "../../redux/actions";
+import { setLocalization, setUser } from "../../redux/actions";
 import localization from "../../localization/localization.json";
 import { DivFlexColumn, DivWithShift } from "../InhalerPage/InhalerForm/StyledComponent";
 import PatientSideMenuElement from "../../menus/PatientSideMenu";
+import MedCardRecord from "./MedCardRecords";
 import '../../shared/styles/pageStyles.css';
-import DoctorForm from '../DoctorPage/DoctorForm/DoctorForm';
 
-function DoctorPage(props) {
+
+function MedCardRecordsPage(props) {
     const { language, setLocalization, user, setUser } = props;
     let [newLang, setLang] = useState(language);
 
@@ -21,8 +22,8 @@ function DoctorPage(props) {
             </LocalizationButton>
             <DivWithShift>
                 <DivFlexColumn>
-                    <PageTitle>{localization.doctorPage.title[language]}</PageTitle>
-                    <DoctorForm language={newLang} />
+                    <PageTitle>{localization.MedCard.medCardRecordsPage.title[language]}</PageTitle>
+                    <MedCardRecords language={newLang} />
                 </DivFlexColumn>
             </DivWithShift>
         </>
@@ -39,4 +40,4 @@ const dispatchToProps = (dispatcher) => ({
     setUser: (user) => dispatcher(setUser(user))
 });
 
-export default connect(storeToProps, dispatchToProps)(DoctorPage);
+export default connect(storeToProps, dispatchToProps)(MedCardInformationPage);

@@ -5,7 +5,7 @@ export const actionType = {
   DELETE_ATTACK: '4',
   UPDATE_ATTACK: '5',
   CREATE_ATTACK: '6',
-  // SET_INHALER_ID : '7'
+  SET_DOCTOR_LIST : '7'
 };
 
 export const setUser = (user) => ({
@@ -38,7 +38,7 @@ export const createAttack = (attackId, newAttack) => ({
   payload: {newAttack}
 });
 
-// export const setInhalerId = (inhalerId) => ({
-//   type: actionType.SET_INHALER_ID,
-//   payload: {inhalerId}
-// });
+export const setDoctorList = (doctorList) => ({
+  type: actionType.SET_DOCTOR_LIST,
+  payload: {doctorList}
+});

@@ -22,7 +22,7 @@ class DoctorForm extends React.Component {
                 patientDoctorId: '', 
                 fullName: '', 
                 hospital: { title: '', city: '', address: '' }, 
-                doctors: [ this.defaultDoctor ] 
+                doctors: [] 
             } 
         };
     }
@@ -44,17 +44,17 @@ class DoctorForm extends React.Component {
             doctors: this.state.formData.doctors
         };
         this.setState({ formData: newFormData }, function () {
-            console.log("2: " + JSON.stringify(this.state.formData));
+            // console.log("2: " + JSON.stringify(this.state.formData));
         });
     }
 
     handleSubmit(event) {
         event.preventDefault();
-        const selectedIndex = event.target.options.selectedIndex;
-        let newId = event.target.options[selectedIndex].getAttribute('data-key');
+        const selectedIndex = event.target.id.options.selectedIndex;
+        let newId = event.target.id.options[selectedIndex].getAttribute('data-key');
 
         const data = {
-            id: newId
+            patientDoctorId: newId == this.defaultDoctor.key ? null : newId
         }
 
         fetch(`https://localhost:5001/patients/doctor/${this.user.id}`, {
@@ -67,7 +67,7 @@ class DoctorForm extends React.Component {
           }).then(responce => {
             return responce.json()
           }).then(data => {
-            if (data.error !== null) {
+            if (data.error != null) {
               throw new Error(data.error);
             }
           }).catch(err => alert("Error: " + err.message));
@@ -87,8 +87,13 @@ class DoctorForm extends React.Component {
                 throw new Error(data.message);
             }
             else {
+                data.patientDoctorId = (data.patientDoctorId == null) ? 'notSet'  : data.patientDoctorId;
+                data.fullName = (data.fullName == null) ? localization.doctorPage.notSelectedDoctor[this.props.language] : data.fullName;
+                data.hospital = (data.hospital == null) ? {} : data.hospital;
                 data.doctors.push(this.defaultDoctor);
-                this.setState({ formData: data });
+                this.setState({ formData: data }, function () {
+                    console.log("3: " + JSON.stringify(this.state.formData));
+                });
             }
         }).catch(err => alert("Error: " + err.message));
     }
@@ -100,12 +105,11 @@ class DoctorForm extends React.Component {
     render() {
         return (
             <Form onSubmit={this.handleSubmit}>
-                <input type="hidden" name={'id'} value={this.state.formData.id} />
                 <FormFieldDiv>
                     <LabelDivForm>
                         <LabelField><b>{localization.doctorPage.fullName[this.props.language]}:</b></LabelField>
                     </LabelDivForm>
-                    <DoctorSelectElement name={'id'} formData={this.state.formData} handleChange={this.handleChange}/>
+                    <DoctorSelectElement name={'id'} formData={this.state.formData} handleChange={this.handleChange} language={this.props.language}/>
                 </FormFieldDiv>
                 <LabelField><b>{localization.doctorPage.workplaceInformation[this.props.language]}</b></LabelField>
                 <FormFieldDiv>

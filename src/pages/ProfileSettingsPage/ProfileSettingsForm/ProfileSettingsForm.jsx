@@ -46,7 +46,7 @@ class ProfileSettingsFormElement extends React.Component {
           }).then(responce => {
             return responce.json()
           }).then(data => {
-            if (data.error !== null) {
+            if (data.error != null) {
               throw new Error(data.error);
             }
             else {

@@ -247,15 +247,15 @@
             },
             "height": {
                 "en": "Height (cm)",
-                "ua": "Зріст"
+                "ua": "Зріст (см)"
             },
             "weight": {
                 "en": "Weight (kg)",
-                "ua": "Вага"
+                "ua": "Вага (кг)"
             },
             "emergencyContact": {
                 "en": "Emergency Contact",
-                "ua": "Для екстреного зв'язку"
+                "ua": "Екстренний контакт"
             },
             "bloodGroup": {
                 "en": "Blood group",

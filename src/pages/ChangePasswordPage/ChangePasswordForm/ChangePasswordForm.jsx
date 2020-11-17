@@ -37,10 +37,10 @@ class ChangePasswordForm extends React.Component {
             }).then(responce => {
                 return responce.json()
             }).then(data => {
-                if (data.oldPasswordError !== null) {
+                if (data.oldPasswordError != null) {
                     this.setState({ errors: { oldPassword: true } });
                 }
-                else if (data.error !== null) {
+                else if (data.error != null) {
                     throw new Error(data.error);
                 }
             }).catch(err => alert("Error: " + err.message));

@@ -7,6 +7,7 @@ export const FormHeader = styled.h1`
 export const FormFooter = styled.h3`
  font-weight: 500;
  color: #2B4874;
+ margin: 3px;
 `;
 
 export const FormButton = styled.button`
@@ -54,6 +55,7 @@ export const LabelDivForm = styled.div`
 export const LabelField = styled.span`
   width: 300px;
   font-size: 20px;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export const LabelRequiredStar = styled.span`

@@ -1,12 +1,12 @@
 .sideMenu {
-    position: relative;
-    width: 300px;
-    height: 753px;
+    position: fixed;
+    width: 350px;
+    height: 100%;
     background: #717DA8;
 }
 
 .sideMenu1 {
-    position: absolute;
+    /* position: absolute; */
     left: 0%;
     right: 0%;
     top: 0%;

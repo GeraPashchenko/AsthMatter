@@ -10,44 +10,67 @@ class DoctorForm extends React.Component {
     constructor(props) {
         super();
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.setState = this.setState.bind(this);
+
         this.user = props.user;
         this.setUser = props.setUser;
-        this.state = { formData: { id : '', fullName : '', hospital : { title : '', city : '', address : ''}, doctors: [] }};
+        this.defaultDoctor = { key: 'notSet', value: localization.doctorPage.notSelectedDoctor[props.language]};
+        this.state = { 
+            formData: 
+            { 
+                patientDoctorId: '', 
+                fullName: '', 
+                hospital: { title: '', city: '', address: '' }, 
+                doctors: [ this.defaultDoctor ] 
+            } 
+        };
+    }
+
+    handleChange(event) {
+        const selectedIndex = event.target.options.selectedIndex;
+        let newId = event.target.options[selectedIndex].getAttribute('data-key');
+        let newFullName = event.target.options[selectedIndex].value;
+        let newHospital = {};
+        this.state.formData.doctors.map(doctor => {
+            if (doctor.user !== undefined && doctor.user.id == newId) {
+                newHospital = doctor.hospital == null ? {} : doctor.hospital;
+            }
+        });
+        let newFormData = {
+            patientDoctorId: newId,
+            fullName: newFullName,
+            hospital: newHospital,
+            doctors: this.state.formData.doctors
+        };
+        this.setState({ formData: newFormData }, function () {
+            console.log("2: " + JSON.stringify(this.state.formData));
+        });
     }
 
     handleSubmit(event) {
         event.preventDefault();
+        const selectedIndex = event.target.options.selectedIndex;
+        let newId = event.target.options[selectedIndex].getAttribute('data-key');
+
         const data = {
-            id : event.target.id.value,
-            name: event.target.firstName.value,
-            surname: event.target.lastName.value,
-            patronymic: event.target.patronymic.value,
-            phone: event.target.phone.value,
-            login: event.target.email.value,
-            gender: (event.target.gender.value === localization.registerPage.genderMan[this.props.language]) ? 'M' : 'F',
-            timezoneinfoid: event.target.timeZone.value.split(" (")[0],
-            localization: (event.target.language.value === localization.changeLanguageOptions['en']) ? 'en' : 'ua'
+            id: newId
         }
 
-        // fetch(`https://localhost:5001/profiles/${this.user.id}`, {
-        //     method: 'PUT',
-        //     credentials: 'include',
-        //     headers: {
-        //       "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify(data)
-        //   }).then(responce => {
-        //     return responce.json()
-        //   }).then(data => {
-        //     if (data.error !== null) {
-        //       throw new Error(data.error);
-        //     }
-        //     else {
-        //         if(this.user.login !== data.login){
-        //             this.user.login = data.login;
-        //         }
-        //     }
-        //   }).catch(err => alert("Error: " + err.message));
+        fetch(`https://localhost:5001/patients/doctor/${this.user.id}`, {
+            method: 'PUT',
+            credentials: 'include',
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+          }).then(responce => {
+            return responce.json()
+          }).then(data => {
+            if (data.error !== null) {
+              throw new Error(data.error);
+            }
+          }).catch(err => alert("Error: " + err.message));
     }
 
     getFormData(userId) {
@@ -64,7 +87,7 @@ class DoctorForm extends React.Component {
                 throw new Error(data.message);
             }
             else {
-                console.log(JSON.stringify(data));
+                data.doctors.push(this.defaultDoctor);
                 this.setState({ formData: data });
             }
         }).catch(err => alert("Error: " + err.message));
@@ -77,34 +100,33 @@ class DoctorForm extends React.Component {
     render() {
         return (
             <Form onSubmit={this.handleSubmit}>
-                <input type="hidden" name={'id'} value={this.state.formData.id}/>
+                <input type="hidden" name={'id'} value={this.state.formData.id} />
                 <FormFieldDiv>
                     <LabelDivForm>
                         <LabelField><b>{localization.doctorPage.fullName[this.props.language]}:</b></LabelField>
                     </LabelDivForm>
-                    <DoctorSelectElement formData={this.state.formData} name={'id'}/>
-                    {/* <InputForm name={'id'} defaultValue={this.state.formData.fullName} /> */}
+                    <DoctorSelectElement name={'id'} formData={this.state.formData} handleChange={this.handleChange}/>
                 </FormFieldDiv>
                 <LabelField><b>{localization.doctorPage.workplaceInformation[this.props.language]}</b></LabelField>
                 <FormFieldDiv>
                     <LabelDivForm>
                         <LabelField>{localization.doctorPage.hospitalTitle[this.props.language]}:</LabelField>
                     </LabelDivForm>
-                    <InputForm disabled value={this.state.formData.hospital !== undefined ? this.state.formData.hospital.title : undefined} />
+                    <InputForm disabled defaultValue={this.state.formData.hospital !== undefined ? this.state.formData.hospital.title : undefined} />
                 </FormFieldDiv>
 
                 <FormFieldDiv>
                     <LabelDivForm>
                         <LabelField>{localization.doctorPage.hospitalCity[this.props.language]}:</LabelField>
                     </LabelDivForm>
-                    <InputForm disabled value={this.state.formData.hospital !== undefined ? this.state.formData.hospital.city : undefined} />
+                    <InputForm disabled defaultValue={this.state.formData.hospital !== undefined ? this.state.formData.hospital.city : undefined} />
                 </FormFieldDiv>
 
                 <FormFieldDiv>
                     <LabelDivForm>
                         <LabelField>{localization.doctorPage.hospitalAddress[this.props.language]}:</LabelField>
                     </LabelDivForm>
-                    <InputForm disabled value={this.state.formData.hospital !== undefined ? this.state.formData.hospital.address : undefined} />
+                    <InputForm disabled defaultValue={this.state.formData.hospital !== undefined ? this.state.formData.hospital.address : undefined} />
                 </FormFieldDiv>
 
                 <input type="submit" className="button" value={localization.saveButton[this.props.language]} />

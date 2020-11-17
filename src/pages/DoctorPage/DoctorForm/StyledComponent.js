@@ -54,7 +54,6 @@ export const InputForm = styled.input`
   width: 320px;
   height: 25px;
   background-color: white;
-  border: 0.5px solid black;
   font-family: 'Roboto', sans-serif;
   margin-bottom: 10px;
   padding-left: 4px;
@@ -63,6 +62,12 @@ export const InputForm = styled.input`
 `;
 
 export const SelectDoctorList = styled(List)`
-  width: 320px;
+  width: 370px;
   background-color: white;
+  height: 30px;
+  margin-left: 0px;
+  font-family: 'Roboto', sans-serif;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-size: 15px;
 `;

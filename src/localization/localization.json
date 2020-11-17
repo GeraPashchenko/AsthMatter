@@ -301,6 +301,10 @@
         "hospitalAddress": {
             "en": "Hospital Address",
             "ua": "Адреса лікарні"
+        },
+        "notSelectedDoctor" : {
+            "en" : "Not selected",
+            "ua" : "Не обрано"
         }
     },
     "inhalerPage": {

@@ -6,7 +6,7 @@ import { setLocalization, setUser } from "../../redux/actions";
 import localization from "../../localization/localization.json";
 import { DivFlexColumn, DivWithShift } from "../InhalerPage/InhalerForm/StyledComponent";
 import PatientSideMenuElement from "../../menus/PatientSideMenu";
-import MedCardRecord from "./MedCardRecords";
+import MedCardRecords from "./MedCardRecords";
 import '../../shared/styles/pageStyles.css';
 
 
@@ -40,4 +40,4 @@ const dispatchToProps = (dispatcher) => ({
     setUser: (user) => dispatcher(setUser(user))
 });
 
-export default connect(storeToProps, dispatchToProps)(MedCardInformationPage);
+export default connect(storeToProps, dispatchToProps)(MedCardRecordsPage);

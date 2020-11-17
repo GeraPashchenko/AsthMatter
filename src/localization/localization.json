@@ -211,6 +211,10 @@
                 "en": "MedCard Records",
                 "ua": "Записи в медкартці"
             },
+            "information" : {
+                "en" : "Information",
+                "ua" : "Інформація"
+            },
             "prescriptedMedicines": {
                 "en": "Prescripted Medicines",
                 "ua": "Призначені ліки"

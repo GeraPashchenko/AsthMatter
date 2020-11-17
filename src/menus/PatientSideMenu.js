@@ -22,7 +22,7 @@ class PatientSideMenuElement extends React.Component {
                     <NavLink to="/medCardInformation" className="links medCardInformation" activeClassName="current">
                         {localization.sideMenuPatient.medCardInformation[this.props.language]}
                     </NavLink>
-                    <NavLink to="/lala" className="links medCardRecords" activeClassName="current">
+                    <NavLink to="/medCardRecords" className="links medCardRecords" activeClassName="current">
                         {localization.sideMenuPatient.medCardRecords[this.props.language]}
                     </NavLink>
                     <NavLink to="/lala" className="links medicines" activeClassName="current">

@@ -9,6 +9,7 @@ import ProfileSettingsPage from "../pages/ProfileSettingsPage/ProfileSettingsPag
 import ChangePasswordPage from "../pages/ChangePasswordPage/ChangePasswordPage";
 import DoctorPage from "../pages/DoctorPage/DoctorPage.jsx";
 import MedCardInformationPage from "../pages/MedCardInformationPage/MedCardInformationPage.jsx";
+import MedCardRecordsPage from "../pages/MedCardRecordsPage/MedCardRecordsPage.jsx";
 
 const Root = () => {
   return (
@@ -23,6 +24,7 @@ const Root = () => {
         <Route exact path='/changePassword' component={ChangePasswordPage} />
         <Route exact path='/doctor' component={DoctorPage} />
         <Route exact path='/medCardInformation' component={MedCardInformationPage} />
+        <Route exact path='/medCardRecords' component={MedCardRecordsPage} />
       </Switch>
     </Router>
   );

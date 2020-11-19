@@ -70,7 +70,7 @@ class SignInFormElement extends React.Component {
         <input type="submit" className="button" value={localization.signInPage.signInButton[this.props.language]}/>
         {this.state.doctor === true ? (<Redirect to="/login1" />) : null}
         {this.state.patient === true ? (<Redirect to="/inhaler" />) : null}         {/* attacksDiary */}
-        {this.state.admin === true ? (<Redirect to="/login3" />) : null}
+        {this.state.admin === true ? (<Redirect to="/mainboard" />) : null}
       </SignInForm>
     )
   }

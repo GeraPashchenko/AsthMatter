@@ -11,7 +11,6 @@ function DoctorSelectElement(props) {
         selectedDoctor += "(" + formData.hospital.city + ")";
     }
 
-    console.log(JSON.stringify(formData));
     for(let i = 0; i < formData.doctors.length; i++){
         if((formData.doctors[i].key !== undefined && formData.patientDoctorId == formData.doctors[i].key) || 
             (formData.doctors[i].user !== undefined && formData.doctors[i].user.id == formData.patientDoctorId)){

@@ -83,8 +83,8 @@ class DoctorForm extends React.Component {
         }).then(responce => {
             return responce.json()
         }).then(data => {
-            if (data.message != null) {
-                throw new Error(data.message);
+            if (data.error != null) {
+                throw new Error(data.error);
             }
             else {
                 data.patientDoctorId = (data.patientDoctorId == null) ? 'notSet'  : data.patientDoctorId;
@@ -92,7 +92,7 @@ class DoctorForm extends React.Component {
                 data.hospital = (data.hospital == null) ? {} : data.hospital;
                 data.doctors.push(this.defaultDoctor);
                 this.setState({ formData: data }, function () {
-                    console.log("3: " + JSON.stringify(this.state.formData));
+                    // console.log("3: " + JSON.stringify(this.state.formData));
                 });
             }
         }).catch(err => alert("Error: " + err.message));

@@ -238,6 +238,22 @@
             "filterButton": {
                 "en": "Filter",
                 "ua": "Відфільтрувати"
+            },
+            "noRecords" : {
+                "en" : "Sorry, there are no records in your medcard.",
+                "ua" : "Вибачте, але наразі в вашій медкартці немає записів."
+            },
+            "invalidFiltering" : {
+                "en" : "'FROM' should be less or equal 'TO'.",
+                "ua" : "Дата 'від' повинна бути менше або дорівнювати 'до'."
+            },
+            "recordNotFound" : {
+                "en" : "Record not found.",
+                "ua" : "Запис не знайдено."
+            },
+            "medCardRecord" : {
+                "en" : "MedCard Record",
+                "ua" : "Запис в медкартці"
             }
         },
         "medCardInformationPage": {
@@ -279,6 +295,10 @@
         "title": {
             "en": "Actual medicines",
             "ua": "Призначені ліки"
+        },
+        "noActualMedicines" : {
+            "en": "No actual medicines found.",
+            "ua": "Актуальні ліки не знайдено."
         }
     },
     "doctorPage": {
@@ -426,7 +446,7 @@
         },
         "isActual": {
             "en": "Is Actual",
-            "ua": "Актуальний"
+            "ua": "Актуальні"
         }
     },
     "sideMenuAdmin": {
@@ -488,13 +508,25 @@
     "patientsAdminPage": {
         "title": {
             "en": "Patients",
-            "ua": "Налаштування профілю"
+            "ua": "Хворі"
+        },
+        "notFound" : {
+            "en" : "No patients were found.",
+            "ua" : "Пацієнтів знайдено не було."
         }
     },
     "deletePatientAdminPage": {
         "title": {
             "en": "Delete Patient",
             "ua": "Видалити пацієнта"
+        },
+        "confirm" : {
+            "en" :  "Are you sure that you want to delete a patient? This action can't be undone!",
+            "ua" : " Ви впевнені, що хочете видалити пацієнта? Цю дію не можна скасувати!"
+        },
+        "patientData" : {
+            "en" : "Patient data",
+            "ua" : "Дані про пацієнта" 
         }
     },
     "patientData": {
@@ -702,6 +734,10 @@
     "openRecordButton": {
         "en": "Open record",
         "ua": "Відкрити запис"
+    },
+    "recordButton": {
+        "en": "Record",
+        "ua": "Запис"
     },
     "openButton": {
         "en": "Open",

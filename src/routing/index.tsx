@@ -10,13 +10,19 @@ import ChangePasswordPage from "../pages/ChangePasswordPage/ChangePasswordPage";
 import DoctorPage from "../pages/DoctorPage/DoctorPage.jsx";
 import MedCardInformationPage from "../pages/MedCardInformationPage/MedCardInformationPage.jsx";
 import MedCardRecordsPage from "../pages/MedCardRecordsPage/MedCardRecordsPage.jsx";
+import MedRecordPage from "../pages/MedRecordPage/MedRecordPage.jsx";
+import MedicinesPage from '../pages/MedicinesPage/MedicinesPage.jsx';
+import MainBoardPage from '../pages/Admins/MainBoardPage/MainBoardPage.jsx';
+import PatientsPage from "../pages/Admins/PatientsPage/PatientsPage.jsx";
 
 const Root = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path='/signUp' component={SignUpPage}/>
+        <Route exact path='/signUp' component={SignUpPage} />
         <Route exact path='/' component={SignInPage} />
+
+        {/* Patients Pages */}
         <Route exact path='/attacksDiary' component={AttacksDiary} />
         <Route exact path='/m' component={AddAttackPage} />
         <Route exact path='/inhaler' component={InhalerPage} />
@@ -25,6 +31,12 @@ const Root = () => {
         <Route exact path='/doctor' component={DoctorPage} />
         <Route exact path='/medCardInformation' component={MedCardInformationPage} />
         <Route exact path='/medCardRecords' component={MedCardRecordsPage} />
+        <Route exact path='/medrecord/:id' component={MedRecordPage} />
+        <Route exact path='/medicines' component={MedicinesPage} />
+
+        {/* Admins Pages */}
+        <Route exact path='/mainboard' component={MainBoardPage} />
+        <Route exact path='/patients' component={PatientsPage} />
       </Switch>
     </Router>
   );

@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import { RecordBlock, TextBlock, Title, Text, RightTextBlock } from '../MedCardRecord/StyledComponent';
 import localization from '../../../localization/localization.json';
 import { formatDateTime } from '../../../dates/datesFunctions';
+import PrescriptedMedicinesTable from './PrescriptedMedicinesTable';
+import { Redirect, NavLink } from 'react-router-dom';
 
 function MedRecord(props) {
-    const { record, language } = props;
+    const { record, language, setButton } = props;
+    let [redirectId, setRedirectId] = useState(0);
 
     return (
         <RecordBlock>
@@ -20,15 +23,24 @@ function MedRecord(props) {
             <TextBlock>
                 <Text>{record.information}</Text>
             </TextBlock>
-            <TextBlock>
-                <Title>{`${localization.MedCard.medCardRecordsPage.prescriptedMedicines[language]}: `}</Title>
-            </TextBlock>
-            <TextBlock>
-                prescripted medicines table
-        </TextBlock>
+            { record.prescriptedMedicines.length > 0 ?
+                <>
+                    <TextBlock>
+                        <Title>{`${localization.MedCard.medCardRecordsPage.prescriptedMedicines[language]}: `}</Title>
+                    </TextBlock>
+                    <TextBlock>
+                        <PrescriptedMedicinesTable medicines={record.prescriptedMedicines} language={language} setActualColumn={true}/>
+                    </TextBlock>
+                </> :
+                undefined
+            }
+            { setButton === true ? 
+            <>
             <RightTextBlock>
-                <input type="button" className="button" value={localization.openRecordButton[language]} />
-            </RightTextBlock>
+                <NavLink className='button' to={`/medrecord/${record.id}`} >{localization.openRecordButton[language]}</NavLink>
+            </RightTextBlock> 
+            </>
+            : undefined }
         </RecordBlock>
     )
 }

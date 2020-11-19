@@ -13,14 +13,32 @@
     font-size: 20px;
     width: 200px;
     cursor: pointer;
+    text-decoration: none;
+    color: #ffffff;
+    text-align: center;
 }
 
-.button:hover {
+.smallButton {
+    background-color: #96A8D6;
+    border-radius: 20px;
+    border: 0px solid;
+    padding: 10px;
+    font-size: 18px;
+    width: 150px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.button:hover, .smallButton:hover {
     background-color: #37426b;
     color: white;
 }
 
-.button:active {
+.button:active, .smallButton:active {
     vertical-align: top;
     padding: 8px 8px 8px;
 }
@@ -62,8 +80,6 @@
     color: white;
 }
 
-
-
 .changePasswordButton {
     left: calc(50% - 271px/2 + 450.5px);
     top: calc(50% - 71px/2 - 84px);
@@ -72,5 +88,14 @@
 
 .changePasswordButton:hover{
     background-color: #658363;
+    color: white;
+}
+
+.deleteButton{
+    background: #D696A6;
+}
+
+.deleteButton:hover {
+    background-color: #a0596b;
     color: white;
 }

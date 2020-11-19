@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { RecordBlock, TextBlock, Title, Text, RightTextBlock } from '../MedCardRecord/StyledComponent';
+import { RecordBlock, TextBlock, Title, Text, RightTextBlock } from './StyledComponent';
 import localization from '../../../localization/localization.json';
 import { formatDateTime } from '../../../dates/datesFunctions';
 import PrescriptedMedicinesTable from './PrescriptedMedicinesTable';

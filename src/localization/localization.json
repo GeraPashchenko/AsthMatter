@@ -166,6 +166,10 @@
             "editRecord": {
                 "en": "Edit",
                 "ua": "Редагувати"
+            },
+            "deleteRecord": {
+              "en": "Delete",
+              "ua": "Видалити"
             }
         },
         "createNewAttackPage": {

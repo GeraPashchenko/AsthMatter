@@ -1,17 +1,18 @@
 import React from "react";
 import { ErrorDiv } from "../../../shared/styles/FormStyles.js";
 import { Form } from "../../InhalerPage/InhalerForm/StyledComponent";
-import { setUser } from "../../../redux/actions";
 import { connect } from "react-redux";
 import localization from '../../../localization/localization.json';
 import { InputForm, LabelDivForm, FormFieldDiv, LabelField } from "./StyledComponent";
+
 class ChangePasswordForm extends React.Component {
     constructor(props) {
         super();
         this.handleSubmit = this.handleSubmit.bind(this);
         this.setState = this.setState.bind(this);
-        this.user = props.user;
-        this.setUser = props.setUser;
+        this.user = JSON.parse(localStorage.getItem('user'));
+        this.serverAddress = props.serverAddress;
+        this.language = JSON.parse(localStorage.getItem('language'));
         this.state = {
             errors: {}
         };
@@ -27,7 +28,7 @@ class ChangePasswordForm extends React.Component {
         }
 
         if (this.validate(data.newPassword, data.confirmPassword)) {
-            fetch(`https://localhost:5001/profiles/changePassword/${this.user.id}`, {
+            fetch(`${this.serverAddress}/profiles/changePassword/${this.user.id}`, {
                 method: 'PUT',
                 credentials: 'include',
                 headers: {
@@ -68,43 +69,38 @@ class ChangePasswordForm extends React.Component {
             <Form onSubmit={this.handleSubmit}>
                 <FormFieldDiv>
                     <LabelDivForm>
-                        <LabelField>{localization.changePasswordPage.oldPassword[this.props.language]}</LabelField>
+                        <LabelField>{localization.changePasswordPage.oldPassword[this.language]}</LabelField>
                     </LabelDivForm>
                     <InputForm type='password' name={'oldPassword'} required maxLength='50' minLength='6' />
                     <div className="text-danger">{this.state.errors.oldPassword}</div>
                 </FormFieldDiv>
                 <ErrorDiv>
-                    {this.state.errors.oldPassword === true ? localization.changePasswordPage.oldPasswordError[this.props.language] : undefined}
+                    {this.state.errors.oldPassword === true ? localization.changePasswordPage.oldPasswordError[this.language] : undefined}
                 </ErrorDiv>
                 <FormFieldDiv>
                     <LabelDivForm>
-                        <LabelField>{localization.changePasswordPage.newPassword[this.props.language]}</LabelField>
+                        <LabelField>{localization.changePasswordPage.newPassword[this.language]}</LabelField>
                     </LabelDivForm>
                     <InputForm type='password' name={'newPassword'} required maxLength='50' minLength='6' />
                 </FormFieldDiv>
 
                 <FormFieldDiv>
                     <LabelDivForm>
-                        <LabelField>{localization.changePasswordPage.confirmPassword[this.props.language]}</LabelField>
+                        <LabelField>{localization.changePasswordPage.confirmPassword[this.language]}</LabelField>
                     </LabelDivForm>
                     <InputForm type='password' name={'confirmPassword'} required maxLength='50' minLength='6' />
                 </FormFieldDiv>
                 <ErrorDiv>
-                    {this.state.errors.confirmPassword === true ? localization.changePasswordPage.matchError[this.props.language] : undefined}
+                    {this.state.errors.confirmPassword === true ? localization.changePasswordPage.matchError[this.language] : undefined}
                 </ErrorDiv>
-                <input type="submit" className="button" value={localization.saveButton[this.props.language]} />
+                <input type="submit" className="button" value={localization.saveButton[this.language]} />
             </Form>
         )
     }
 }
 
 const storeToProps = (store) => ({
-    language: store.language,
-    user: store.user
+    serverAddress : store.serverAddress
 });
 
-const dispatcherToProps = (dispatcher) => ({
-    setUser: (user) => dispatcher(setUser(user))
-});
-
-export default connect(storeToProps, dispatcherToProps)(ChangePasswordForm);
+export default connect(storeToProps, null)(ChangePasswordForm);

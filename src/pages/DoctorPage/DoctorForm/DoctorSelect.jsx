@@ -38,7 +38,7 @@ function DoctorSelectElement(props) {
                         if (doctor.user.patronymic != null) {
                             doctorFullName += " " + doctor.user.patronymic;
                         }
-    
+
                         if (doctor.hospital != null) {
                             doctorFullName += " (" + doctor.hospital.city + ")";
                         }

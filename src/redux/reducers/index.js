@@ -2,9 +2,34 @@ import {actionType} from "../actions";
 
 // initial storage state
 const initialStore = {
+  serverAddress: 'https://localhost:5000',
   user: {},
   language: 'ua',
-  attackList: []
+  attackList: [
+    {
+      "id": 1017,
+      "wasAt": "2020-11-06T19:56:34",
+      "patientId": 7,
+      "selectedReasons": [
+        "dust",
+        "dog"
+      ]
+    },
+    {
+      "id": 1018,
+      "wasAt": "2020-11-06T19:56:34",
+      "patientId": 7,
+      "selectedReasons": [
+        "dust",
+        "flowers"
+      ]
+    }
+  ],
+  "statistics": {
+    "dust": 2,
+    "dog": 1,
+    "flowers": 1
+  }
 }
 
 // pure reducer function
@@ -48,9 +73,9 @@ export default function reduser(state = initialStore, action) {
         ...state,
         attackList: state.attackList.map((element) => {
           if (element.id === action.payload.attackId) {
-              element.wasAt =  action.payload.updatedAttack.wasAt;
-              element.patientId = action.payload.updatedAttack.patientId;
-              element.attackRecordAndReasons = action.payload.updatedAttack.attackRecordAndReasons
+            element.wasAt = action.payload.updatedAttack.wasAt;
+            element.patientId = action.payload.updatedAttack.patientId;
+            element.attackRecordAndReasons = action.payload.updatedAttack.attackRecordAndReasons
           }
           return element;
         })
@@ -60,15 +85,15 @@ export default function reduser(state = initialStore, action) {
       return ({
         ...state,
         attackList: state.tracksList[action.payload.list].filter((element) =>
-            element.id !== action.payload.attackId)
+          element.id !== action.payload.attackId)
       });
-    
+
     // case (actionType.SET_INHALER_ID): 
     //   return ({
     //     ...state,
     //     inhalerId : action.payload.inhalerId
     //   });
-      
+
     default:
       return state;
   }

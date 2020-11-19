@@ -30,14 +30,6 @@ export const PageHeader = styled.h1`
   align-items: center;
 `;
 
-export const Table = styled.table`
-  width: 100%;
-  padding: 10px;
-  margin: 10px;
-  font-size: 20px;
-  border: 1px dotted black;
-`;
-
 export const TableRow = styled.tr`
   margin: 5px;
 `;

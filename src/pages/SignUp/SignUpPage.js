@@ -8,24 +8,19 @@ import { setLocalization } from "../../redux/actions";
 import '../../shared/styles/body.css';
 
 function SignUpPage(props) {
-  const { language, setLocalization } = props;
+
+  let language = JSON.parse(localStorage.getItem('language')) || 'ua';
   let [newLang, setLang] = useState(language);
 
   return (
     <>
-      <LocalizationButton onClick={() => { changeLocalization(setLang, newLang, setLocalization) }}>{changeLang(newLang)}</LocalizationButton>
+      <LocalizationButton onClick={() => { changeLocalization(setLang, newLang) }}>{changeLang(newLang)}</LocalizationButton>
       <SignUpHeaderText> asthMatter </SignUpHeaderText>
       <SignUpFormElement language={newLang} />
     </>
   )
 }
 
-const storeToProps = (store) => ({
-  language: store.language
-});
+export default SignUpPage;
 
-const dispatchToProps = (dispatcher) => ({
-  setLocalization: (lang) => dispatcher(setLocalization(lang))
-});
 
-export default connect(storeToProps, dispatchToProps)(SignUpPage);

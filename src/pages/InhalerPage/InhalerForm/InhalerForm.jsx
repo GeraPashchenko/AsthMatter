@@ -1,6 +1,5 @@
 import React from "react";
 import { Form, LabelField, InputForm, FormFieldDiv } from "./StyledComponent";
-import { setUser } from "../../../redux/actions";
 import { connect } from "react-redux";
 import localization from '../../../localization/localization.json';
 
@@ -8,8 +7,9 @@ class InhalerFormElement extends React.Component {
     constructor(props) {
         super();
         this.state = { inhalerId: '' };
-        this.setUser = props.setUser;
-        this.user = props.user;
+        this.user = JSON.parse(localStorage.getItem('user'));
+        this.serverAddress = props.serverAddress;
+        this.language = JSON.parse(localStorage.getItem('language'));
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.setState = this.setState.bind(this);
@@ -43,7 +43,7 @@ class InhalerFormElement extends React.Component {
     }
 
     getInhalerId(userId) {
-        fetch(`https://localhost:5001/patients/inhaler/${userId}`, {
+        fetch(`${this.serverAddress}/patients/inhaler/${userId}`, {
             method: 'GET',
             credentials: 'include',
             headers: {
@@ -72,18 +72,14 @@ class InhalerFormElement extends React.Component {
                     <LabelField>ID</LabelField>
                     <InputForm name={'inhalerId'} type='text' defaultValue={this.state.inhalerId} required />
                 </FormFieldDiv>
-                <input type="submit" className="button" value={localization.saveButton[this.props.language]} />
+                <input type="submit" className="button" value={localization.saveButton[this.language]} />
             </Form>
         )
     }
 }
 
 const storeToProps = (store) => ({
-    user: store.user,
+    serverAddress: store.serverAddress,
 });
 
-const dispatcherToProps = (dispatcher) => ({
-    setUser: (user) => dispatcher(setUser(user)),
-});
-
-export default connect(storeToProps, dispatcherToProps)(InhalerFormElement);
+export default connect(storeToProps, null)(InhalerFormElement);

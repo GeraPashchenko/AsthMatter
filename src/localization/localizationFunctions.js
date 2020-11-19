@@ -1,13 +1,13 @@
-export function changeLocalization(setLang, newLang, setLocalization){
+export function changeLocalization(setLang, newLang){
   let lang = changeLang(newLang);
+  localStorage.setItem('language', lang);
   setLang(lang);
-  setLocalization(lang);
 }
 
-export function changeLocalizationClass(setState, newLang, setLocalization){
+export function changeLocalizationClass(setState, newLang){
   let lang = changeLang(newLang);
+  localStorage.setItem('language', lang);
   setState({language: lang});
-  setLocalization(lang);
 }
 
 export function changeLang(lang) {

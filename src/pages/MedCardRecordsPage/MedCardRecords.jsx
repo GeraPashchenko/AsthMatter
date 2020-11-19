@@ -1,6 +1,5 @@
 import React from "react";
 import MedRecord from "./MedCardRecord/MedRecord";
-import { setUser } from "../../redux/actions";
 import { connect } from "react-redux";
 import RecordsFilterForm from "./RecordsFilterForm";
 import { Block, FlexCenter } from './MedCardRecord/StyledComponent';
@@ -12,7 +11,9 @@ class MedCardRecords extends React.Component {
     constructor(props) {
         super();
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.user = props.user;
+        this.user = JSON.parse(localStorage.getItem('user'));
+        this.serverAddress = props.serverAddress;
+        this.language = JSON.parse(localStorage.getItem('language'));
         this.setUser = props.setUser;
         this.state = { records: [], error : false, fetchDone : false }
     }
@@ -32,7 +33,7 @@ class MedCardRecords extends React.Component {
                 to: toDate
             }
 
-            fetch(`https://localhost:5001/medrecords/filter/${this.user.id}?from=${data.from}&to=${data.to}`, {
+            fetch(`${this.serverAddress}/medrecords/filter/${this.user.id}?from=${data.from}&to=${data.to}`, {
                 method: 'GET',
                 credentials: 'include',
                 headers: {
@@ -51,8 +52,8 @@ class MedCardRecords extends React.Component {
         }
     }
 
-    getRecords(userId) {
-        fetch(`https://localhost:5001/medrecords/${userId}`, {
+    getRecords() {
+        fetch(`${this.serverAddress}/medrecords/${this.user.id}`, {
             method: 'GET',
             credentials: 'include',
             headers: {
@@ -78,7 +79,7 @@ class MedCardRecords extends React.Component {
     }
 
     async componentDidMount() {
-        this.getRecords(this.user.id);
+        this.getRecords();
     }
 
     render() {
@@ -100,12 +101,12 @@ class MedCardRecords extends React.Component {
                             handleSubmit={this.handleSubmit} />
                     </Block>
                     :
-                    this.state.fetchDone ? 
+                    this.state.fetchDone ?
                     <FlexCenter>
                         <Title>{localization.MedCard.medCardRecordsPage.noRecords[this.props.language]}</Title>
                     </FlexCenter>
-                    : 
-                    undefined 
+                    :
+                    undefined
                 }
             </>
         )
@@ -113,11 +114,7 @@ class MedCardRecords extends React.Component {
 }
 
 const storeToProps = (store) => ({
-    user: store.user
+    serverAddress: store.serverAddress
 });
 
-const dispatcherToProps = (dispatcher) => ({
-    setUser: (user) => dispatcher(setUser(user))
-});
-
-export default connect(storeToProps, dispatcherToProps)(MedCardRecords);
+export default connect(storeToProps, null)(MedCardRecords);

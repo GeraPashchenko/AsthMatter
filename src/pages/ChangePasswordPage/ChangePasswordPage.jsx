@@ -11,7 +11,8 @@ import ChangePasswordForm from "./ChangePasswordForm/ChangePasswordForm";
 
 
 function ChangePasswordPage(props) {
-    const { language, setLocalization } = props;
+  let language = JSON.parse(localStorage.getItem('language'));
+
     let [newLang, setLang] = useState(language);
 
     return (
@@ -23,7 +24,7 @@ function ChangePasswordPage(props) {
             <DivWithShift>
                 <DivFlexColumn>
                     <PageTitle>{localization.changePasswordPage.title[language]}</PageTitle>
-                    <ChangePasswordForm language={newLang} />
+                    <ChangePasswordForm language={newLang}/>
                 </DivFlexColumn>
             </DivWithShift>
         </>

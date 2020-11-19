@@ -1,4 +1,4 @@
-export default function AddAttackFetch(event, id, createAttack) {
+export default function AddAttackFetch(event, id, createAttack, serverAddress) {
   event.preventDefault();
 
   let formData = new FormData(event.target);
@@ -8,7 +8,7 @@ export default function AddAttackFetch(event, id, createAttack) {
     selectedReasons: formData.get('reason')
   }
 
-  fetch(`attackrecords/create/${id}`, {
+  fetch(`${serverAddress}/attackrecords/create/${id}`, {
     method: 'POST',
     body: dataToSend,
   }).then(responce => {

@@ -10,12 +10,15 @@ import AddAttackFetch from '../../../Submit Functions/Add Attack Form';
 import localization from "../../../localization/localization.json";
 
 function AddAttackForm(props) {
-  const {createAttack, user, language} = props;
+  const {createAttack, serverAddress} = props;
   const [startDate, setStartDate] = useState(new Date());
+  const user = JSON.parse(localStorage.getItem('user'));
+  const language = JSON.parse(localStorage.getItem('language'));
+
 
   return (
 
-    <Form1 onSubmit={(event) => AddAttackFetch(event, user.id, createAttack)}>
+    <Form1 onSubmit={(event) => AddAttackFetch(event, user.id, createAttack, serverAddress)}>
       {/* <FormDiv> */}
 
         <FormFieldDiv1>
@@ -47,8 +50,7 @@ function AddAttackForm(props) {
 }
 
 const storeToProps = (store) => ({
-  language: store.language,
-  user: store.user
+  serverAddress : store.serverAddress
 });
 
 const dispatcherToProps = (dispatcher) => ({

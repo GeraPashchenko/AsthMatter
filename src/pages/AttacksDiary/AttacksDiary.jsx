@@ -12,7 +12,7 @@ import {LocalizationButton} from "../../shared/styles/HeaderStyles";
 import {changeLang, changeLocalizationClass} from "../../localization/localizationFunctions";
 import AttacksTable from "./Table/AttacksTable";
 import {Redirect} from "react-router-dom";
-import Chart from "./Chart/ChartElement";
+// import Chart from "./Chart/ChartElement";
 
 function getMonthList(lang) {
   let date = new Date();
@@ -31,16 +31,14 @@ function getMonthList(lang) {
   return months;
 }
 
-
-class AttacksDiary extends React.Component {
+ class AttacksDiary extends React.Component {
   constructor(props) {
     super();
-    this.setLocalization = props.setLocalization;
     this.setAttackList = props.setAttackList;
     this.serverAddress = props.serverAddress;
     this.createAttack = props.createAttack;
     this.user = JSON.parse(localStorage.getItem('user'));
-    this.language = JSON.parse(localStorage.getItem('language'));
+    this.language = localStorage.getItem('language');
     this.state = {attackList: props.attackList, language: this.language, statistics: props.statistics, makeTable: false};
     this.setState = this.setState.bind(this);
     this.date = new Date();
@@ -73,7 +71,7 @@ class AttacksDiary extends React.Component {
 
       <AttacksPage>
         <LocalizationButton onClick={() => {
-          changeLocalizationClass(this.setState, this.state.language, setLocalization)}}>
+          changeLocalizationClass(this.setState, this.state.language)}}>
           {changeLang(this.state.language)}
         </LocalizationButton>
 
@@ -88,7 +86,7 @@ class AttacksDiary extends React.Component {
         {/*{this.state.makeTable === true ? (<AttacksTable state={this.state}/>) : null}*/}
         <AttacksTable state={this.state}/>
 
-        <Chart data={this.state.statistics}/>
+        {/*<Chart data={this.state.statistics}/>*/}
 
       </AttacksPage>
     )

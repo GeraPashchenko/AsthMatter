@@ -10,7 +10,7 @@ class SignInFormElement extends React.Component {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
     this.serverAddress = props.serverAddress;
-    this.language = JSON.parse(localStorage.getItem('language')) || 'ua';
+    this.language = localStorage.getItem('language') || 'ua';
     this.state = { doctor: false, patient: false, admin: false };
   }
 
@@ -39,7 +39,6 @@ class SignInFormElement extends React.Component {
         localStorage.setItem('user', JSON.stringify({ id: data.id, login: data.login, role: data.role, language : data.language }));
         localStorage.setItem('language', data.language);
 
-        this.setUser({ id: data.id, login: data.login, role: data.role, language: data.language });
         switch (data.role) {
           case 'Doctor': this.setState({ doctor: true });
             break;

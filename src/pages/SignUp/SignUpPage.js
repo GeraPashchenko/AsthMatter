@@ -9,7 +9,7 @@ import '../../shared/styles/body.css';
 
 function SignUpPage(props) {
 
-  let language = JSON.parse(localStorage.getItem('language')) || 'ua';
+  let language = localStorage.getItem('language') || 'ua';
   let [newLang, setLang] = useState(language);
 
   return (

@@ -13,7 +13,7 @@ function AddAttackForm(props) {
   const {createAttack, serverAddress} = props;
   const [startDate, setStartDate] = useState(new Date());
   const user = JSON.parse(localStorage.getItem('user'));
-  const language = JSON.parse(localStorage.getItem('language'));
+  const language = localStorage.getItem('language');
 
 
   return (

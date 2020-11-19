@@ -11,7 +11,7 @@ import ChangePasswordForm from "./ChangePasswordForm/ChangePasswordForm";
 
 
 function ChangePasswordPage(props) {
-  let language = JSON.parse(localStorage.getItem('language'));
+  let language = localStorage.getItem('language');
 
     let [newLang, setLang] = useState(language);
 

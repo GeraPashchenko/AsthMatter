@@ -9,7 +9,7 @@ class InhalerFormElement extends React.Component {
         this.state = { inhalerId: '' };
         this.user = JSON.parse(localStorage.getItem('user'));
         this.serverAddress = props.serverAddress;
-        this.language = JSON.parse(localStorage.getItem('language'));
+        this.language = localStorage.getItem('language');
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.setState = this.setState.bind(this);

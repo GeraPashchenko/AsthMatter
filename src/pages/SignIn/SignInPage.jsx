@@ -7,7 +7,7 @@ import { changeLang, changeLocalization } from "../../localization/localizationF
 
 function SignInPage(props) {
 
-  let language = JSON.parse(localStorage.getItem('language')) || 'ua';
+  let language = localStorage.getItem('language') || 'ua';
   let [newLang, setLang] = useState(language);
 
   return (

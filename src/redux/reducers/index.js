@@ -2,7 +2,7 @@ import {actionType} from "../actions";
 
 // initial storage state
 const initialStore = {
-  serverAddress: 'https://localhost:5000',
+  serverAddress: 'https://df9be3b3d1fd.ngrok.io',
   user: {},
   language: 'ua',
   attackList: [

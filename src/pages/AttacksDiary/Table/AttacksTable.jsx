@@ -4,7 +4,7 @@ import {deleteAttack, updateAttack} from "../../../redux/actions";
 import {connect} from "react-redux";
 import {AttacksTable, TableBttn, TableHeader, TD} from "./StyledComponent";
 
-async function CreateAttacksTable(props) {
+function CreateAttacksTable(props) {
   const {state, deleteAttack, updateAttack} = props;
 
   return (
@@ -15,7 +15,7 @@ async function CreateAttacksTable(props) {
       <TableHeader></TableHeader>
 
       <tbody>
-      {state.attackList.map(attack => {
+       {state.attackList.map(attack => {
         return (<tr>
           <TD> {formatDate(attack.wasAt)} </TD>
           <TD> {new Date(Date.parse(attack.wasAt)).toLocaleTimeString()} </TD>

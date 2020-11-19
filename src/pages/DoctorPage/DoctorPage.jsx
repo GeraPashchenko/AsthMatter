@@ -9,7 +9,7 @@ import DoctorForm from '../DoctorPage/DoctorForm/DoctorForm';
 
 function DoctorPage(props) {
 
-  let language = JSON.parse(localStorage.getItem('language'));
+  let language = localStorage.getItem('language');
 
   let [newLang, setLang] = useState(language);
 

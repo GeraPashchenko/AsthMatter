@@ -14,7 +14,7 @@ class DoctorForm extends React.Component {
         
         this.user = JSON.parse(localStorage.getItem('user'));
         this.serverAddress = props.serverAddress;
-        this.language = JSON.parse(localStorage.getItem('language'));
+        this.language = localStorage.getItem('language');
         
         this.defaultDoctor = { key: 'notSet', value: localization.doctorPage.notSelectedDoctor[this.language]};
         this.state = { 

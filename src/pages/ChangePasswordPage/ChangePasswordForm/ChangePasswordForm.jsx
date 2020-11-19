@@ -12,7 +12,7 @@ class ChangePasswordForm extends React.Component {
         this.setState = this.setState.bind(this);
         this.user = JSON.parse(localStorage.getItem('user'));
         this.serverAddress = props.serverAddress;
-        this.language = JSON.parse(localStorage.getItem('language'));
+        this.language = localStorage.getItem('language');
         this.state = {
             errors: {}
         };

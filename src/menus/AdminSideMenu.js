@@ -3,12 +3,13 @@ import { connect } from "react-redux";
 import localization from "../localization/localization.json";
 import './style.css';
 import { NavLink } from 'react-router-dom';
-import { setUser } from "../redux/actions";
 
 class AdminSideMenuElement extends React.Component {
     constructor(props) {
         super();
-        this.setUser = props.setUser;
+        this.serverAddress = props.serverAddress;
+        this.language = localStorage.getItem('language');
+        this.user = JSON.parse(localStorage.getItem('user'));
     }
 
     render() {
@@ -17,28 +18,28 @@ class AdminSideMenuElement extends React.Component {
                 <div className="siteTitle">asthMatter</div>
                 <div id="sideMenu" className="flexDiv">
                     <NavLink to="/mainboard" className="links attacksDiary" activeClassName="current">
-                        {localization.sideMenuAdmin.mainBoard[this.props.language]}
+                        {localization.sideMenuAdmin.mainBoard[this.language]}
                     </NavLink>
                     <NavLink to="/patients" className="links medCardInformation" activeClassName="current">
-                        {localization.sideMenuAdmin.patients[this.props.language]}
+                        {localization.sideMenuAdmin.patients[this.language]}
                     </NavLink>
                     <NavLink to="/lala" className="links medCardRecords" activeClassName="current">
-                        {localization.sideMenuAdmin.doctors[this.props.language]}
+                        {localization.sideMenuAdmin.doctors[this.language]}
                     </NavLink>
                     <NavLink to="/lala" className="links medicines" activeClassName="current">
-                        {localization.sideMenuAdmin.admins[this.props.language]}
+                        {localization.sideMenuAdmin.admins[this.language]}
                     </NavLink>
                     <NavLink to="/lala" className="links doctor" activeClassName="current">
-                        {localization.sideMenuAdmin.hospitals[this.props.language]}
+                        {localization.sideMenuAdmin.hospitals[this.language]}
                     </NavLink>
                     <NavLink to="/profileSettings" className="links inhaler" activeClassName="current">
-                        {localization.sideMenuAdmin.profileSettings[this.props.language]}
+                        {localization.sideMenuAdmin.profileSettings[this.language]}
                     </NavLink>
                     <NavLink to="/lala" className="links profileSettings" activeClassName="current">
-                        {localization.sideMenuAdmin.dataBackup[this.props.language]}
+                        {localization.sideMenuAdmin.dataBackup[this.language]}
                     </NavLink>
                     <NavLink to="/" className="links logout" onClick={() => { this.logoutUser() }}>
-                        {localization.logoutLink[this.props.language]}
+                        {localization.logoutLink[this.language]}
                     </NavLink>
                 </div>
             </div>
@@ -46,7 +47,7 @@ class AdminSideMenuElement extends React.Component {
     }
 
     logoutUser() {
-        fetch(`https://localhost:5001/profiles/logout`, {
+        fetch(`${this.serverAddress}/profiles/logout`, {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -58,14 +59,14 @@ class AdminSideMenuElement extends React.Component {
             if (data.error != null) {
                 throw new Error(data.error);
             } else{
-                this.setUser({});
+                localStorage.setItem('user', JSON.stringify({}));
             }
         }).catch(err => alert("Error: " + err.message));
     }
 }
 
-const dispatcherToProps = (dispatcher) => ({
-    setUser: (user) => dispatcher(setUser(user))
-});
+const storeToProps = (store)=>({
+    serverAddress: store.serverAddress
+})
 
-export default connect(null, dispatcherToProps)(AdminSideMenuElement);
+export default connect(storeToProps, null)(AdminSideMenuElement);

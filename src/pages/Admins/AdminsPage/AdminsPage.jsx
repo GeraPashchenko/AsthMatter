@@ -5,11 +5,13 @@ import localization from "../../../localization/localization.json";
 import { DivWithShift } from '../../MedCardRecordsPage/MedCardRecord/StyledComponent';
 import AdminSideMenu from "../../../menus/AdminSideMenu";
 import '../../../shared/styles/pageStyles.css';
-import PatientsTable from './PatientsTable';
+import AdminsTable from './AdminsTable';
 import { setLocalization } from "../../../redux/actions";
 import { connect } from "react-redux";
+import { Link } from 'react-router-dom';
+import { FlexRow } from '../MainBoardPage/StyledComponent';
 
-function PatientsPage(props) {
+function AdminsPage(props) {
     const { setLocalization } = props;
     let language = localStorage.getItem('language');
     let [newLang, setLang] = useState(language);
@@ -19,8 +21,13 @@ function PatientsPage(props) {
             <AdminSideMenu language={newLang} />
 
             <DivWithShift>
-                <PageTitle>{localization.patientsAdminPage.title[newLang]}</PageTitle>
-                <PatientsTable language={newLang} />
+                <FlexRow>
+                    <PageTitle>{localization.adminsPage.title[newLang]}</PageTitle>
+                    <Link to="/createAdmin" className="button">
+                        {localization.createButton[newLang]}
+                    </Link>       
+                </FlexRow>
+                <AdminsTable language={newLang} />
             </DivWithShift>
             <LocalizationButton onClick={() => changeLocalization(setLang, newLang, setLocalization)}>
                 {changeLang(newLang)}
@@ -29,12 +36,8 @@ function PatientsPage(props) {
     )
 }
 
-const storeToProps = (store) => ({
-    language: store.language
-});
-
 const dispatchToProps = (dispatcher) => ({
     setLocalization: (lang) => dispatcher(setLocalization(lang))
 });
 
-export default connect(storeToProps, dispatchToProps)(PatientsPage);
+export default connect(null, dispatchToProps)(AdminsPage);

@@ -16,15 +16,15 @@ function MedCardRecordsPage(props) {
   return (
     <>
       <PatientSideMenuElement language={newLang}/>
-      <LocalizationButton onClick={() => changeLocalization(setLang, newLang)}>
-        {changeLang(newLang)}
-      </LocalizationButton>
       <DivWithShift>
         <DivFlexColumn>
-          <PageTitle>{localization.MedCard.medCardRecordsPage.title[language]}</PageTitle>
+          <PageTitle>{localization.MedCard.medCardRecordsPage.title[newLang]}</PageTitle>
           <MedCardRecords language={newLang}/>
         </DivFlexColumn>
       </DivWithShift>
+      <LocalizationButton onClick={() => changeLocalization(setLang, newLang)}>
+        {changeLang(newLang)}
+      </LocalizationButton>
     </>
   )
 }

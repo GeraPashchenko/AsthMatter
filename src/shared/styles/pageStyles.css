@@ -16,6 +16,10 @@
     text-decoration: none;
     color: #ffffff;
     text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    max-height: 50px;
+    min-height: 20px;
 }
 
 .smallButton {
@@ -31,6 +35,8 @@
     text-align: center;
     margin-top: 3px;
     margin-bottom: 3px;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
 }
 
 .button:hover, .smallButton:hover {

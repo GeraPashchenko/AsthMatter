@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { LocalizationButton, PageTitle } from '../../shared/styles/HeaderStyles'
 import { connect } from "react-redux";
 import { changeLang, changeLocalization } from '../../localization/localizationFunctions';
-import { setLocalization, setUser } from "../../redux/actions";
+import { setLocalization } from "../../redux/actions";
 import PatientSideMenuElement from "../../menus/PatientSideMenu";
 import '../../shared/styles/pageStyles.css';
 import MedRecord from '../MedCardRecordsPage/MedCardRecord/MedRecord';
@@ -10,12 +10,14 @@ import { Title, DivWithShift } from '../MedCardRecordsPage/MedCardRecord/StyledC
 import localization from '../../localization/localization.json';
 
 function MedRecordPage(props) {
-    const { language, setLocalization } = props;
+    const { setLocalization } = props;
+    let language = localStorage.getItem('language');
     let [newLang, setLang] = useState(language);
     let id = props.match.params.id;
+    let serverAddress = props.serverAddress;
     var [rec, setRecord] = useState(undefined);
     var [fetchDone, setFetchDone] = useState(false);
-    if(!fetchDone) getRecord(id, setRecord, setFetchDone);
+    if(!fetchDone) getRecord(id, setRecord, setFetchDone, serverAddress);
 
     return (
         <>
@@ -39,8 +41,8 @@ function MedRecordPage(props) {
     )
 }
 
-function getRecord(id, setRecord, setFetchDone){
-    fetch(`https://localhost:5001/medrecords/record/${id}`, {
+function getRecord(id, setRecord, setFetchDone, serverAddress){
+    fetch(`${serverAddress}/medrecords/record/${id}`, {
         method: 'GET',
         credentials: 'include',
         headers: {
@@ -60,7 +62,7 @@ function getRecord(id, setRecord, setFetchDone){
 }
 
 const storeToProps = (store) => ({
-    language: store.language
+    serverAddress : store.serverAddress
 });
 
 const dispatchToProps = (dispatcher) => ({

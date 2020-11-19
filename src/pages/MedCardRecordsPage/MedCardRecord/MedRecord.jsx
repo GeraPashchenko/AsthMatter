@@ -1,13 +1,13 @@
-import React, {useState} from "react";
+import React from "react";
 import { RecordBlock, TextBlock, Title, Text, RightTextBlock } from './StyledComponent';
 import localization from '../../../localization/localization.json';
 import { formatDateTime } from '../../../dates/datesFunctions';
 import PrescriptedMedicinesTable from './PrescriptedMedicinesTable';
-import { Redirect, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function MedRecord(props) {
-    const { record, language, setButton } = props;
-    let [redirectId, setRedirectId] = useState(0);
+    const { record, setButton } = props;
+    let language = localStorage.getItem('language');
 
     return (
         <RecordBlock>

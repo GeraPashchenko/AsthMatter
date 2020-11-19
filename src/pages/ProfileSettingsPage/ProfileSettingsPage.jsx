@@ -8,7 +8,7 @@ import PatientSideMenuElement from "../../menus/PatientSideMenu";
 import ProfileSettingsForm from "./ProfileSettingsForm/ProfileSettingsForm";
 import { Link, Redirect } from "react-router-dom";
 import '../../shared/styles/pageStyles.css';
-
+import AdminSideMenu from '../../menus/AdminSideMenu';
 
 function ProfileSettingsPage(props) {
     let user = JSON.parse(localStorage.getItem('user'));
@@ -19,21 +19,24 @@ function ProfileSettingsPage(props) {
 
     return (
         <>
-            <PatientSideMenuElement language={newLang} />
+            { user.role === 'Patient' ? <PatientSideMenuElement language={newLang} /> : ''}
+            { user.role === 'Doctor' ? '' : ''}
+            { user.role === 'Admin' ? <AdminSideMenu language={newLang} /> : ''}
+
             <LocalizationButton onClick={() => changeLocalization(setLang, newLang)}>
                 {changeLang(newLang)}
             </LocalizationButton>
             <DivWithShift>
                 <DivFlexColumn>
-                    <PageTitle>{localization.profileSettingsPage.title[language]}</PageTitle>
+                    <PageTitle>{localization.profileSettingsPage.title[newLang]}</PageTitle>
                     <ProfileSettingsForm language={newLang} />
                 </DivFlexColumn>
                 <DivFlexColumn>
                     <Link to="/changePassword" className="sideButton changePasswordButton">
-                        {localization.profileSettingsPage.changePasswordButton[language]}
+                        {localization.profileSettingsPage.changePasswordButton[newLang]}
                     </Link>
-                    <Link className="sideButton deleteProfileButton" onClick={() => deleteProfile(language, setRedirect, user.id, serverAddress)}>
-                        {localization.profileSettingsPage.deleteProfileButton[language]}
+                    <Link className="sideButton deleteProfileButton" onClick={() => deleteProfile(newLang, setRedirect, user.id, serverAddress)}>
+                        {localization.profileSettingsPage.deleteProfileButton[newLang]}
                     </Link>
                     {redirect === true ? <Redirect to="/" /> : null}
                 </DivFlexColumn>

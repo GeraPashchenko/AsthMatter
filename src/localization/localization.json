@@ -33,8 +33,8 @@
       "ua": "Чоловіча"
     },
     "genderWoman": {
-        "en":"Female",
-        "ua":"Жіноча"
+      "en":"Female",
+      "ua":"Жіноча"
     },
     "email":{
       "en":"Email",
@@ -96,669 +96,681 @@
     }
   },
   "sideMenuPatient": {
-        "welcome": {
-            "en": "Welcome",
-            "ua": "Вітаємо"
-        },
-        "attacksDiary": {
-            "en": "Attacks Diary",
-            "ua": "Щоденник нападів"
-        },
-        "medCardInformation": {
-            "en": "MedCard Information",
-            "ua": "Інформація медкартки"
-        },
-        "medCardRecords": {
-            "en": "MedCard Records",
-            "ua": "Записи в медкартці"
-        },
-        "medicines": {
-            "en": "Medicines",
-            "ua": "Ліки"
-        },
-        "doctor": {
-            "en": "Doctor",
-            "ua": "Лікар"
-        },
-        "inhaler": {
-            "en": "Inhaler",
-            "ua": "Інгалятор"
-        },
-        "profileSettings": {
-            "en": "Profile Settings",
-            "ua": "Налаштування профілю"
-        }
+    "welcome": {
+      "en": "Welcome",
+      "ua": "Вітаємо"
     },
     "attacksDiary": {
-        "mainPage": {
-            "attacksDiary": {
-                "en": "Attacks Diary",
-                "ua": "Щоденник нападів"
-            },
-            "period": {
-                "en": "Period",
-                "ua": "Період"
-            },
-            "attacksStatistics": {
-                "en": "Attacks Statistics",
-                "ua": "Статистика нападів"
-            },
-            "time": {
-                "en": "Time",
-                "ua": "Час"
-            },
-            "date": {
-                "en": "Date",
-                "ua": "Дата"
-            },
-            "attacksReasonsStatistics": {
-                "en": "Attacks Reasons Statistics",
-                "ua": "Статистика причин нападів"
-            },
-            "reasons": {
-                "en": "Reasons",
-                "ua": "Причини"
-            },
-            "countOfAttacks": {
-                "en": "Count of attacks",
-                "ua": "Кількість нападів"
-            },
-            "editRecord": {
-                "en": "Edit",
-                "ua": "Редагувати"
-            },
-            "deleteRecord": {
-              "en": "Delete",
-              "ua": "Видалити"
-            }
-        },
-        "createNewAttackPage": {
-            "title": {
-                "en": "Create new attack record",
-                "ua": "Створити новий запис про напад"
-            },
-            "time": {
-                "en": "Time",
-                "ua": "Час"
-            },
-            "date": {
-                "en": "Date",
-                "ua": "Дата"
-            },
-            "reasons": {
-                "en": "Reasons",
-                "ua": "Причини"
-            }
-        },
-        "editAttackPage": {
-            "title": {
-                "en": "Edit attack record",
-                "ua": "Редагувати запис про напад"
-            },
-            "time": {
-                "en": "Time",
-                "ua": "Час"
-            },
-            "date": {
-                "en": "Date",
-                "ua": "Дата"
-            },
-            "reasons": {
-                "en": "Reasons",
-                "ua": "Причини"
-            }
-        }
+      "en": "Attacks Diary",
+      "ua": "Щоденник нападів"
     },
-    "MedCard": {
-        "medCardRecordsPage": {
-            "title": {
-                "en": "MedCard Records",
-                "ua": "Записи в медкартці"
-            },
-            "information" : {
-                "en" : "Information",
-                "ua" : "Інформація"
-            },
-            "prescriptedMedicines": {
-                "en": "Prescripted Medicines",
-                "ua": "Призначені ліки"
-            },
-            "doctor": {
-                "en": "Doctor",
-                "ua": "Лікар"
-            },
-            "filter": {
-                "en": "Filter",
-                "ua": "Фільтрація"
-            },
-            "from": {
-                "en": "From",
-                "ua": "Від"
-            },
-            "to": {
-                "en": "To",
-                "ua": "До"
-            },
-            "filterButton": {
-                "en": "Filter",
-                "ua": "Відфільтрувати"
-            },
-            "noRecords" : {
-                "en" : "Sorry, there are no records in your medcard.",
-                "ua" : "Вибачте, але наразі в вашій медкартці немає записів."
-            },
-            "invalidFiltering" : {
-                "en" : "'FROM' should be less or equal 'TO'.",
-                "ua" : "Дата 'від' повинна бути менше або дорівнювати 'до'."
-            },
-            "recordNotFound" : {
-                "en" : "Record not found.",
-                "ua" : "Запис не знайдено."
-            },
-            "medCardRecord" : {
-                "en" : "MedCard Record",
-                "ua" : "Запис в медкартці"
-            }
-        },
-        "medCardInformationPage": {
-            "title": {
-                "en": "MedCard Information",
-                "ua": "Інформація медкартки"
-            },
-            "birthday": {
-                "en": "Birthday",
-                "ua": "День народження"
-            },
-            "height": {
-                "en": "Height (cm)",
-                "ua": "Зріст (см)"
-            },
-            "weight": {
-                "en": "Weight (kg)",
-                "ua": "Вага (кг)"
-            },
-            "emergencyContact": {
-                "en": "Emergency Contact",
-                "ua": "Екстренний контакт"
-            },
-            "bloodGroup": {
-                "en": "Blood group",
-                "ua": "Група крові"
-            },
-            "allergies": {
-                "en": "Allergies",
-                "ua": "Алергії"
-            },
-            "address": {
-                "en": "Address",
-                "ua": "Адреса"
-            }
-        }
+    "medCardInformation": {
+      "en": "MedCard Information",
+      "ua": "Інформація медкартки"
     },
-    "medicinesPage": {
-        "title": {
-            "en": "Actual medicines",
-            "ua": "Призначені ліки"
-        },
-        "noActualMedicines" : {
-            "en": "No actual medicines found.",
-            "ua": "Актуальні ліки не знайдено."
-        }
+    "medCardRecords": {
+      "en": "MedCard Records",
+      "ua": "Записи в медкартці"
     },
-    "doctorPage": {
-        "title": {
-            "en": "Doctor",
-            "ua": "Лікар"
-        },
-        "fullName": {
-            "en": "Full Name",
-            "ua": "Повне ім'я"
-        },
-        "workplaceInformation": {
-            "en": "Workplace Information",
-            "ua": "Інформація про місце роботи"
-        },
-        "hospitalTitle": {
-            "en": "Hospital Title",
-            "ua": "Назва лікарні"
-        },
-        "hospitalCity": {
-            "en": "Hospital City",
-            "ua": "Місто лікарні"
-        },
-        "hospitalAddress": {
-            "en": "Hospital Address",
-            "ua": "Адреса лікарні"
-        },
-        "notSelectedDoctor" : {
-            "en" : "Not selected",
-            "ua" : "Не обрано"
-        }
+    "medicines": {
+      "en": "Medicines",
+      "ua": "Ліки"
     },
-    "inhalerPage": {
-        "title": {
-            "en": "Inhaler",
-            "ua": "Інгалятор"
-        }
+    "doctor": {
+      "en": "Doctor",
+      "ua": "Лікар"
     },
-    "profileSettingsPage": {
-        "title": {
-            "en": "Profile Settings",
-            "ua": "Налаштування профілю"
-        },
-        "surname": {
-            "en": "Surname",
-            "ua": "Прізвище"
-        },
-        "name": {
-            "en": "Name",
-            "ua": "Ім'я"
-        },
-        "patronymic": {
-            "en": "Patronymic",
-            "ua": "По батькові"
-        },
-        "phone": {
-            "en": "Phone",
-            "ua": "Телефон"
-        },
-        "gender": {
-            "en": "Gender",
-            "ua": "Стать",
-            "options": {
-                "en": [
-                    "Male",
-                    "Female"
-                ],
-                "ua": [
-                    "Чоловіча",
-                    "Жіноча"
-                ]
-            }
-        },
-        "email": {
-            "en": "Email",
-            "ua": "Електронна пошта"
-        },
-        "password": {
-            "en": "Password",
-            "ua": "Пароль"
-        },
-        "timezone": {
-            "en": "Time zone",
-            "ua": "Часовий пояс"
-        },
-        "language": {
-            "en": "Language",
-            "ua": "Мова"
-        },
-        "changePasswordButton": {
-            "en": "Change Password",
-            "ua": "Змінити пароль"
-        },
-        "deleteProfileButton": {
-            "en": "Delete Profile",
-            "ua": "Видалити профіль"
-        },
-        "confirmDeleteting" : {
-            "en" : "Are you sure that you want to delete your profile? This action can't be undone!",
-            "ua" : " Ви впевнені, що хочете видалити свій профіль? Цю дію не можна скасувати!"
-        }
+    "inhaler": {
+      "en": "Inhaler",
+      "ua": "Інгалятор"
     },
-    "changePasswordPage": {
-        "title": {
-            "en": "Change Password",
-            "ua": "Змінити пароль"
-        },
-        "oldPassword": {
-            "en": "Old Password",
-            "ua": "Старий пароль"
-        },
-        "newPassword": {
-            "en": "New Password",
-            "ua": "Новий пароль"
-        },
-        "confirmPassword": {
-            "en": "Confirm Password",
-            "ua": "Підтвердити пароль"
-        },
-        "matchError" : {
-            "en" : "Passwords don't match.",
-            "ua" : "Паролі не співпадають."
-        },
-        "oldPasswordError" : {
-            "en" : "Password is incorrect. ",
-            "ua" : "Неправильний пароль."
-        }
-    },
-    "medicinesTable": {
-        "title": {
-            "en": "Title",
-            "ua": "Назва"
-        },
-        "type": {
-            "en": "Type",
-            "ua": "Тип"
-        },
-        "dosage": {
-            "en": "Dosage",
-            "ua": "Дозування"
-        },
-        "howToUse": {
-            "en": "How to use",
-            "ua": "Як приймати"
-        },
-        "isActual": {
-            "en": "Is Actual",
-            "ua": "Актуальні"
-        }
-    },
-    "sideMenuAdmin": {
-        "welcome": {
-            "en": "Welcome",
-            "ua": "Вітаємо"
-        },
-        "mainBoard": {
-            "en": "Main Board",
-            "ua": "Головна"
-        },
-        "patients": {
-            "en": "Patients",
-            "ua": "Хворі"
-        },
-        "doctors": {
-            "en": "Doctors",
-            "ua": "Лікарі"
-        },
-        "admins": {
-            "en": "Admins",
-            "ua": "Адміністратори"
-        },
-        "hospitals": {
-            "en": "Hospitals",
-            "ua": "Лікарні"
-        },
-        "profileSettings": {
-            "en": "Profile Settings",
-            "ua": "Налаштування профілю"
-        },
-        "dataBackup": {
-            "en": "Data Backup",
-            "ua": "Копія даних"
-        }
-    },
-    "mainBoardPage": {
-        "title": {
-            "en": "Main Board",
-            "ua": "Головна"
-        },
-        "patients": {
-            "en": "Patients",
-            "ua": "Хворі"
-        },
-        "doctors": {
-            "en": "Doctors",
-            "ua": "Лікарі"
-        },
-        "admins": {
-            "en": "Admins",
-            "ua": "Адміністратори"
-        },
-        "totalUsers": {
-            "en": "Total users: ",
-            "ua": "Загалом користувачів: "
-        }
-    },
-    "patientsAdminPage": {
-        "title": {
-            "en": "Patients",
-            "ua": "Хворі"
-        },
-        "notFound" : {
-            "en" : "No patients were found.",
-            "ua" : "Пацієнтів знайдено не було."
-        }
-    },
-    "deletePatientAdminPage": {
-        "title": {
-            "en": "Delete Patient",
-            "ua": "Видалити пацієнта"
-        },
-        "confirm" : {
-            "en" :  "Are you sure that you want to delete a patient? This action can't be undone!",
-            "ua" : " Ви впевнені, що хочете видалити пацієнта? Цю дію не можна скасувати!"
-        },
-        "patientData" : {
-            "en" : "Patient data",
-            "ua" : "Дані про пацієнта" 
-        }
-    },
-    "patientData": {
-        "email": {
-            "en": "Email",
-            "ua": "Електронна пошта"
-        },
-        "surname": {
-            "en": "Surname",
-            "ua": "Прізвище"
-        },
-        "name": {
-            "en": "Name",
-            "ua": "Ім'я"
-        },
-        "patronymic": {
-            "en": "Patronymic",
-            "ua": "По батькові"
-        },
-        "gender": {
-            "en": "Gender",
-            "ua": "Стать",
-            "options": {
-                "en": [
-                    "Male",
-                    "Female"
-                ],
-                "ua": [
-                    "Чоловіча",
-                    "Жіноча"
-                ]
-            }
-        },
-        "phone": {
-            "en": "Phone",
-            "ua": "Телефон"
-        },
-        "inhalerID": {
-            "en": "Inhaler ID",
-            "ua": "ID інгалятора"
-        }
-    },
-    "adminsPage": {
-        "title": {
-            "en": "Phone",
-            "ua": "Телефон"
-        },
-        "email": {
-            "en": "Email",
-            "ua": "Електронна пошта"
-        },
-        "surname": {
-            "en": "Surname",
-            "ua": "Прізвище"
-        },
-        "name": {
-            "en": "Name",
-            "ua": "Ім'я"
-        },
-        "patronymic": {
-            "en": "Patronymic",
-            "ua": "По батькові"
-        },
-        "gender": {
-            "en": "Gender",
-            "ua": "Стать",
-            "options": {
-                "en": [
-                    "Male",
-                    "Female"
-                ],
-                "ua": [
-                    "Чоловіча",
-                    "Жіноча"
-                ]
-            }
-        },
-        "phone": {
-            "en": "Phone",
-            "ua": "Телефон"
-        }
-    },
-    "deleteAdminPage": {
-        "title": {
-            "en": "Delete Admin",
-            "ua": "Видалити адміністратора"
-        }
-    },
-    "createNewAdminPage": {
-        "title": {
-            "en": "Create new admin",
-            "ua": "Створити нового адміністратора"
-        }
-    },
-    "doctorsAdminPage": {
-        "title": {
-            "en": "Doctors",
-            "ua": "Лікарі"
-        }
-    },
-    "informationAboutDoctorAdminPage": {
-        "title": {
-            "en": "Information about doctor",
-            "ua": "Інформація про лікаря"
-        }
-    },
-    "deleteDoctorAdminPage": {
-        "title": {
-            "en": "Delete Doctor",
-            "ua": "Видалити лікаря"
-        }
-    },
-    "doctorData": {
-        "email": {
-            "en": "Email",
-            "ua": "Електронна пошта"
-        },
-        "surname": {
-            "en": "Surname",
-            "ua": "Прізвище"
-        },
-        "name": {
-            "en": "Name",
-            "ua": "Ім'я"
-        },
-        "patronymic": {
-            "en": "Patronymic",
-            "ua": "По батькові"
-        },
-        "gender": {
-            "en": "Gender",
-            "ua": "Стать",
-            "options": {
-                "en": [
-                    "Male",
-                    "Female"
-                ],
-                "ua": [
-                    "Чоловіча",
-                    "Жіноча"
-                ]
-            }
-        },
-        "phone": {
-            "en": "Phone",
-            "ua": "Телефон"
-        },
-        "workplaceInformation": {
-            "en": "Workplace Information",
-            "ua": "Інформація про місце роботи"
-        },
-        "patients": {
-            "en": "Patients",
-            "ua": "Пацієнти"
-        }
-    },
-    "hospitalData": {
-        "title": {
-            "en": "Hospital Title",
-            "ua": "Назва лікарні"
-        },
-        "city": {
-            "en": "Hospital City",
-            "ua": "Місто"
-        },
-        "address": {
-            "en": "Hospital Address",
-            "ua": "Адреса лікарні"
-        }
-    },
-    "hospitalsPage": {
-        "title": {
-            "en": "Hospitals",
-            "ua": "Лікарні"
-        },
-        "createNewHospitalButton": {
-            "en": "Create new hospital",
-            "ua": "Створити нову лікарню"
-        }
-    },
-    "createNewHospitalPage": {
-        "title": {
-            "en": "Create New Hospital",
-            "ua": "Створити нову лікарню"
-        }
-    },
-    "editHospitalPage": {
-        "title": {
-            "en": "Edit Hospital Information",
-            "ua": "Редагувати інформацію про лікарню"
-        }
-    },
-    "addNewRecordButton": {
-        "en": "Add new record",
-        "ua": "Додати новий запис"
-    },
-    "saveButton": {
-        "en": "Save",
-        "ua": "Зберегти"
-    },
-    "deleteButton": {
-        "en": "Delete",
-        "ua": "Видалити"
-    },
-    "openRecordButton": {
-        "en": "Open record",
-        "ua": "Відкрити запис"
-    },
-    "recordButton": {
-        "en": "Record",
-        "ua": "Запис"
-    },
-    "openButton": {
-        "en": "Open",
-        "ua": "Відкрити"
-    },
-    "editButton": {
+    "profileSettings": {
+      "en": "Profile Settings",
+      "ua": "Налаштування профілю"
+    }
+  },
+  "attacksDiary": {
+    "mainPage": {
+      "attacksDiary": {
+        "en": "Attacks Diary",
+        "ua": "Щоденник нападів"
+      },
+      "period": {
+        "en": "Period",
+        "ua": "Період"
+      },
+      "attacksStatistics": {
+        "en": "Attacks Statistics",
+        "ua": "Статистика нападів"
+      },
+      "time": {
+        "en": "Time",
+        "ua": "Час"
+      },
+      "date": {
+        "en": "Date",
+        "ua": "Дата"
+      },
+      "attacksReasonsStatistics": {
+        "en": "Attacks Reasons Statistics",
+        "ua": "Статистика причин нападів"
+      },
+      "reasons": {
+        "en": "Reasons",
+        "ua": "Причини"
+      },
+      "countOfAttacks": {
+        "en": "Count of attacks",
+        "ua": "Кількість нападів"
+      },
+      "editRecord": {
         "en": "Edit",
         "ua": "Редагувати"
+      }
     },
-    "createButton": {
-        "en": "Create",
-        "ua": "Створити"
+    "createNewAttackPage": {
+      "title": {
+        "en": "Create new attack record",
+        "ua": "Створити новий запис про напад"
+      },
+      "time": {
+        "en": "Time",
+        "ua": "Час"
+      },
+      "date": {
+        "en": "Date",
+        "ua": "Дата"
+      },
+      "reasons": {
+        "en": "Reasons",
+        "ua": "Причини"
+      }
     },
-
-    "logoutLink" : {
-        "en" : "Logout",
-        "ua" : "Вийти з акаунту"
+    "editAttackPage": {
+      "title": {
+        "en": "Edit attack record",
+        "ua": "Редагувати запис про напад"
+      },
+      "time": {
+        "en": "Time",
+        "ua": "Час"
+      },
+      "date": {
+        "en": "Date",
+        "ua": "Дата"
+      },
+      "reasons": {
+        "en": "Reasons",
+        "ua": "Причини"
+      }
     }
-    
+  },
+  "MedCard": {
+    "medCardRecordsPage": {
+      "title": {
+        "en": "MedCard Records",
+        "ua": "Записи в медкартці"
+      },
+      "information" : {
+        "en" : "Information",
+        "ua" : "Інформація"
+      },
+      "prescriptedMedicines": {
+        "en": "Prescripted Medicines",
+        "ua": "Призначені ліки"
+      },
+      "doctor": {
+        "en": "Doctor",
+        "ua": "Лікар"
+      },
+      "filter": {
+        "en": "Filter",
+        "ua": "Фільтрація"
+      },
+      "from": {
+        "en": "From",
+        "ua": "Від"
+      },
+      "to": {
+        "en": "To",
+        "ua": "До"
+      },
+      "filterButton": {
+        "en": "Filter",
+        "ua": "Відфільтрувати"
+      },
+      "noRecords" : {
+        "en" : "Sorry, there are no records in your medcard.",
+        "ua" : "Вибачте, але наразі в вашій медкартці немає записів."
+      },
+      "invalidFiltering" : {
+        "en" : "'FROM' should be less or equal 'TO'.",
+        "ua" : "Дата 'від' повинна бути менше або дорівнювати 'до'."
+      },
+      "recordNotFound" : {
+        "en" : "Record not found.",
+        "ua" : "Запис не знайдено."
+      },
+      "medCardRecord" : {
+        "en" : "MedCard Record",
+        "ua" : "Запис в медкартці"
+      }
+    },
+    "medCardInformationPage": {
+      "title": {
+        "en": "MedCard Information",
+        "ua": "Інформація медкартки"
+      },
+      "birthday": {
+        "en": "Birthday",
+        "ua": "День народження"
+      },
+      "height": {
+        "en": "Height (cm)",
+        "ua": "Зріст (см)"
+      },
+      "weight": {
+        "en": "Weight (kg)",
+        "ua": "Вага (кг)"
+      },
+      "emergencyContact": {
+        "en": "Emergency Contact",
+        "ua": "Екстренний контакт"
+      },
+      "bloodGroup": {
+        "en": "Blood group",
+        "ua": "Група крові"
+      },
+      "allergies": {
+        "en": "Allergies",
+        "ua": "Алергії"
+      },
+      "address": {
+        "en": "Address",
+        "ua": "Адреса"
+      }
+    }
+  },
+  "medicinesPage": {
+    "title": {
+      "en": "Actual medicines",
+      "ua": "Призначені ліки"
+    },
+    "noActualMedicines" : {
+      "en": "No actual medicines found.",
+      "ua": "Актуальні ліки не знайдено."
+    }
+  },
+  "doctorPage": {
+    "title": {
+      "en": "Doctor",
+      "ua": "Лікар"
+    },
+    "fullName": {
+      "en": "Full Name",
+      "ua": "Повне ім'я"
+    },
+    "workplaceInformation": {
+      "en": "Workplace Information",
+      "ua": "Інформація про місце роботи"
+    },
+    "hospitalTitle": {
+      "en": "Hospital Title",
+      "ua": "Назва лікарні"
+    },
+    "hospitalCity": {
+      "en": "Hospital City",
+      "ua": "Місто лікарні"
+    },
+    "hospitalAddress": {
+      "en": "Hospital Address",
+      "ua": "Адреса лікарні"
+    },
+    "notSelectedDoctor" : {
+      "en" : "Not selected",
+      "ua" : "Не обрано"
+    }
+  },
+  "inhalerPage": {
+    "title": {
+      "en": "Inhaler",
+      "ua": "Інгалятор"
+    }
+  },
+  "profileSettingsPage": {
+    "title": {
+      "en": "Profile Settings",
+      "ua": "Налаштування профілю"
+    },
+    "surname": {
+      "en": "Surname",
+      "ua": "Прізвище"
+    },
+    "name": {
+      "en": "Name",
+      "ua": "Ім'я"
+    },
+    "patronymic": {
+      "en": "Patronymic",
+      "ua": "По батькові"
+    },
+    "phone": {
+      "en": "Phone",
+      "ua": "Телефон"
+    },
+    "gender": {
+      "en": "Gender",
+      "ua": "Стать",
+      "options": {
+        "en": [
+          "Male",
+          "Female"
+        ],
+        "ua": [
+          "Чоловіча",
+          "Жіноча"
+        ]
+      }
+    },
+    "email": {
+      "en": "Email",
+      "ua": "Електронна пошта"
+    },
+    "password": {
+      "en": "Password",
+      "ua": "Пароль"
+    },
+    "timezone": {
+      "en": "Time zone",
+      "ua": "Часовий пояс"
+    },
+    "language": {
+      "en": "Language",
+      "ua": "Мова"
+    },
+    "changePasswordButton": {
+      "en": "Change Password",
+      "ua": "Змінити пароль"
+    },
+    "deleteProfileButton": {
+      "en": "Delete Profile",
+      "ua": "Видалити профіль"
+    },
+    "confirmDeleteting" : {
+      "en" : "Are you sure that you want to delete your profile? This action can't be undone!",
+      "ua" : " Ви впевнені, що хочете видалити свій профіль? Цю дію не можна скасувати!"
+    }
+  },
+  "changePasswordPage": {
+    "title": {
+      "en": "Change Password",
+      "ua": "Змінити пароль"
+    },
+    "oldPassword": {
+      "en": "Old Password",
+      "ua": "Старий пароль"
+    },
+    "newPassword": {
+      "en": "New Password",
+      "ua": "Новий пароль"
+    },
+    "confirmPassword": {
+      "en": "Confirm Password",
+      "ua": "Підтвердити пароль"
+    },
+    "matchError" : {
+      "en" : "Passwords don't match.",
+      "ua" : "Паролі не співпадають."
+    },
+    "oldPasswordError" : {
+      "en" : "Password is incorrect. ",
+      "ua" : "Неправильний пароль."
+    }
+  },
+  "medicinesTable": {
+    "title": {
+      "en": "Title",
+      "ua": "Назва"
+    },
+    "type": {
+      "en": "Type",
+      "ua": "Тип"
+    },
+    "dosage": {
+      "en": "Dosage",
+      "ua": "Дозування"
+    },
+    "howToUse": {
+      "en": "How to use",
+      "ua": "Як приймати"
+    },
+    "isActual": {
+      "en": "Is Actual",
+      "ua": "Актуальні"
+    }
+  },
+  "sideMenuAdmin": {
+    "welcome": {
+      "en": "Welcome",
+      "ua": "Вітаємо"
+    },
+    "mainBoard": {
+      "en": "Main Board",
+      "ua": "Головна"
+    },
+    "patients": {
+      "en": "Patients",
+      "ua": "Хворі"
+    },
+    "doctors": {
+      "en": "Doctors",
+      "ua": "Лікарі"
+    },
+    "admins": {
+      "en": "Admins",
+      "ua": "Адміністратори"
+    },
+    "hospitals": {
+      "en": "Hospitals",
+      "ua": "Лікарні"
+    },
+    "profileSettings": {
+      "en": "Profile Settings",
+      "ua": "Налаштування профілю"
+    },
+    "dataBackup": {
+      "en": "Data Backup",
+      "ua": "Копія даних"
+    }
+  },
+  "mainBoardPage": {
+    "title": {
+      "en": "Main Board",
+      "ua": "Головна"
+    },
+    "patients": {
+      "en": "Patients",
+      "ua": "Хворі"
+    },
+    "doctors": {
+      "en": "Doctors",
+      "ua": "Лікарі"
+    },
+    "admins": {
+      "en": "Admins",
+      "ua": "Адміністратори"
+    },
+    "totalUsers": {
+      "en": "Total users: ",
+      "ua": "Загалом користувачів: "
+    }
+  },
+  "patientsAdminPage": {
+    "title": {
+      "en": "Patients",
+      "ua": "Хворі"
+    },
+    "notFound" : {
+      "en" : "No patients were found.",
+      "ua" : "Пацієнтів знайдено не було."
+    }
+  },
+  "deletePatientAdminPage": {
+    "title": {
+      "en": "Delete Patient",
+      "ua": "Видалити пацієнта"
+    },
+    "confirm" : {
+      "en" :  "Are you sure that you want to delete a patient? This action can't be undone!",
+      "ua" : " Ви впевнені, що хочете видалити пацієнта? Цю дію не можна скасувати!"
+    },
+    "patientData" : {
+      "en" : "Patient data",
+      "ua" : "Дані про пацієнта"
+    }
+  },
+  "patientData": {
+    "email": {
+      "en": "Email",
+      "ua": "Електронна пошта"
+    },
+    "surname": {
+      "en": "Surname",
+      "ua": "Прізвище"
+    },
+    "name": {
+      "en": "Name",
+      "ua": "Ім'я"
+    },
+    "patronymic": {
+      "en": "Patronymic",
+      "ua": "По батькові"
+    },
+    "gender": {
+      "en": "Gender",
+      "ua": "Стать",
+      "options": {
+        "en": [
+          "Male",
+          "Female"
+        ],
+        "ua": [
+          "Чоловіча",
+          "Жіноча"
+        ]
+      }
+    },
+    "phone": {
+      "en": "Phone",
+      "ua": "Телефон"
+    },
+    "inhalerID": {
+      "en": "Inhaler ID",
+      "ua": "ID інгалятора"
+    }
+  },
+  "adminsPage": {
+    "title": {
+      "en": "Admins",
+      "ua": "Адміністратори"
+    },
+    "email": {
+      "en": "Email",
+      "ua": "Електронна пошта"
+    },
+    "surname": {
+      "en": "Surname",
+      "ua": "Прізвище"
+    },
+    "name": {
+      "en": "Name",
+      "ua": "Ім'я"
+    },
+    "patronymic": {
+      "en": "Patronymic",
+      "ua": "По батькові"
+    },
+    "gender": {
+      "en": "Gender",
+      "ua": "Стать",
+      "options": {
+        "en": [
+          "Male",
+          "Female"
+        ],
+        "ua": [
+          "Чоловіча",
+          "Жіноча"
+        ]
+      }
+    },
+    "phone": {
+      "en": "Phone",
+      "ua": "Телефон"
+    },
+    "timezone" : {
+      "en" : "TimeZone",
+      "ua" : "Часовий пояс"
+    },
+    "notFound" : {
+      "en" : "No admins were found.",
+      "ua" : "Не було знайдено жодного адміністратора."
+    },
+    "confirm" : {
+      "en" :  "Are you sure that you want to delete an admin? This action can't be undone!",
+      "ua" : " Ви впевнені, що хочете видалити адміністратора? Цю дію не можна скасувати!"
+    },
+    "adminData" : {
+      "en" : "Admin data",
+      "ua" : "Дані про адміністратора"
+    }
+  },
+  "deleteAdminPage": {
+    "title": {
+      "en": "Delete Admin",
+      "ua": "Видалити адміністратора"
+    }
+  },
+  "createNewAdminPage": {
+    "title": {
+      "en": "Create new admin",
+      "ua": "Створити нового адміністратора"
+    }
+  },
+  "doctorsAdminPage": {
+    "title": {
+      "en": "Doctors",
+      "ua": "Лікарі"
+    }
+  },
+  "informationAboutDoctorAdminPage": {
+    "title": {
+      "en": "Information about doctor",
+      "ua": "Інформація про лікаря"
+    }
+  },
+  "deleteDoctorAdminPage": {
+    "title": {
+      "en": "Delete Doctor",
+      "ua": "Видалити лікаря"
+    }
+  },
+  "doctorData": {
+    "email": {
+      "en": "Email",
+      "ua": "Електронна пошта"
+    },
+    "surname": {
+      "en": "Surname",
+      "ua": "Прізвище"
+    },
+    "name": {
+      "en": "Name",
+      "ua": "Ім'я"
+    },
+    "patronymic": {
+      "en": "Patronymic",
+      "ua": "По батькові"
+    },
+    "gender": {
+      "en": "Gender",
+      "ua": "Стать",
+      "options": {
+        "en": [
+          "Male",
+          "Female"
+        ],
+        "ua": [
+          "Чоловіча",
+          "Жіноча"
+        ]
+      }
+    },
+    "phone": {
+      "en": "Phone",
+      "ua": "Телефон"
+    },
+    "workplaceInformation": {
+      "en": "Workplace Information",
+      "ua": "Інформація про місце роботи"
+    },
+    "patients": {
+      "en": "Patients",
+      "ua": "Пацієнти"
+    }
+  },
+  "hospitalData": {
+    "title": {
+      "en": "Hospital Title",
+      "ua": "Назва лікарні"
+    },
+    "city": {
+      "en": "Hospital City",
+      "ua": "Місто"
+    },
+    "address": {
+      "en": "Hospital Address",
+      "ua": "Адреса лікарні"
+    }
+  },
+  "hospitalsPage": {
+    "title": {
+      "en": "Hospitals",
+      "ua": "Лікарні"
+    },
+    "createNewHospitalButton": {
+      "en": "Create new hospital",
+      "ua": "Створити нову лікарню"
+    }
+  },
+  "createNewHospitalPage": {
+    "title": {
+      "en": "Create New Hospital",
+      "ua": "Створити нову лікарню"
+    }
+  },
+  "editHospitalPage": {
+    "title": {
+      "en": "Edit Hospital Information",
+      "ua": "Редагувати інформацію про лікарню"
+    }
+  },
+  "addNewRecordButton": {
+    "en": "Add new record",
+    "ua": "Додати новий запис"
+  },
+  "saveButton": {
+    "en": "Save",
+    "ua": "Зберегти"
+  },
+  "deleteButton": {
+    "en": "Delete",
+    "ua": "Видалити"
+  },
+  "openRecordButton": {
+    "en": "Open record",
+    "ua": "Відкрити запис"
+  },
+  "recordButton": {
+    "en": "Record",
+    "ua": "Запис"
+  },
+  "openButton": {
+    "en": "Open",
+    "ua": "Відкрити"
+  },
+  "editButton": {
+    "en": "Edit",
+    "ua": "Редагувати"
+  },
+  "createButton": {
+    "en": "Create",
+    "ua": "Створити"
+  },
+
+  "logoutLink" : {
+    "en" : "Logout",
+    "ua" : "Вийти з акаунту"
+  }
+
 }

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const AttacksTable = styled.table`
-  margin: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   width: 700px;
   background-color: #E8E8E8;
   border-left: 1px solid #A7A7A7;

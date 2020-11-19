@@ -7,7 +7,11 @@ function SignUpTimeZone(props){
   return(
     <TimezoneSelect name={'timeZone'}>
       {TimeZonesArr.map(timezone =>{
-       return (<option selected={selectedTimeZone === timezone.name} name={timezone.name}>{timezone.name}  (GMT {timezone.offset})</option>)
+        if(selectedTimeZone === timezone.name){
+          return (<option selected key={timezone.name}>{timezone.name}  (GMT {timezone.offset})</option>)
+        } else{
+          return (<option key={timezone.name}>{timezone.name}  (GMT {timezone.offset})</option>)
+        }
     })}
     </TimezoneSelect>
   )

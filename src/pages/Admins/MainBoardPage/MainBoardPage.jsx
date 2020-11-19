@@ -10,7 +10,8 @@ import '../../../shared/styles/pageStyles.css';
 import MainBoardBlocks from './MainBoardBlocks';
 
 function MainBoardPage(props) {
-    const { language, setLocalization, user } = props;
+    const { setLocalization } = props;
+    let language = localStorage.getItem('language');
     let [newLang, setLang] = useState(language);
 
     return (
@@ -30,7 +31,6 @@ function MainBoardPage(props) {
 
 const storeToProps = (store) => ({
     language: store.language,
-    user : store.user
 });
 
 const dispatchToProps = (dispatcher) => ({

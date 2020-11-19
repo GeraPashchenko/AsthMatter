@@ -8,7 +8,6 @@ class AdminSideMenuElement extends React.Component {
     constructor(props) {
         super();
         this.serverAddress = props.serverAddress;
-        this.language = localStorage.getItem('language');
         this.user = JSON.parse(localStorage.getItem('user'));
     }
 
@@ -18,28 +17,28 @@ class AdminSideMenuElement extends React.Component {
                 <div className="siteTitle">asthMatter</div>
                 <div id="sideMenu" className="flexDiv">
                     <NavLink to="/mainboard" className="links attacksDiary" activeClassName="current">
-                        {localization.sideMenuAdmin.mainBoard[this.language]}
+                        {localization.sideMenuAdmin.mainBoard[this.props.language]}
                     </NavLink>
                     <NavLink to="/patients" className="links medCardInformation" activeClassName="current">
-                        {localization.sideMenuAdmin.patients[this.language]}
+                        {localization.sideMenuAdmin.patients[this.props.language]}
                     </NavLink>
                     <NavLink to="/lala" className="links medCardRecords" activeClassName="current">
-                        {localization.sideMenuAdmin.doctors[this.language]}
+                        {localization.sideMenuAdmin.doctors[this.props.language]}
                     </NavLink>
-                    <NavLink to="/lala" className="links medicines" activeClassName="current">
-                        {localization.sideMenuAdmin.admins[this.language]}
+                    <NavLink to="/admins" className="links medicines" activeClassName="current">
+                        {localization.sideMenuAdmin.admins[this.props.language]}
                     </NavLink>
                     <NavLink to="/lala" className="links doctor" activeClassName="current">
-                        {localization.sideMenuAdmin.hospitals[this.language]}
+                        {localization.sideMenuAdmin.hospitals[this.props.language]}
                     </NavLink>
                     <NavLink to="/profileSettings" className="links inhaler" activeClassName="current">
-                        {localization.sideMenuAdmin.profileSettings[this.language]}
+                        {localization.sideMenuAdmin.profileSettings[this.props.language]}
                     </NavLink>
                     <NavLink to="/lala" className="links profileSettings" activeClassName="current">
-                        {localization.sideMenuAdmin.dataBackup[this.language]}
+                        {localization.sideMenuAdmin.dataBackup[this.props.language]}
                     </NavLink>
                     <NavLink to="/" className="links logout" onClick={() => { this.logoutUser() }}>
-                        {localization.logoutLink[this.language]}
+                        {localization.logoutLink[this.props.language]}
                     </NavLink>
                 </div>
             </div>

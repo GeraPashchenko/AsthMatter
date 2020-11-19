@@ -1,5 +1,5 @@
 export const actionType = {
-  SET_USER: '1',
+  // SET_USER: '1',
   SET_LOCALIZATION: '2',
   SET_ATTACK_LIST: '3',
   DELETE_ATTACK: '4',
@@ -8,10 +8,10 @@ export const actionType = {
   SET_DOCTOR_LIST : '7'
 };
 
-export const setUser = (user) => ({
-  type: actionType.SET_USER,
-  payload: {user}
-});
+// export const setUser = (user) => ({
+//   type: actionType.SET_USER,
+//   payload: {user}
+// });
 
 export const setLocalization = (language) => ({
   type: actionType.SET_LOCALIZATION,

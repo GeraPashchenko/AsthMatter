@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { LocalizationButton, PageTitle } from '../../shared/styles/HeaderStyles'
 import { connect } from "react-redux";
 import { changeLang, changeLocalization } from '../../localization/localizationFunctions';
-import { setLocalization } from "../../redux/actions";
 import localization from "../../localization/localization.json";
 import { Title } from '../MedCardRecordsPage/MedCardRecord/StyledComponent';
 import { DivWithShift } from "../InhalerPage/InhalerForm/StyledComponent";
@@ -12,11 +11,15 @@ import PrescriptedMedicinesTable from "../MedCardRecordsPage/MedCardRecord/Presc
 
 
 function MedicinesPage(props) {
-    const { language, setLocalization, user } = props;
-    let [newLang, setLang] = useState(language);
+    const { setLocalization } = props;
     var [medicine, setMedicines] = useState(undefined);
     var [fetchDone, setFetchDone] = useState(false);
-    if(!fetchDone) getMedicines(user.id, setMedicines, setFetchDone);
+    let user = JSON.parse(localStorage.getItem('user'));
+    let language = localStorage.getItem('language');
+    let [newLang, setLang] = useState(language);
+    let serverAddress = props.serverAddress;
+
+    if(!fetchDone) getMedicines(user.id, setMedicines, setFetchDone, serverAddress);
 
     return (
         <>
@@ -24,7 +27,7 @@ function MedicinesPage(props) {
 
             <DivWithShift>
                 <PageTitle>{localization.medicinesPage.title[newLang]}</PageTitle>
-            { medicine !== undefined && medicine.length > 0? 
+            { (medicine !== undefined && medicine.length > 0) ? 
             <PrescriptedMedicinesTable medicines={medicine} language={newLang} setActualColumn={false} /> 
             : fetchDone === true ? 
                 <Title>{localization.medicinesPage.noActualMedicines[newLang]}</Title>
@@ -32,15 +35,15 @@ function MedicinesPage(props) {
                 undefined
             }
             </DivWithShift>
-            <LocalizationButton onClick={() => changeLocalization(setLang, newLang, setLocalization)}>
+            <LocalizationButton onClick={() => changeLocalization(setLang, newLang, setLocalization, serverAddress)}>
                 {changeLang(newLang)}
             </LocalizationButton>
         </>
     )
 }
 
-function getMedicines(id, setMedicines, setFetchDone){
-    fetch(`https://localhost:5001/medicines/${id}`, {
+function getMedicines(id, setMedicines, setFetchDone, serverAddress){
+    fetch(`${serverAddress}/medicines/${id}`, {
         method: 'GET',
         credentials: 'include',
         headers: {
@@ -60,12 +63,7 @@ function getMedicines(id, setMedicines, setFetchDone){
 }
 
 const storeToProps = (store) => ({
-    language: store.language,
-    user : store.user
+    serverAddress : store.serverAddress
 });
 
-const dispatchToProps = (dispatcher) => ({
-    setLocalization: (lang) => dispatcher(setLocalization(lang))
-});
-
-export default connect(storeToProps, dispatchToProps)(MedicinesPage);
+export default connect(storeToProps)(MedicinesPage);

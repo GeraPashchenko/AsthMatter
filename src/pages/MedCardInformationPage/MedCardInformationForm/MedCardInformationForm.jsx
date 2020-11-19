@@ -18,13 +18,10 @@ class MedCardInformationForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.user = JSON.parse(localStorage.getItem('user'));
     this.serverAddress = props.serverAddress;
-    this.language = localStorage.getItem('language');
     this.state = {formData: {}}
   }
 
   handleSubmit(event) {
-    // id, userId - оба не менять, birthday, height, weight, bloodGroup, allergies, emergencyContact, adddress.
-
     event.preventDefault();
     const data = {
       id: event.target.id.value,
@@ -54,25 +51,6 @@ class MedCardInformationForm extends React.Component {
     }).catch(err => alert("Error: " + err.message));
   }
 
-    getFormData(userId) {
-        fetch(`${this.serverAddress}/patients/${userId}`, {
-            method: 'GET',
-            credentials: 'include',
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(responce => {
-            return responce.json()
-        }).then(data => {
-            if (data.error != null) {
-                throw new Error(data.error);
-            }
-            else {
-                data.birthday = data.birthday.split("T")[0];
-                this.setState(() => ({ formData: data }));
-            }
-        }).catch(err => alert("Error: " + err.message));
-    }
   getFormData(userId) {
     fetch(`${this.serverAddress}/patients/${userId}`, {
       method: 'GET',
@@ -105,7 +83,7 @@ class MedCardInformationForm extends React.Component {
         <br></br>
         <FormFieldDiv>
           <LabelDivForm>
-            <LabelField>{localization.MedCard.medCardInformationPage.birthday[this.language]}</LabelField>
+            <LabelField>{localization.MedCard.medCardInformationPage.birthday[this.props.language]}</LabelField>
           </LabelDivForm>
           <InputForm type='date' name={'birthday'} defaultValue={this.state.formData.birthday}
                      max={new Date(new Date().setMonth(new Date().getMonth() - 6)).toISOString().split("T")[0]}/>
@@ -113,7 +91,7 @@ class MedCardInformationForm extends React.Component {
 
         <FormFieldDiv>
           <LabelDivForm>
-            <LabelField>{localization.MedCard.medCardInformationPage.height[this.language]}</LabelField>
+            <LabelField>{localization.MedCard.medCardInformationPage.height[this.props.language]}</LabelField>
           </LabelDivForm>
           <InputForm type='number' name={'height'} required defaultValue={this.state.formData.height} min="0"
                      max="250"/>
@@ -121,47 +99,47 @@ class MedCardInformationForm extends React.Component {
 
         <FormFieldDiv>
           <LabelDivForm>
-            <LabelField>{localization.MedCard.medCardInformationPage.weight[this.language]}</LabelField>
+            <LabelField>{localization.MedCard.medCardInformationPage.weight[this.props.language]}</LabelField>
           </LabelDivForm>
           <InputForm type='number' name={'weight'} defaultValue={this.state.formData.weight} min="0" max="250"/>
         </FormFieldDiv>
 
         <FormFieldDiv>
           <LabelDivForm>
-            <LabelField>{localization.MedCard.medCardInformationPage.emergencyContact[this.language]}</LabelField>
+            <LabelField>{localization.MedCard.medCardInformationPage.emergencyContact[this.props.language]}</LabelField>
           </LabelDivForm>
           <InputForm type='tel' name={'emergencyContact'} defaultValue={this.state.formData.emergencyContact}/>
         </FormFieldDiv>
 
         <FormFieldDiv>
           <LabelDivForm>
-            <LabelField>{localization.MedCard.medCardInformationPage.bloodGroup[this.language]}</LabelField>
+            <LabelField>{localization.MedCard.medCardInformationPage.bloodGroup[this.props.language]}</LabelField>
           </LabelDivForm>
           <BloodList name={'bloodGroup'} defaultValue={this.state.formData.bloodGroup}>
-            <option key='0 (I)' value='0 (I)' selected={this.state.formData.bloodGroup == '0 (I)'}>0 (I)</option>
-            <option key='A (II)' value='A (II)' selected={this.state.formData.bloodGroup == 'A (II)'}>A (II)</option>
-            <option key='B (III)' value='B (III)' selected={this.state.formData.bloodGroup == 'B (III)'}>B (III)
+            <option key='0 (I)' value='0 (I)' selected={this.state.formData.bloodGroup === '0 (I)'}>0 (I)</option>
+            <option key='A (II)' value='A (II)' selected={this.state.formData.bloodGroup === 'A (II)'}>A (II)</option>
+            <option key='B (III)' value='B (III)' selected={this.state.formData.bloodGroup === 'B (III)'}>B (III)
             </option>
-            <option key='AB (IV)' value='AB (IV)' selected={this.state.formData.bloodGroup == 'AB (IV)'}>AB (IV)
+            <option key='AB (IV)' value='AB (IV)' selected={this.state.formData.bloodGroup === 'AB (IV)'}>AB (IV)
             </option>
           </BloodList>
         </FormFieldDiv>
 
         <FormFieldDiv>
           <LabelDivForm>
-            <LabelField>{localization.MedCard.medCardInformationPage.allergies[this.language]}</LabelField>
+            <LabelField>{localization.MedCard.medCardInformationPage.allergies[this.props.language]}</LabelField>
           </LabelDivForm>
           <TextArea name={'allergies'} defaultValue={this.state.formData.allergies}/>
         </FormFieldDiv>
 
         <FormFieldDiv>
           <LabelDivForm>
-            <LabelField>{localization.MedCard.medCardInformationPage.address[this.language]}</LabelField>
+            <LabelField>{localization.MedCard.medCardInformationPage.address[this.props.language]}</LabelField>
           </LabelDivForm>
           <TextArea name={'address'} defaultValue={this.state.formData.address}/>
         </FormFieldDiv>
         <br></br>
-        <input type="submit" className="button" value={localization.saveButton[this.language]}/>
+        <input type="submit" className="button" value={localization.saveButton[this.props.language]}/>
 
       </Form>
     )

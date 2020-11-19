@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { LocalizationButton, PageTitle } from '../../../shared/styles/HeaderStyles'
 import { changeLang, changeLocalization } from '../../../localization/localizationFunctions';
 import localization from "../../../localization/localization.json";
-import { DivWithShift } from '../../MedCardRecordsPage/MedCardRecord/StyledComponent';
+import { DivWithShift } from "../../InhalerPage/InhalerForm/StyledComponent";
 import AdminSideMenu from "../../../menus/AdminSideMenu";
 import '../../../shared/styles/pageStyles.css';
-import PatientsTable from './PatientsTable';
 import { setLocalization } from "../../../redux/actions";
 import { connect } from "react-redux";
+import CreateAdminForm from "./CreateAdminForm";
 
-function PatientsPage(props) {
+function CreateAdminPage(props) {
     const { setLocalization } = props;
     let language = localStorage.getItem('language');
     let [newLang, setLang] = useState(language);
@@ -19,8 +19,8 @@ function PatientsPage(props) {
             <AdminSideMenu language={newLang} />
 
             <DivWithShift>
-                <PageTitle>{localization.patientsAdminPage.title[newLang]}</PageTitle>
-                <PatientsTable language={newLang} />
+                <PageTitle>{localization.createNewAdminPage.title[newLang]}</PageTitle>
+                <CreateAdminForm language={newLang}/>          
             </DivWithShift>
             <LocalizationButton onClick={() => changeLocalization(setLang, newLang, setLocalization)}>
                 {changeLang(newLang)}
@@ -29,12 +29,8 @@ function PatientsPage(props) {
     )
 }
 
-const storeToProps = (store) => ({
-    language: store.language
-});
-
 const dispatchToProps = (dispatcher) => ({
     setLocalization: (lang) => dispatcher(setLocalization(lang))
 });
 
-export default connect(storeToProps, dispatchToProps)(PatientsPage);
+export default connect(null, dispatchToProps)(CreateAdminPage);

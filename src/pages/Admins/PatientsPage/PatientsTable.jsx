@@ -2,15 +2,17 @@ import React from "react";
 import localization from '../../../localization/localization.json';
 import { Title, FlexCenter } from '../../MedCardRecordsPage/MedCardRecord/StyledComponent';
 import { Table, TableHeader, TD} from './StyledComponent';
+import { connect } from "react-redux";
 
 class PatientsTable extends React.Component {
     constructor(props) {
         super();
-        this.state = { patients: [], fetchDone: false }
+        this.state = { patients: [], fetchDone: false };
+        this.serverAddress = props.serverAddress;
     }
 
     getPatients() {
-        fetch(`https://localhost:5001/patients`, {
+        fetch(`${this.serverAddress}/patients`, {
             method: 'GET',
             credentials: 'include',
             headers: {
@@ -50,7 +52,7 @@ class PatientsTable extends React.Component {
     
         let deleteFlag = window.confirm(str);
         if (deleteFlag) {
-            fetch(`https://localhost:5001/patients/delete/${patient.userId}`, {
+            fetch(`${this.serverAddress}/patients/delete/${patient.userId}`, {
                 method: 'DELETE',
                 credentials: 'include',
                 headers: {
@@ -64,7 +66,8 @@ class PatientsTable extends React.Component {
                     throw new Error(data.error);
                 } else {
                     let temp = this.state.patients;
-                    this.setState({ patients : temp.splice(this.state.patients.findIndex(pat => pat.id === patient.id), 1)});
+                    temp.splice(this.state.patients.findIndex(pat => pat.id === patient.id), 1);
+                    this.setState({ patients : temp});
                 }
             }).catch(err => alert("Error: " + err.message));
         }
@@ -120,4 +123,8 @@ class PatientsTable extends React.Component {
     }
 }
 
-export default PatientsTable;
+const storeToProps = (store) => ({
+    serverAddress : store.serverAddress
+});
+
+export default connect(storeToProps, null)(PatientsTable);

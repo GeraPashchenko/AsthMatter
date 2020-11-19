@@ -10,7 +10,6 @@ class SignInFormElement extends React.Component {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
     this.serverAddress = props.serverAddress;
-    this.language = localStorage.getItem('language') || 'ua';
     this.state = { doctor: false, patient: false, admin: false };
   }
 
@@ -56,22 +55,22 @@ class SignInFormElement extends React.Component {
     return (
       <SignInForm onSubmit={this.handleSubmit}>
 
-        <FormHeader>{localization.signInPage.signIn[this.language]}</FormHeader>
+        <FormHeader>{localization.signInPage.signIn[this.props.language]}</FormHeader>
 
         <SignInFormFieldDiv>
-          <SignInLabelField>{localization.signInPage.email[this.language]}</SignInLabelField>
+          <SignInLabelField>{localization.signInPage.email[this.props.language]}</SignInLabelField>
           <SignInInput name={'email'} type='email' required />
         </SignInFormFieldDiv>
 
         <SignInFormFieldDiv>
-          <SignInLabelField>{localization.signInPage.password[this.language]}</SignInLabelField>
+          <SignInLabelField>{localization.signInPage.password[this.props.language]}</SignInLabelField>
           <SignInInput name={'password'} required />
         </SignInFormFieldDiv>
 
-        <SignInLink to={'/signUp'}>{localization.signInPage.note[this.language]} </SignInLink>
-        <input type="submit" className="button" value={localization.signInPage.signInButton[this.language]}/>
+        <SignInLink to={'/signUp'}>{localization.signInPage.note[this.props.language]} </SignInLink>
+        <input type="submit" className="button" value={localization.signInPage.signInButton[this.props.language]}/>
         {this.state.doctor === true ? (<Redirect to="/login1" />) : null}
-        {this.state.patient === true ? (<Redirect to="/inhaler" />) : null}         {/* attacksDiary */}
+        {this.state.patient === true ? (<Redirect to="/inhaler" />) : null}
         {this.state.admin === true ? (<Redirect to="/mainboard" />) : null}
       </SignInForm>
     )

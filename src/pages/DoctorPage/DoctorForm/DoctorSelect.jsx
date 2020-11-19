@@ -1,19 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { SelectDoctorList } from "./StyledComponent";
 import localization from '../../../localization/localization.json';
 
 function DoctorSelectElement(props) {
     const { formData, handleChange, language } = props;
-    const [data, setData] = useState(formData);
-
-    let selectedDoctor = formData.fullName;
-    if (formData.hospital != null && formData.hospital !== undefined && formData.hospital.title !== undefined) {
-        selectedDoctor += "(" + formData.hospital.city + ")";
-    }
 
     for(let i = 0; i < formData.doctors.length; i++){
-        if((formData.doctors[i].key !== undefined && formData.patientDoctorId == formData.doctors[i].key) || 
-            (formData.doctors[i].user !== undefined && formData.doctors[i].user.id == formData.patientDoctorId)){
+        if((formData.doctors[i].key !== undefined && formData.patientDoctorId === formData.doctors[i].key) || 
+            (formData.doctors[i].user !== undefined && formData.doctors[i].user.id === formData.patientDoctorId)){
             let temp = formData.doctors[0];
             formData.doctors[0] = formData.doctors[i];
             formData.doctors[i] = temp;

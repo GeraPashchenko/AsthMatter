@@ -1,16 +1,18 @@
 import React from "react";
 import localization from '../../../localization/localization.json';
 import { FlexRow, FlexColumn, Block } from '../MainBoardPage/StyledComponent';
+import { connect } from "react-redux";
 
 class MainBoardBlocks extends React.Component {
     constructor(props) {
         super();
         this.setState = this.setState.bind(this);
         this.state = { values : {}, fetchDone : false};
+        this.serverAddress = props.serverAddress;
     }
 
     getValues() {
-        fetch(`https://localhost:5001/mainboard`, {
+        fetch(`${this.serverAddress}/mainboard`, {
             method: 'GET',
             credentials: 'include',
             headers: {
@@ -62,4 +64,8 @@ class MainBoardBlocks extends React.Component {
     }
 }
 
-export default MainBoardBlocks;
+const storeToProps = (store) => ({
+    serverAddress : store.serverAddress
+});
+
+export default connect(storeToProps, null)(MainBoardBlocks);

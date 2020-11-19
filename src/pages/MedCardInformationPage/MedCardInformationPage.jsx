@@ -9,8 +9,7 @@ import '../../shared/styles/pageStyles.css';
 
 
 function MedCardInformationPage(props) {
-  let user = JSON.parse(localStorage.getItem('user'));
-  let language = localStorage.getItem('language');
+    let language = localStorage.getItem('language');
 
     let [newLang, setLang] = useState(language);
 

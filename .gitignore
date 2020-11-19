@@ -25,3 +25,4 @@ yarn-error.log*
 /.cert
 debug.log
 test.json
+/.idea

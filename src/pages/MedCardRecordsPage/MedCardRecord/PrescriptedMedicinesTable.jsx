@@ -1,11 +1,10 @@
 import localization from "../../../localization/localization.json";
-import React, { useState } from "react";
+import React from "react";
 import { MedicinesTable, TableHeader, TD } from "./StyledComponent";
-import { Redirect, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function PrescriptedMedicinesTable(props) {
     const { language, medicines, setActualColumn } = props;
-    let [redirectId, setRedirectId] = useState(0);
 
     return (
         <MedicinesTable>

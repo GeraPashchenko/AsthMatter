@@ -14,6 +14,8 @@ import MedRecordPage from "../pages/MedRecordPage/MedRecordPage.jsx";
 import MedicinesPage from '../pages/MedicinesPage/MedicinesPage.jsx';
 import MainBoardPage from '../pages/Admins/MainBoardPage/MainBoardPage.jsx';
 import PatientsPage from "../pages/Admins/PatientsPage/PatientsPage.jsx";
+import AdminsPage from "../pages/Admins/AdminsPage/AdminsPage.jsx";
+import CreateAdminPage from '../pages/Admins/CreateAdminPage/CreateAdminPage';
 
 const Root = () => {
   return (
@@ -37,6 +39,8 @@ const Root = () => {
         {/* Admins Pages */}
         <Route exact path='/mainboard' component={MainBoardPage} />
         <Route exact path='/patients' component={PatientsPage} />
+        <Route exact path='/admins' component={AdminsPage} />
+        <Route exact path='/createAdmin' component={CreateAdminPage} />
       </Switch>
     </Router>
   );

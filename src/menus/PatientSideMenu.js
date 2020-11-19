@@ -8,7 +8,6 @@ class PatientSideMenuElement extends React.Component {
     constructor(props) {
         super();
         this.serverAddress = props.serverAddress;
-        this.language = localStorage.getItem('language');
         this.user = JSON.parse(localStorage.getItem('user'));
     }
 
@@ -18,28 +17,28 @@ class PatientSideMenuElement extends React.Component {
                 <div className="siteTitle">asthMatter</div>
                 <div id="sideMenu" className="flexDiv">
                     <NavLink to="/attacksDiary" className="links attacksDiary" activeClassName="current">
-                        {localization.sideMenuPatient.attacksDiary[this.language]}
+                        {localization.sideMenuPatient.attacksDiary[this.props.language]}
                     </NavLink>
                     <NavLink to="/medCardInformation" className="links medCardInformation" activeClassName="current">
-                        {localization.sideMenuPatient.medCardInformation[this.language]}
+                        {localization.sideMenuPatient.medCardInformation[this.props.language]}
                     </NavLink>
                     <NavLink to="/medCardRecords" className="links medCardRecords" activeClassName="current">
-                        {localization.sideMenuPatient.medCardRecords[this.language]}
+                        {localization.sideMenuPatient.medCardRecords[this.props.language]}
                     </NavLink>
                     <NavLink to="/medicines" className="links medicines" activeClassName="current">
-                        {localization.sideMenuPatient.medicines[this.language]}
+                        {localization.sideMenuPatient.medicines[this.props.language]}
                     </NavLink>
                     <NavLink to="/doctor" className="links doctor" activeClassName="current">
-                        {localization.sideMenuPatient.doctor[this.language]}
+                        {localization.sideMenuPatient.doctor[this.props.language]}
                     </NavLink>
                     <NavLink to="/inhaler" className="links inhaler" activeClassName="current">
-                        {localization.sideMenuPatient.inhaler[this.language]}
+                        {localization.sideMenuPatient.inhaler[this.props.language]}
                     </NavLink>
                     <NavLink to="/profileSettings" className="links profileSettings" activeClassName="current">
-                        {localization.sideMenuPatient.profileSettings[this.language]}
+                        {localization.sideMenuPatient.profileSettings[this.props.language]}
                     </NavLink>
                     <NavLink to="/" className="links logout" onClick={() => { this.logoutUser() }}>
-                        {localization.logoutLink[this.language]}
+                        {localization.logoutLink[this.props.language]}
                     </NavLink>
                 </div>
             </div>

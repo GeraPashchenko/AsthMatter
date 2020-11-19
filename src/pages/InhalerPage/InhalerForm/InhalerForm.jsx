@@ -9,8 +9,6 @@ class InhalerFormElement extends React.Component {
         this.state = { inhalerId: '' };
         this.user = JSON.parse(localStorage.getItem('user'));
         this.serverAddress = props.serverAddress;
-        this.language = localStorage.getItem('language');
-
         this.handleSubmit = this.handleSubmit.bind(this);
         this.setState = this.setState.bind(this);
     }
@@ -22,7 +20,7 @@ class InhalerFormElement extends React.Component {
             inhalerId: event.target.inhalerId.value,
         }
 
-        fetch(`https://localhost:5001/patients/inhaler/${this.user.id}`, {
+        fetch(`${this.serverAddress}/patients/inhaler/${this.user.id}`, {
             method: 'PUT',
             credentials: 'include',
             body: JSON.stringify(data),
@@ -72,7 +70,7 @@ class InhalerFormElement extends React.Component {
                     <LabelField>ID</LabelField>
                     <InputForm name={'inhalerId'} type='text' defaultValue={this.state.inhalerId} required />
                 </FormFieldDiv>
-                <input type="submit" className="button" value={localization.saveButton[this.language]} />
+                <input type="submit" className="button" value={localization.saveButton[this.props.language]} />
             </Form>
         )
     }

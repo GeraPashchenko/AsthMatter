@@ -10,18 +10,17 @@ import DoctorForm from '../DoctorPage/DoctorForm/DoctorForm';
 function DoctorPage(props) {
 
   let language = localStorage.getItem('language');
-
   let [newLang, setLang] = useState(language);
 
   return (
     <>
       <PatientSideMenuElement language={newLang}/>
-      <LocalizationButton onClick={() => changeLocalization(setLang, newLang)}>
+      <LocalizationButton onClick={() => changeLocalization(setLang, newLang) }>
         {changeLang(newLang)}
       </LocalizationButton>
       <DivWithShift>
         <DivFlexColumn>
-          <PageTitle>{localization.doctorPage.title[language]}</PageTitle>
+          <PageTitle>{localization.doctorPage.title[newLang]}</PageTitle>
           <DoctorForm language={newLang}/>
         </DivFlexColumn>
       </DivWithShift>

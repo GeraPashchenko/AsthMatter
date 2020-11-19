@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from 'react-router-dom';
 import {
   FormFooter,
   InputForm,
@@ -9,34 +10,35 @@ import {
 import {Form} from "../../InhalerPage/InhalerForm/StyledComponent";
 import {SignUpList, SignUpLabelRequiredStar} from '../../SignUp/SignUpForm/StyledComponent';
 import SignUpTimeZone from "../../SignUp/SignUpTimeZone/SignUpTimeZone";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import localization from '../../../localization/localization.json';
 
-class ProfileSettingsFormElement extends React.Component {
+class CreateAdminForm extends React.Component {
   constructor(props) {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.user = JSON.parse(localStorage.getItem('user'));
+    // this.user = JSON.parse(localStorage.getItem('user'));
     this.serverAddress = props.serverAddress;
-    this.state = {formData: {}}
+    this.state = { redirect: false }
   }
 
   handleSubmit(event) {
     event.preventDefault();
     const data = {
-      id: event.target.id.value,
       name: event.target.firstName.value,
       surname: event.target.lastName.value,
       patronymic: event.target.patronymic.value,
       phone: event.target.phone.value,
       login: event.target.email.value,
+      password: event.target.password.value,
       gender: (event.target.gender.value === localization.registerPage.genderMan[this.props.language]) ? 'M' : 'F',
+      roleName: 'Admin',
       timezoneinfoid: event.target.timeZone.value.split(" (")[0],
       localization: (event.target.language.value === localization.changeLanguageOptions['en']) ? 'en' : 'ua'
     }
 
-    fetch(`${this.serverAddress}/profiles/${this.user.id}`, {
-      method: 'PUT',
+    fetch(`${this.serverAddress}/profiles/register`, {
+      method: 'POST',
       credentials: 'include',
       headers: {
         "Content-Type": "application/json"
@@ -47,49 +49,22 @@ class ProfileSettingsFormElement extends React.Component {
     }).then(data => {
       if (data.error != null) {
         throw new Error(data.error);
-      } else {
-        if (this.user.login !== data.login) {
-          this.user.login = data.login;
-        }
-        if (this.user.language !== data.localization) {
-          this.user.language = data.localization;
-        }
+      }
+      else {
+        this.setState({ redirect: true });
       }
     }).catch(err => alert("Error: " + err.message));
-  }
-
-  getFormData() {
-    fetch(`${this.serverAddress}/profiles/${this.user.id}`, {
-      method: 'GET',
-      credentials: 'include',
-      headers: {
-        "Content-Type": "application/json"
-      }
-    }).then(responce => {
-      return responce.json()
-    }).then(data => {
-      if (data.error != null) {
-        throw new Error(data.error);
-      } else {
-        this.setState(() => ({formData: data}));
-      }
-    }).catch(err => alert("Error: " + err.message));
-  }
-
-  async componentDidMount() {
-    this.getFormData(this.user.id);
   }
 
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
-        <input type="hidden" name={'id'} value={this.state.formData.id}/>
         <FormFieldDiv>
           <LabelDivForm>
             <LabelField>{localization.registerPage.firstName[this.props.language]}</LabelField>
             <SignUpLabelRequiredStar>*</SignUpLabelRequiredStar>
           </LabelDivForm>
-          <InputForm name={'firstName'} required defaultValue={this.state.formData.name}/>
+          <InputForm name={'firstName'} required maxLength='250' minLength='3'/>
         </FormFieldDiv>
 
         <FormFieldDiv>
@@ -97,14 +72,14 @@ class ProfileSettingsFormElement extends React.Component {
             <LabelField>{localization.registerPage.lastName[this.props.language]}</LabelField>
             <SignUpLabelRequiredStar>*</SignUpLabelRequiredStar>
           </LabelDivForm>
-          <InputForm name={'lastName'} required defaultValue={this.state.formData.surname}/>
+          <InputForm name={'lastName'} required maxLength='250' minLength='3'/>
         </FormFieldDiv>
 
         <FormFieldDiv>
           <LabelDivForm>
             <LabelField>{localization.registerPage.patronymic[this.props.language]}</LabelField>
           </LabelDivForm>
-          <InputForm name={'patronymic'} defaultValue={this.state.formData.patronymic}/>
+          <InputForm name={'patronymic'} maxLength='250'/>
         </FormFieldDiv>
 
         <FormFieldDiv>
@@ -112,7 +87,7 @@ class ProfileSettingsFormElement extends React.Component {
             <LabelField>{localization.registerPage.phone[this.props.language]}</LabelField>
             <SignUpLabelRequiredStar>*</SignUpLabelRequiredStar>
           </LabelDivForm>
-          <InputForm name={'phone'} required defaultValue={this.state.formData.phone}/>
+          <InputForm name={'phone'} required />
         </FormFieldDiv>
 
         <FormFieldDiv>
@@ -120,7 +95,15 @@ class ProfileSettingsFormElement extends React.Component {
             <LabelField>{localization.registerPage.email[this.props.language]}</LabelField>
             <SignUpLabelRequiredStar>*</SignUpLabelRequiredStar>
           </LabelDivForm>
-          <InputForm name={'email'} type='email' required defaultValue={this.state.formData.login}/>
+          <InputForm name={'email'} type='email' required />
+        </FormFieldDiv>
+
+        <FormFieldDiv>
+          <LabelDivForm>
+            <LabelField>{localization.registerPage.password[this.props.language]}</LabelField>
+            <SignUpLabelRequiredStar>*</SignUpLabelRequiredStar>
+          </LabelDivForm>
+          <InputForm type='password' name={'password'} required maxLength='50' minLength='6'/>
         </FormFieldDiv>
 
         <FormFieldDiv>
@@ -128,14 +111,10 @@ class ProfileSettingsFormElement extends React.Component {
             <LabelField>{localization.registerPage.gender[this.props.language]}</LabelField>
             <SignUpLabelRequiredStar>*</SignUpLabelRequiredStar>
           </LabelDivForm>
-          <SignUpList name={'gender'} required defaultValue={
-            (this.state.formData.gender === 'M') ?
-              localization.registerPage.genderMan[this.props.language] :
-              localization.registerPage.genderWoman[this.props.language]
-          }>
-            <option>{localization.registerPage.genderMan[this.props.language]}</option>
+          <SignUpList name={'gender'} required>
+            <option> {localization.registerPage.genderMan[this.props.language]} </option>
             <option> {localization.registerPage.genderWoman[this.props.language]}</option>
-          </SignUpList>
+          </SignUpList >
         </FormFieldDiv>
 
         <FormFieldDiv>
@@ -143,7 +122,7 @@ class ProfileSettingsFormElement extends React.Component {
             <LabelField>{localization.registerPage.timezone[this.props.language]}</LabelField>
             <SignUpLabelRequiredStar>*</SignUpLabelRequiredStar>
           </LabelDivForm>
-          <SignUpTimeZone selectedTimeZone={this.state.formData.timeZoneInfoId}/>
+          <SignUpTimeZone />
         </FormFieldDiv>
 
         <FormFieldDiv>
@@ -151,15 +130,15 @@ class ProfileSettingsFormElement extends React.Component {
             <LabelField>{localization.registerPage.language[this.props.language]}</LabelField>
             <SignUpLabelRequiredStar>*</SignUpLabelRequiredStar>
           </LabelDivForm>
-          <SignUpList name={'language'} required
-                      defaultValue={localization.changeLanguageOptions[this.state.formData.localization]}>
+          <SignUpList name={'language'} required>
             <option> {localization.changeLanguageOptions['en']} </option>
             <option> {localization.changeLanguageOptions['ua']} </option>
           </SignUpList>
         </FormFieldDiv>
 
         <FormFooter> {localization.registerPage.note[this.props.language]} </FormFooter>
-        <input type="submit" className="button" value={localization.saveButton[this.props.language]}/>
+        <input type="submit" className="button" value={localization.registerPage.createButton[this.props.language]} />
+        {this.state.redirect === true ? (<Redirect to="/admins" />) : null}
 
       </Form>
     )
@@ -167,7 +146,7 @@ class ProfileSettingsFormElement extends React.Component {
 }
 
 const storeToProps = (store) => ({
-  serverAddress: store.serverAddress
+  serverAddress: store.serverAddress,
 });
 
-export default connect(storeToProps, null)(ProfileSettingsFormElement);
+export default connect(storeToProps, null)(CreateAdminForm);

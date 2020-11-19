@@ -8,22 +8,25 @@ import { DivFlexColumn, DivWithShift } from "../InhalerPage/InhalerForm/StyledCo
 import PatientSideMenuElement from "../../menus/PatientSideMenu";
 import '../../shared/styles/pageStyles.css';
 import ChangePasswordForm from "./ChangePasswordForm/ChangePasswordForm";
-
+import AdminSideMenu from '../../menus/AdminSideMenu';
 
 function ChangePasswordPage(props) {
-  let language = localStorage.getItem('language');
-
+    let user = JSON.parse(localStorage.getItem('user'));
+    let language = localStorage.getItem('language');
     let [newLang, setLang] = useState(language);
 
     return (
         <>
-            <PatientSideMenuElement language={newLang} />
+            { user.role === 'Patient' ? <PatientSideMenuElement language={newLang} /> : ''}
+            { user.role === 'Doctor' ? '' : ''}
+            { user.role === 'Admin' ? <AdminSideMenu language={newLang} /> : ''}
+
             <LocalizationButton onClick={() => changeLocalization(setLang, newLang, setLocalization)}>
                 {changeLang(newLang)}
             </LocalizationButton>
             <DivWithShift>
                 <DivFlexColumn>
-                    <PageTitle>{localization.changePasswordPage.title[language]}</PageTitle>
+                    <PageTitle>{localization.changePasswordPage.title[newLang]}</PageTitle>
                     <ChangePasswordForm language={newLang}/>
                 </DivFlexColumn>
             </DivWithShift>

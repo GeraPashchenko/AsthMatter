@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import NavLink from 'react-router-dom';
 
 export const FlexRow = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
 `;
 
 export const FlexColumn = styled.div`

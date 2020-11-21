@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 import { changeLang, changeLocalization } from "../../localization/localizationFunctions";
 
 function SignInPage(props) {
-
   let language = localStorage.getItem('language') || 'ua';
   let [newLang, setLang] = useState(language);
 
@@ -15,7 +14,6 @@ function SignInPage(props) {
       <LocalizationButton onClick={() => { changeLocalization(setLang, newLang) }}>{changeLang(newLang)}</LocalizationButton>
       <SignInHeaderText> asthMatter </SignInHeaderText>
       <SignInForm language={newLang} />
-
     </>
   )
 }

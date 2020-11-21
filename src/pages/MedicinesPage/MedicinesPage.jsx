@@ -8,13 +8,17 @@ import { DivWithShift } from "../InhalerPage/InhalerForm/StyledComponent";
 import PatientSideMenuElement from "../../menus/PatientSideMenu";
 import '../../shared/styles/pageStyles.css';
 import PrescriptedMedicinesTable from "../MedCardRecordsPage/MedCardRecord/PrescriptedMedicinesTable";
-
+import DoctorSideMenu from "../../menus/DoctorSideMenu";
 
 function MedicinesPage(props) {
     const { setLocalization } = props;
     var [medicine, setMedicines] = useState(undefined);
     var [fetchDone, setFetchDone] = useState(false);
-    let user = JSON.parse(localStorage.getItem('user'));
+    let id = props.match.params.id !== undefined ? props.match.params.id : null;
+    let user = { id: id };
+    if(user.id === null){
+        user = JSON.parse(localStorage.getItem('user'));
+    }
     let language = localStorage.getItem('language');
     let [newLang, setLang] = useState(language);
     let serverAddress = props.serverAddress;
@@ -23,12 +27,12 @@ function MedicinesPage(props) {
 
     return (
         <>
-            <PatientSideMenuElement language={newLang} />
-
+      { JSON.parse(localStorage.getItem('user')).role === 'Patient' ? <PatientSideMenuElement language={newLang} /> : ''}
+      { JSON.parse(localStorage.getItem('user')).role === 'Doctor' ? <DoctorSideMenu language={newLang} /> : ''}
             <DivWithShift>
                 <PageTitle>{localization.medicinesPage.title[newLang]}</PageTitle>
             { (medicine !== undefined && medicine.length > 0) ? 
-            <PrescriptedMedicinesTable medicines={medicine} language={newLang} setActualColumn={false} /> 
+            <PrescriptedMedicinesTable medicines={medicine} language={newLang} setActualColumn={false} setDeleteColumn={JSON.parse(localStorage.getItem('user')).role === 'Doctor'}/> 
             : fetchDone === true ? 
                 <Title>{localization.medicinesPage.noActualMedicines[newLang]}</Title>
                 :

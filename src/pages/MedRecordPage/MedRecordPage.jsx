@@ -8,30 +8,33 @@ import '../../shared/styles/pageStyles.css';
 import MedRecord from '../MedCardRecordsPage/MedCardRecord/MedRecord';
 import { Title, DivWithShift } from '../MedCardRecordsPage/MedCardRecord/StyledComponent';
 import localization from '../../localization/localization.json';
+import DoctorSideMenu from "../../menus/DoctorSideMenu";
 
 function MedRecordPage(props) {
     const { setLocalization } = props;
     let language = localStorage.getItem('language');
     let [newLang, setLang] = useState(language);
+    let user = JSON.parse(localStorage.getItem('user'));
     let id = props.match.params.id;
     let serverAddress = props.serverAddress;
     var [rec, setRecord] = useState(undefined);
     var [fetchDone, setFetchDone] = useState(false);
-    if(!fetchDone) getRecord(id, setRecord, setFetchDone, serverAddress);
+    if (!fetchDone) getRecord(id, setRecord, setFetchDone, serverAddress);
 
     return (
         <>
-            <PatientSideMenuElement language={newLang} />
+            { user.role === 'Patient' ? <PatientSideMenuElement language={newLang} /> : ''}
+            { user.role === 'Doctor' ? <DoctorSideMenu language={newLang} /> : ''}
 
             <DivWithShift>
                 <PageTitle>{localization.MedCard.medCardRecordsPage.medCardRecord[newLang]}</PageTitle>
-            { rec !== undefined ? 
-            <MedRecord record={rec} language={newLang} setButton={false} /> 
-            : fetchDone === true ? 
-                <Title>{localization.MedCard.medCardRecordsPage.recordNotFound[newLang]}</Title>
-                :
-                undefined
-            }
+                {rec !== undefined ?
+                    <MedRecord record={rec} language={newLang} setButton={false} />
+                    : fetchDone === true ?
+                        <Title>{localization.MedCard.medCardRecordsPage.recordNotFound[newLang]}</Title>
+                        :
+                        undefined
+                }
             </DivWithShift>
 
             <LocalizationButton onClick={() => changeLocalization(setLang, newLang, setLocalization)}>
@@ -41,7 +44,7 @@ function MedRecordPage(props) {
     )
 }
 
-function getRecord(id, setRecord, setFetchDone, serverAddress){
+function getRecord(id, setRecord, setFetchDone, serverAddress) {
     fetch(`${serverAddress}/medrecords/record/${id}`, {
         method: 'GET',
         credentials: 'include',
@@ -62,7 +65,7 @@ function getRecord(id, setRecord, setFetchDone, serverAddress){
 }
 
 const storeToProps = (store) => ({
-    serverAddress : store.serverAddress
+    serverAddress: store.serverAddress
 });
 
 const dispatchToProps = (dispatcher) => ({

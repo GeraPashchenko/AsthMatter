@@ -1,18 +1,21 @@
 import React from "react";
 import localization from '../../../localization/localization.json';
 import { Title, FlexCenter } from '../../MedCardRecordsPage/MedCardRecord/StyledComponent';
-import { Table, TableHeader, TD} from './StyledComponent';
+import { Table, TableHeader, TD} from '../../Admins/PatientsPage/StyledComponent';
 import { connect } from "react-redux";
+import {Link} from 'react-router-dom';
 
-class PatientsTable extends React.Component {
+class MyPatientsTable extends React.Component {
     constructor(props) {
         super();
+        this.user = JSON.parse(localStorage.getItem('user'));
         this.state = { patients: [], fetchDone: false };
         this.serverAddress = props.serverAddress;
+        this.deletePatientFromDoctor = this.deletePatientFromDoctor.bind(this);
     }
 
-    getPatients() {
-        fetch(`${this.serverAddress}/patients`, {
+    getMyPatients() {
+        fetch(`${this.serverAddress}/patients/my/${this.user.id}`, {
             method: 'GET',
             credentials: 'include',
             headers: {
@@ -36,11 +39,11 @@ class PatientsTable extends React.Component {
     }
 
     async componentDidMount() {
-        this.getPatients();
+        this.getMyPatients();
     }
 
-    deletePatient(language, patient){
-        let str = `${localization.deletePatientAdminPage.confirm[language]} 
+    deletePatientFromDoctor(language, patient){
+        let str = `${localization.myPatientsPage.confirm[language]} 
             ${localization.deletePatientAdminPage.patientData[language]}:
             ${localization.patientData.email[language]} : ${patient.login}
             ${localization.patientData.surname[language]}: ${patient.surname}
@@ -51,14 +54,14 @@ class PatientsTable extends React.Component {
             ${localization.patientData.inhalerID[language]}: ${patient.inhalerId !== null ? patient.inhalerId : '-'}`;
     
         let deleteFlag = window.confirm(str);
+
         if (deleteFlag) {
-            fetch(`${this.serverAddress}/patients/delete/${patient.userId}`, {
-                method: 'DELETE',
+            fetch(`${this.serverAddress}/patients/changeDoctor/${patient.id}`, {
+                method: 'PATCH',
                 credentials: 'include',
                 headers: {
-                    "Content-Type": "application/json"
-                },
-                body : JSON.stringify(patient)
+                  "Content-Type": "application/json"
+                }
             }).then(responce => {
                 return responce.json()
             }).then(data => {
@@ -103,7 +106,8 @@ class PatientsTable extends React.Component {
                                             <TD> {patient.phone !== null ? patient.phone : '-'} </TD>
                                             <TD> {patient.inhalerId !== null ? patient.inhalerId : '-'}</TD>
                                             <TD>
-                                                <input type="button" className="deleteButton" value={localization.deleteButton[this.props.language]} onClick={() => { this.deletePatient(this.props.language, patient) }} />
+                                                <Link to={`/patient/${patient.userId}`} className="greenButton">{localization.openButton[this.props.language]}</Link>
+                                                <input type="button" className="deleteButton" value={localization.deleteButton[this.props.language]} onClick={() => { this.deletePatientFromDoctor(this.props.language, patient) }} />
                                             </TD>
                                         </tr>
                                     )
@@ -127,4 +131,4 @@ const storeToProps = (store) => ({
     serverAddress : store.serverAddress
 });
 
-export default connect(storeToProps, null)(PatientsTable);
+export default connect(storeToProps, null)(MyPatientsTable);

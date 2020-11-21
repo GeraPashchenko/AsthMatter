@@ -9,6 +9,7 @@ import ProfileSettingsForm from "./ProfileSettingsForm/ProfileSettingsForm";
 import { Link, Redirect } from "react-router-dom";
 import '../../shared/styles/pageStyles.css';
 import AdminSideMenu from '../../menus/AdminSideMenu';
+import DoctorSideMenu from "../../menus/DoctorSideMenu";
 
 function ProfileSettingsPage(props) {
     let user = JSON.parse(localStorage.getItem('user'));
@@ -20,7 +21,7 @@ function ProfileSettingsPage(props) {
     return (
         <>
             { user.role === 'Patient' ? <PatientSideMenuElement language={newLang} /> : ''}
-            { user.role === 'Doctor' ? '' : ''}
+            { user.role === 'Doctor' ? <DoctorSideMenu language={newLang} /> : ''}
             { user.role === 'Admin' ? <AdminSideMenu language={newLang} /> : ''}
 
             <LocalizationButton onClick={() => changeLocalization(setLang, newLang)}>
@@ -61,7 +62,8 @@ function deleteProfile(language, setRedirect, userId, serverAddress) {
                 throw new Error(data.error);
             } else {
                 setRedirect(true);
-                localStorage.setItem('user', JSON.stringify({}))
+                localStorage.removeItem('language');
+                localStorage.removeItem('user');
             }
         }).catch(err => alert("Error: " + err.message));
     }

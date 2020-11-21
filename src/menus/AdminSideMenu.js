@@ -2,13 +2,18 @@ import React from "react";
 import { connect } from "react-redux";
 import localization from "../localization/localization.json";
 import './style.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink , Redirect } from 'react-router-dom';
+import download from 'downloadjs';
 
 class AdminSideMenuElement extends React.Component {
     constructor(props) {
         super();
         this.serverAddress = props.serverAddress;
         this.user = JSON.parse(localStorage.getItem('user'));
+        this.state = { redirect : false };
+        this.setState = this.setState.bind(this);
+        this.logoutUser = this.logoutUser.bind(this);
+        this.dataBackup = this.dataBackup.bind(this);
     }
 
     render() {
@@ -22,27 +27,39 @@ class AdminSideMenuElement extends React.Component {
                     <NavLink to="/patients" className="links medCardInformation" activeClassName="current">
                         {localization.sideMenuAdmin.patients[this.props.language]}
                     </NavLink>
-                    <NavLink to="/lala" className="links medCardRecords" activeClassName="current">
+                    <NavLink to="/doctors" className="links medCardRecords" activeClassName="current">
                         {localization.sideMenuAdmin.doctors[this.props.language]}
                     </NavLink>
                     <NavLink to="/admins" className="links medicines" activeClassName="current">
                         {localization.sideMenuAdmin.admins[this.props.language]}
                     </NavLink>
-                    <NavLink to="/lala" className="links doctor" activeClassName="current">
+                    <NavLink to="/hospitals" className="links doctor" activeClassName="current">
                         {localization.sideMenuAdmin.hospitals[this.props.language]}
                     </NavLink>
                     <NavLink to="/profileSettings" className="links inhaler" activeClassName="current">
                         {localization.sideMenuAdmin.profileSettings[this.props.language]}
                     </NavLink>
-                    <NavLink to="/lala" className="links profileSettings" activeClassName="current">
-                        {localization.sideMenuAdmin.dataBackup[this.props.language]}
-                    </NavLink>
-                    <NavLink to="/" className="links logout" onClick={() => { this.logoutUser() }}>
-                        {localization.logoutLink[this.props.language]}
-                    </NavLink>
+                    <input type='button' className="links profileSettings logoutButton" onClick={this.dataBackup} value={localization.sideMenuAdmin.dataBackup[this.props.language]}/>
+                    <input type='button' className="links logout logoutButton" onClick={this.logoutUser} value={localization.logoutLink[this.props.language]}/>
+                    { this.state.redirect === true ? <Redirect to='/' /> : ''}
                 </div>
             </div>
         )
+    }
+
+    dataBackup(){
+        fetch(`${this.serverAddress}/admins/db`, {
+            method: 'GET',
+            credentials: 'include',
+            headers : {
+                'Content-Type' : 'application/json',
+                Accept : '*/*'
+            }
+        }).then(function(resp) {
+            return resp.blob();
+          }).then(function(blob) {
+            download(blob, 'DataBackup' + new Date().toISOString().split("T")[0] + ".bak");
+          });
     }
 
     logoutUser() {
@@ -58,7 +75,10 @@ class AdminSideMenuElement extends React.Component {
             if (data.error != null) {
                 throw new Error(data.error);
             } else{
+                localStorage.removeItem('language');
+                localStorage.removeItem('role');
                 localStorage.setItem('user', JSON.stringify({}));
+                this.setState({redirect : true});
             }
         }).catch(err => alert("Error: " + err.message));
     }

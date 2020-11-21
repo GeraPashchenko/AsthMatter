@@ -36,8 +36,8 @@ class SignInFormElement extends React.Component {
       }
       else {
         localStorage.setItem('user', JSON.stringify({ id: data.id, login: data.login, role: data.role, language : data.language }));
+        localStorage.setItem('role', data.role);
         localStorage.setItem('language', data.language);
-
         switch (data.role) {
           case 'Doctor': this.setState({ doctor: true });
             break;
@@ -69,7 +69,7 @@ class SignInFormElement extends React.Component {
 
         <SignInLink to={'/signUp'}>{localization.signInPage.note[this.props.language]} </SignInLink>
         <input type="submit" className="button" value={localization.signInPage.signInButton[this.props.language]}/>
-        {this.state.doctor === true ? (<Redirect to="/login1" />) : null}
+        {this.state.doctor === true ? (<Redirect to="/myPatients" />) : null}
         {this.state.patient === true ? (<Redirect to="/inhaler" />) : null}
         {this.state.admin === true ? (<Redirect to="/mainboard" />) : null}
       </SignInForm>

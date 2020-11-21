@@ -425,6 +425,10 @@
     "oldPasswordError" : {
       "en" : "Password is incorrect. ",
       "ua" : "Неправильний пароль."
+    },
+    "successMessage" : {
+      "en" : "Password was successfully changed.",
+      "ua" : "Пароль було успішно змінено."
     }
   },
   "medicinesTable": {
@@ -641,12 +645,36 @@
     "title": {
       "en": "Doctors",
       "ua": "Лікарі"
+    },
+    "notFound" : {
+      "en" : "No doctors were found.",
+      "ua" : "Не було знайдено жодного лікаря."
+    },
+    "confirm" : {
+      "en" :  "Are you sure that you want to delete a doctor? This action can't be undone!",
+      "ua" : " Ви впевнені, що хочете видалити лікаря? Цю дію не можна скасувати!"
+    },
+    "doctorData" : {
+      "en" : "Doctor data",
+      "ua" : "Дані про лікаря"
     }
   },
   "informationAboutDoctorAdminPage": {
     "title": {
       "en": "Information about doctor",
       "ua": "Інформація про лікаря"
+    },
+    "fullName" : {
+      "en": "Full name",
+      "ua": "Повне ім'я"
+    },
+    "notFound" : {
+      "en" : "Doctor wasn't found.",
+      "ua" : "Лікаря не було знайдено."
+    },
+    "noPatients" : {
+      "en" : "This doctor doesn't have any patients.",
+      "ua" : "Цього лікаря не закріплено за жодним хворим."
     }
   },
   "deleteDoctorAdminPage": {
@@ -690,6 +718,10 @@
       "en": "Phone",
       "ua": "Телефон"
     },
+    "hospital" : {
+      "en" : "Hospital",
+      "ua" : "Лікарня"
+    },
     "workplaceInformation": {
       "en": "Workplace Information",
       "ua": "Інформація про місце роботи"
@@ -721,6 +753,18 @@
     "createNewHospitalButton": {
       "en": "Create new hospital",
       "ua": "Створити нову лікарню"
+    },
+    "notFound" : {
+      "en" : "No hospitals were found.",
+      "ua" : "Лікарень не знайдено."
+    },
+    "confirm" : {
+      "en" :  "Are you sure that you want to delete a hospital? This action can't be undone!",
+      "ua" : " Ви впевнені, що хочете видалити лікарню? Цю дію не можна скасувати!"
+    },
+    "hospitalData" : {
+      "en" : "Hospital data",
+      "ua" : "Дані про лікарню"
     }
   },
   "createNewHospitalPage": {
@@ -729,10 +773,38 @@
       "ua": "Створити нову лікарню"
     }
   },
-  "editHospitalPage": {
+  "hospitalPage": {
     "title": {
-      "en": "Edit Hospital Information",
-      "ua": "Редагувати інформацію про лікарню"
+      "en": "Hospital Information",
+      "ua": "Інформація про лікарню"
+    },
+    "doctorsNotFound" : {
+      "en" : "No doctors connected with this hospital.",
+      "ua" : "За цією лікарнею не закріплено жодного лікаря."
+    }
+  },
+  "sideMenuDoctor" : {
+    "myPatients" : {
+      "en" : "My patients",
+      "ua" : "Мої пацієнти"
+    },
+    "workplace" : {
+      "en" : "Workplace",
+      "ua" : "Місце роботи"
+    },
+    "profileSettings" : {
+      "en" : "Profile Settings",
+      "ua" : "Налаштування профілю"
+    }
+  },
+  "myPatientsPage" : {
+    "title" : {
+      "en" : "My patients",
+      "ua" : "Мої пацієнти"
+    },
+    "confirm" : {
+      "en" : "Are you sure that you want to delete a patient from your patients? This action can't be undone!",
+      "ua" : "Ви впевнені, що хочете видалити пацієнта з ваших пацієнтів? Цю дію не можна скасувати!"
     }
   },
   "addNewRecordButton": {
@@ -767,10 +839,62 @@
     "en": "Create",
     "ua": "Створити"
   },
-
   "logoutLink" : {
     "en" : "Logout",
     "ua" : "Вийти з акаунту"
+  },
+  "medcardRecords" : {
+    "en" : "Records",
+    "ua" : "Записи"
+  },
+  "attacksDiaryButton" : {
+    "en" : "Attacks Diary",
+    "ua" : "Щоденник нападів"
+  },
+  "prescriptedMedicines" : {
+    "en" : "Prescripted Medicines",
+    "ua" : "Призначені ліки"
+  },
+  "createRecordButton" : {
+    "en" : "Create record",
+    "ua" : "Створити запис"
+  },
+  "makeUnactualConfirm" : {
+    "en" : "Are you sure that you want to make this medicine unactual? This action can't be undone!",
+    "ua" : "Ви впевнені, що хочете видалити ці ліки з актуальних? Цю дію не можна скасувати!"
+  },
+  "medicineData" : {
+    "en" : "Medicine data",
+    "ua" : "Інформація про ліки"
+  },
+  "medRecordData" : {
+    "createdAt" : {
+      "en" : "Date and Time",
+      "ua" : "Дата та час"
+    },
+    "information" : {
+      "en" : "Information",
+      "ua" : "Інформація"
+    },
+    "prescriptedMedicines" : {
+      "en" : "Prescripted medicines",
+      "ua" : "Призначені ліки"
+    }
+  },
+  "addMedicines" : {
+    "en" : "Add medicines",
+    "ua" : "Додати ліки"
+  },
+  "createMedCardRecord" : {
+    "en" : "Create new record",
+    "ua" : "Створити новий запис"
+  },
+  "noHospital" : {
+    "en" : "Without hospital",
+    "ua" : "Без лікарні"
+  },
+  "requiredFields" : {
+    "en" : "Please fill in all fields!",
+    "ua" : "Будь-ласка заповніть усі поля!"
   }
-
 }

@@ -130,7 +130,8 @@ export const Block = styled.div`
 
 export const DivWithShift = styled.div`
   position: absolute;
-  left:25%; 
+  left:25%;
+  margin-right: 5px; 
 `;
 
 export const ErrorDiv = styled.div`

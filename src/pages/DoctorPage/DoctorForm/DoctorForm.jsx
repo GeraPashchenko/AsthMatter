@@ -32,8 +32,8 @@ class DoctorForm extends React.Component {
         let newFullName = event.target.options[selectedIndex].value;
         let newHospital = {};
         this.state.formData.doctors.map(doctor => {
-            if (doctor.user !== undefined && doctor.user.id === newId) {
-                newHospital = doctor.hospital == null ? {} : doctor.hospital;
+            if (doctor.user !== undefined && doctor.user.id == newId) {
+                newHospital = doctor.hospital === null ? {} : doctor.hospital;
             }
         });
         let newFormData = {
@@ -42,9 +42,7 @@ class DoctorForm extends React.Component {
             hospital: newHospital,
             doctors: this.state.formData.doctors
         };
-        this.setState({ formData: newFormData }, function () {
-            // console.log("2: " + JSON.stringify(this.state.formData));
-        });
+        this.setState({ formData: newFormData });
     }
 
     handleSubmit(event) {

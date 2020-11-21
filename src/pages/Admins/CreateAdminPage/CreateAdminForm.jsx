@@ -17,7 +17,6 @@ class CreateAdminForm extends React.Component {
   constructor(props) {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.user = JSON.parse(localStorage.getItem('user'));
     this.serverAddress = props.serverAddress;
     this.state = { redirect: false }
   }

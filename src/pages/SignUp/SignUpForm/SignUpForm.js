@@ -154,7 +154,7 @@ class SignUpFormElement extends React.Component {
 
         <FormFooter> {localization.registerPage.note[this.props.language]} </FormFooter>
         <input type="submit" className="button" value={localization.registerPage.createButton[this.props.language]} />
-        {this.state.redirect === true ? (<Redirect to="/inhaler" />) : null}
+        {this.state.redirect === true ? (<Redirect to="/" />) : null}
 
       </SignUpForm>
     )

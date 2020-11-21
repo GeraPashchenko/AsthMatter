@@ -11,7 +11,10 @@ class MedCardRecords extends React.Component {
     constructor(props) {
         super();
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.user = JSON.parse(localStorage.getItem('user'));
+        this.user = { id: props.id };
+        if(this.user.id === null){
+            this.user = JSON.parse(localStorage.getItem('user'));
+        }
         this.serverAddress = props.serverAddress;
         this.state = { records: [], error : false, fetchDone : false }
     }

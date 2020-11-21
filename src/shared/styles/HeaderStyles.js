@@ -31,5 +31,6 @@ export const LocalizationButton = styled.button`
   position: fixed;
   right: 0px;
   top: 0px;
+  cursor: pointer;
 `;
 

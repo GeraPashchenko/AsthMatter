@@ -102,3 +102,14 @@
     line-height: 28px;
     text-decoration-line: underline;
 }
+
+.logoutButton{
+    background-color: #717DA8;
+    border: 0px;
+    display: inline;
+    cursor: pointer;
+}
+
+.logoutButton:hover{
+    color: #000000;
+}

@@ -16,13 +16,28 @@ import MainBoardPage from '../pages/Admins/MainBoardPage/MainBoardPage.jsx';
 import PatientsPage from "../pages/Admins/PatientsPage/PatientsPage.jsx";
 import AdminsPage from "../pages/Admins/AdminsPage/AdminsPage.jsx";
 import CreateAdminPage from '../pages/Admins/CreateAdminPage/CreateAdminPage';
+import DoctorsPage from "../pages/Admins/DoctorsPage/DoctorsPage.jsx";
+import DoctorAdminPage from '../pages/Admins/DoctorPage/DoctorAdminPage';
+import {Redirect} from 'react-router-dom';
+import HospitalsPage from "../pages/Admins/HospitalsPage/HospitalsPage.jsx";
+import CreateHospitalPage from "../pages/Admins/CreateHospitalPage/CreateHospitalPage.jsx";
+import HospitalPage from '../pages/Admins/HospitalPage/HospitalPage';
+import MyPatientsPage from "../pages/Doctors/MyPatientsPage/MyPatientsPage.jsx";
+import DoctorPatientPage from "../pages/Doctors/DoctorPatientPage/DoctorPatientPage.jsx";
+import CreateMedRecordPage from "../pages/Doctors/CreateMedRecordPage/CreateMedRecordPage.jsx";
+import WorkplacePage from "../pages/Doctors/WorkplacePage/WorkplacePage.jsx";
 
 const Root = () => {
   return (
     <Router>
       <Switch>
         <Route exact path='/signUp' component={SignUpPage} />
-        <Route exact path='/' component={SignInPage} />
+        <Route exact path="/" render={()=> (
+          localStorage.getItem('user') === '{}' || localStorage.getItem('user') === null ? <SignInPage /> : 
+          localStorage.getItem('role') === 'Patient' ? <Redirect to='/inhaler' /> : 
+          localStorage.getItem('role') === 'Admin' ? <Redirect to='/mainboard' /> :
+          <Redirect to='/myPatients' />
+        )} />
 
         {/* Patients Pages */}
         <Route exact path='/attacksDiary' component={AttacksDiary} />
@@ -41,6 +56,20 @@ const Root = () => {
         <Route exact path='/patients' component={PatientsPage} />
         <Route exact path='/admins' component={AdminsPage} />
         <Route exact path='/createAdmin' component={CreateAdminPage} />
+        <Route exact path='/doctors' component={DoctorsPage} />
+        <Route exact path='/doctor/:id' component={DoctorAdminPage} />
+        <Route exact path='/hospitals' component={HospitalsPage} />
+        <Route exact path='/createHospital' component={CreateHospitalPage} />
+        <Route exact path='/hospital/:id' component={HospitalPage} />
+
+        {/* Doctors Pages */}
+        <Route exact path='/myPatients' component={MyPatientsPage} />
+        <Route exact path='/patient/:id' component={DoctorPatientPage} />
+        <Route exact path='/medCardRecords/:id' component={MedCardRecordsPage} />
+        <Route exact path='/medicines/:id' component={MedicinesPage} />
+        <Route exact path='/createRecord/:id' component={CreateMedRecordPage} />
+        <Route exact path='/workplace' component={WorkplacePage} />
+
       </Switch>
     </Router>
   );

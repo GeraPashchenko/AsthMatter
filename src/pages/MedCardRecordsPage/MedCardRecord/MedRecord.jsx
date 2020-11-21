@@ -12,8 +12,15 @@ function MedRecord(props) {
     return (
         <RecordBlock>
             <TextBlock>
-                <Title>{`${localization.MedCard.medCardRecordsPage.doctor[language]}: ${record.doctor.user.surname} ${record.doctor.user.name} ${record.doctor.user.patronymic == null ? '' : record.doctor.user.patronymic}`}
-                </Title>
+                { record.doctorId !== null ? 
+                    <Title>
+                        {`${localization.MedCard.medCardRecordsPage.doctor[language]}: ${record.doctor.user.surname} ${record.doctor.user.name} ${record.doctor.user.patronymic == null ? '' : record.doctor.user.patronymic}`}
+                    </Title>
+                    :
+                    <Title>
+                    {`${localization.MedCard.medCardRecordsPage.doctor[language]}: -`}
+                    </Title>
+                }
                 <Title>{formatDateTime(record.createdAt)}</Title>
             </TextBlock>
             <TextBlock>

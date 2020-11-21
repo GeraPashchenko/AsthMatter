@@ -2,9 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import localization from "../localization/localization.json";
 import './style.css';
-import { Redirect, NavLink } from 'react-router-dom';
+import { NavLink , Redirect } from 'react-router-dom';
 
-class PatientSideMenuElement extends React.Component {
+class DoctorSideMenu extends React.Component {
     constructor(props) {
         super();
         this.serverAddress = props.serverAddress;
@@ -19,26 +19,14 @@ class PatientSideMenuElement extends React.Component {
             <div className="sideMenu sideMenu1">
                 <div className="siteTitle">asthMatter</div>
                 <div id="sideMenu" className="flexDiv">
-                    <NavLink to="/attacksDiary" className="links attacksDiary" activeClassName="current">
-                        {localization.sideMenuPatient.attacksDiary[this.props.language]}
+                    <NavLink to="/myPatients" className="links attacksDiary" activeClassName="current">
+                        {localization.sideMenuDoctor.myPatients[this.props.language]}
                     </NavLink>
-                    <NavLink to="/medCardInformation" className="links medCardInformation" activeClassName="current">
-                        {localization.sideMenuPatient.medCardInformation[this.props.language]}
+                    <NavLink to="/workplace" className="links medCardInformation" activeClassName="current">
+                        {localization.sideMenuDoctor.workplace[this.props.language]}
                     </NavLink>
-                    <NavLink to="/medCardRecords" className="links medCardRecords" activeClassName="current">
-                        {localization.sideMenuPatient.medCardRecords[this.props.language]}
-                    </NavLink>
-                    <NavLink to="/medicines" className="links medicines" activeClassName="current">
-                        {localization.sideMenuPatient.medicines[this.props.language]}
-                    </NavLink>
-                    <NavLink to="/doctor" className="links doctor" activeClassName="current">
-                        {localization.sideMenuPatient.doctor[this.props.language]}
-                    </NavLink>
-                    <NavLink to="/inhaler" className="links inhaler" activeClassName="current">
-                        {localization.sideMenuPatient.inhaler[this.props.language]}
-                    </NavLink>
-                    <NavLink to="/profileSettings" className="links profileSettings" activeClassName="current">
-                        {localization.sideMenuPatient.profileSettings[this.props.language]}
+                    <NavLink to="/profileSettings" className="links medCardRecords" activeClassName="current">
+                        {localization.sideMenuDoctor.profileSettings[this.props.language]}
                     </NavLink>
                     <input type='button' className="links logout logoutButton" onClick={this.logoutUser} value={localization.logoutLink[this.props.language]}/>
                     { this.state.redirect === true ? <Redirect to='/' /> : ''}
@@ -73,4 +61,4 @@ const storeToProps = (store)=>({
     serverAddress: store.serverAddress
 })
 
-export default connect(storeToProps, null)(PatientSideMenuElement);
+export default connect(storeToProps, null)(DoctorSideMenu);

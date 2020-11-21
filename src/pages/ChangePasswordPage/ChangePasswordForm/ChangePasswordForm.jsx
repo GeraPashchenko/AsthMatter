@@ -43,6 +43,9 @@ class ChangePasswordForm extends React.Component {
                 else if (data.error != null) {
                     throw new Error(data.error);
                 }
+                else{
+                    alert(localization.changePasswordPage.successMessage[this.props.language]);
+                }
             }).catch(err => alert("Error: " + err.message));
         }
     }

@@ -9,6 +9,7 @@ import PatientSideMenuElement from "../../menus/PatientSideMenu";
 import '../../shared/styles/pageStyles.css';
 import ChangePasswordForm from "./ChangePasswordForm/ChangePasswordForm";
 import AdminSideMenu from '../../menus/AdminSideMenu';
+import DoctorSideMenu from "../../menus/DoctorSideMenu";
 
 function ChangePasswordPage(props) {
     let user = JSON.parse(localStorage.getItem('user'));
@@ -18,7 +19,7 @@ function ChangePasswordPage(props) {
     return (
         <>
             { user.role === 'Patient' ? <PatientSideMenuElement language={newLang} /> : ''}
-            { user.role === 'Doctor' ? '' : ''}
+            { user.role === 'Doctor' ? <DoctorSideMenu language={newLang} /> : ''}
             { user.role === 'Admin' ? <AdminSideMenu language={newLang} /> : ''}
 
             <LocalizationButton onClick={() => changeLocalization(setLang, newLang, setLocalization)}>

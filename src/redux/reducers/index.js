@@ -9,7 +9,7 @@ const initialStore = {
     {
       "id": 1017,
       "wasAt": "2020-11-06T19:56:34",
-      "patientId": 7,
+      "patientId": 8,
       "selectedReasons": [
         "dust",
         "dog"
@@ -17,8 +17,60 @@ const initialStore = {
     },
     {
       "id": 1018,
-      "wasAt": "2020-11-06T19:56:34",
-      "patientId": 7,
+      "wasAt": "2020-11-09T18:56:34",
+      "patientId": 8,
+      "selectedReasons": [
+        "dust",
+        "flowers"
+      ]
+    },
+    {
+      "id": 1017,
+      "wasAt": "2020-11-06T07:56:34",
+      "patientId": 8,
+      "selectedReasons": [
+        "dust",
+        "dog"
+      ]
+    },
+    {
+      "id": 1018,
+      "wasAt": "2020-11-10T10:56:34",
+      "patientId": 8,
+      "selectedReasons": [
+        "dust",
+        "flowers"
+      ]
+    },{
+      "id": 1017,
+      "wasAt": "2020-11-09T11:56:34",
+      "patientId": 8,
+      "selectedReasons": [
+        "dust",
+        "dog"
+      ]
+    },
+    {
+      "id": 1018,
+      "wasAt": "2020-11-09T23:56:34",
+      "patientId": 8,
+      "selectedReasons": [
+        "dust",
+        "flowers"
+      ]
+    },{
+      "id": 1017,
+      "wasAt": "2020-11-06T12:56:34",
+      "patientId": 8,
+      "selectedReasons": [
+        "dust",
+        "dog"
+      ]
+    },
+    {
+      "id": 1018,
+      "wasAt": "2020-11-07T15:56:34",
+      "patientId": 8,
       "selectedReasons": [
         "dust",
         "flowers"

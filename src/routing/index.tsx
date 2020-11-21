@@ -41,7 +41,7 @@ const Root = () => {
 
         {/* Patients Pages */}
         <Route exact path='/attacksDiary' component={AttacksDiary} />
-        <Route exact path='/m' component={AddAttackPage} />
+        <Route exact path='/updateAttack' component={AddAttackPage} />
         <Route exact path='/inhaler' component={InhalerPage} />
         <Route exact path='/profileSettings' component={ProfileSettingsPage} />
         <Route exact path='/changePassword' component={ChangePasswordPage} />

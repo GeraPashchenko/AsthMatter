@@ -30,18 +30,8 @@ export const PageHeader = styled.h1`
   align-items: center;
 `;
 
-export const TableRow = styled.tr`
-  margin: 5px;
-`;
-
-export const TableD = styled.td`
-  padding: 10px;
-`;
-
-export const DeleteBttn = styled.button`
-  
-`;
-
-export const UpdateBttn = styled.button`
-  
+export const ChartDiv = styled.div`
+  position: absolute;
+  right: 0px;
+  top: 130px;
 `;

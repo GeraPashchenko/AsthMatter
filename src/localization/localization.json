@@ -131,6 +131,10 @@
   },
   "attacksDiary": {
     "mainPage": {
+      "attackGraphTime": {
+        "en": "Day, Hour",
+        "ua": "День, Година"
+      },
       "attacksDiary": {
         "en": "Attacks Diary",
         "ua": "Щоденник нападів"

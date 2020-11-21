@@ -1,12 +1,32 @@
 import localization from "../../../localization/localization.json";
-import React from "react";
-import {deleteAttack, updateAttack} from "../../../redux/actions";
-import {connect} from "react-redux";
+import React, {useState} from "react";
 import {AttacksTable, TableBttn, TableHeader, TD} from "./StyledComponent";
 import { formatDate, formatTime } from '../../../dates/datesFunctions';
+import {Redirect} from "react-router";
+import {connect} from "react-redux";
+
+function deleteAttackRecord(attackId, serverAddress){
+
+  console.log(attackId, serverAddress)
+  // fetch(`${serverAddress}/profiles/changePassword/${attackId}`, {
+  //   method: 'DELETE',
+  //   headers: {
+  //     "Content-Type": "application/json"
+  //   }
+  // }).then(responce => {
+  //   return responce.json()
+  // }).then(data => {
+  //   if (data) {
+  //     throw new Error(data.error);
+  //   }
+  // }).catch(err => alert("Error: " + err.message));
+}
 
 function CreateAttacksTable(props) {
-  const {state, deleteAttack, updateAttack} = props;
+  const {state, serverAddress} = props;
+  const [attackList, setAttackList] = useState(state.attackList);
+  const [updateAttack, setUpdate] = useState(false);
+  const [data, setData] = useState({event: '', language: state.language})
 
   return (
     <AttacksTable>
@@ -16,18 +36,20 @@ function CreateAttacksTable(props) {
       <TableHeader></TableHeader>
 
       <tbody>
-       {state.attackList.map(attack => {
+       {attackList.map(attack => {
         return (<tr>
           <TD> {formatDate(attack.wasAt)} </TD>
           <TD> {formatTime(attack.wasAt)} </TD>
           <TD> {attack.selectedReasons.join('; ')} </TD>
           <TD>
-            <TableBttn type='button'
+            <TableBttn key={attack.id} type='button'
                        value={localization.editButton[state.language]}
-                       onClick={(e) => { updateAttack(e)} }/>
-            <TableBttn type='button'
+                       onClick={(e) => { setUpdate(true) }}/>
+            {updateAttack ? (<Redirect to={{path: '/updateAttack', state:{event: data.event, language: data.language}}}/>) : null}
+
+            <TableBttn key={attack.id} type='button'
                        value={localization.deleteButton[state.language]}
-                       onClick={(e) => { deleteAttack(e) }}/>
+                       onClick={(e) => { deleteAttackRecord(e, serverAddress) }}/>
           </TD>
         </tr>)
       })}
@@ -37,23 +59,8 @@ function CreateAttacksTable(props) {
   )
 }
 
-// function formatDate(date) {
-//   date = new Date(Date.parse(date));
-//   let dd = date.getDate();
-//   if (dd < 10) dd = '0' + dd;
-
-//   let mm = date.getMonth() + 1;
-//   if (mm < 10) mm = '0' + mm;
-
-//   let yy = date.getFullYear() % 100;
-//   if (yy < 10) yy = '0' + yy;
-
-//   return dd + '.' + mm + '.' + yy;
-// }
-
-const dispatcherToProps = (dispatcher) => ({
-  deleteAttack: (attackId) => dispatcher(deleteAttack(attackId)),
-  updateAttack: (attackId, updatedAttack) => dispatcher(updateAttack(attackId, updatedAttack)),
+const storeToProps = (store) => ({
+  serverAddress: store.serverAddress
 });
 
-export default connect(null, dispatcherToProps)(CreateAttacksTable);
+export default connect(storeToProps, null)(CreateAttacksTable);
